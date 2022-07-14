@@ -23,3 +23,7 @@ $breakpoints: (
     min-width: 1280px,
   ),
 ) !default;
+
+body {
+  color: map-get($colors, 'bg');
+}
