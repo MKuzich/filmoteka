@@ -1,2 +1,8 @@
-@import './common';
-@import './example';
+@import './utils/variables';
+@import './utils/common';
+@import './components/header';
+@import './components/footer';
+@import './components/home';
+@import './components/library';
+@import './components/film-modal';
+@import './components/about-modal';

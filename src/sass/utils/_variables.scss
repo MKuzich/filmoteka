@@ -1,0 +1,25 @@
+$colors: (
+  'bg': #e5e5e5,
+  'main': #000000,
+  'accent': #ff6b08,
+  'additional': #545454,
+  'light': #ffffff,
+  'active': #ff6b01,
+  'footer-bg': #f7f7f7,
+  'alarm': #ff001b,
+  'header-gr': rgba(0, 0, 0, 0.56),
+  'modal-add': #8c8c8c,
+);
+$chang-func: cubic-bezier(0.4, 0, 0.2, 1);
+$chang-time: 250ms;
+$breakpoints: (
+  'mobile': (
+    min-width: 320px,
+  ),
+  'tablet': (
+    min-width: 768px,
+  ),
+  'desktop': (
+    min-width: 1280px,
+  ),
+) !default;
