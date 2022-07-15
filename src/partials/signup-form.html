@@ -1,6 +1,9 @@
-<div class="backdrop is-hidden" data-signup-modal>
-  <div class="signunp-modal">
-    <svg
+<button type="button" class="signup-modal__open-btn" >Sign up</button>
+
+<div class="backdrop is-hidden signup-modal-wrapper">
+  <div class="signup-modal">
+    <button type="button" class="signup-modal__close-btn">
+      <svg
       class="signup-modal__close-icon"
       width="30"
       height="30"
@@ -10,6 +13,7 @@
       <path d="M8 8L22 22" stroke="black" stroke-width="2" />
       <path d="M8 22L22 8" stroke="black" stroke-width="2" />
     </svg>
+    </button>
     <h2 class="signup-form__header">Sign up</h2>
     <form class="signup-form">
       <label class="signup-form__label" for="email"></label>

@@ -1,12 +1,12 @@
 const refs = {
-  openModalBtn: document.querySelector('[data-signup-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
+  openModalBtn: document.querySelector('.signup-modal__open-btn'),
+  closeModalBtn: document.querySelector('.signup-modal__close-btn'),
+  modal: document.querySelector('.signup-modal-wrapper'),
 };
 
 refs.openModalBtn.addEventListener('click', toggleModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
-document.addEventListener('keydown', event =>
+refs.modal.addEventListener('keydown', event =>
   event.key === 'Escape' ? closeModal() : null
 );
 

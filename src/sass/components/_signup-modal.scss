@@ -1,0 +1,48 @@
+.backdrop {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  width: 100%;
+  height: 100%;
+  background-image: rgb(255, 245, 246, 0.3);
+
+  opacity: 1;
+  transition: opacity 250ms $chang-func;
+
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  & .modal {
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: absolute;
+  width: 320px;
+  top: 50%;
+  left: 50%;
+
+  background-color: black;
+  border-radius: 150px;
+  box-shadow: inset 0px 0px 20px 0px black, 0px 0px 33px 20px black;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms $chang-func;
+}
