@@ -1,0 +1,67 @@
+.footer {
+    height: 77px;
+    @media screen and (max-width: 767px) {
+        height: 100px;
+    }
+    text-align: center;
+    @extend %centered;
+    background: map-get($colors, 'footer-bg');
+
+    &__container {
+        @include respond-to('mobile') {
+            .footer__text--down {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+    
+        @include respond-to('tablet') {
+            .footer__text--down {
+                display: inline;
+            }
+        }
+    }
+
+    &__text {
+        color: map-get($colors, 'additional');
+    }
+
+    &__icon {
+        width: 14px;
+        height: 12.88px;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 4px rgba(0, 0, 1, 0);
+            
+
+        &:hover, 
+        &:focus {
+            -webkit-animation-name: footer__icon;
+            animation-name: footer__icon;
+            -webkit-animation-duration: 0.3s;
+            animation-duration: 0.3s;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+    }
+}
+
+@-webkit-keyframes footer__icon {
+    to {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes footer__icon {
+    to {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
