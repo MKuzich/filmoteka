@@ -1,6 +1,6 @@
 <button type="button" class="signup-modal__open-btn" >Sign up</button>
 
-<div class="backdrop is-hidden signup-modal-wrapper">
+<div class="backdrop is-hidden signup-modal__wrapper">
   <div class="signup-modal">
     <button type="button" class="signup-modal__close-btn">
       <svg
@@ -17,7 +17,7 @@
     <h2 class="signup-form__header">Sign up</h2>
     <form class="signup-form">
       <label class="signup-form__label" for="email"></label>
-        <svg
+        <svg class="sign-form__icon"
           viewBox="0 0 24 24"
           width="16"
           height="16"
@@ -26,13 +26,13 @@
             d="M19,1H5A5.006,5.006,0,0,0,0,6V18a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V6A5.006,5.006,0,0,0,19,1ZM5,3H19a3,3,0,0,1,2.78,1.887l-7.658,7.659a3.007,3.007,0,0,1-4.244,0L2.22,4.887A3,3,0,0,1,5,3ZM19,21H5a3,3,0,0,1-3-3V7.5L8.464,13.96a5.007,5.007,0,0,0,7.072,0L22,7.5V18A3,3,0,0,1,19,21Z"
           />
         </svg>
-        <span>Email</span>
+        <span class="signup-form__name">Email</span>
         <input class="signup-form__input" type="email" name="email" />
       </label>
       <label class="signup-form__label" for="password"
         >
-        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M19,8.424V7A7,7,0,0,0,5,7V8.424A5,5,0,0,0,2,13v6a5.006,5.006,0,0,0,5,5H17a5.006,5.006,0,0,0,5-5V13A5,5,0,0,0,19,8.424ZM7,7A5,5,0,0,1,17,7V8H7ZM20,19a3,3,0,0,1-3,3H7a3,3,0,0,1-3-3V13a3,3,0,0,1,3-3H17a3,3,0,0,1,3,3Z"/><path d="M12,14a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V15A1,1,0,0,0,12,14Z"/></svg>
-        <span>Password</span>
+        <svg class="sign-form__icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19,8.424V7A7,7,0,0,0,5,7V8.424A5,5,0,0,0,2,13v6a5.006,5.006,0,0,0,5,5H17a5.006,5.006,0,0,0,5-5V13A5,5,0,0,0,19,8.424ZM7,7A5,5,0,0,1,17,7V8H7ZM20,19a3,3,0,0,1-3,3H7a3,3,0,0,1-3-3V13a3,3,0,0,1,3-3H17a3,3,0,0,1,3,3Z"/><path d="M12,14a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V15A1,1,0,0,0,12,14Z"/></svg>
+        <span class="signup-form__name">Password</span>
         <input class="signup-form__input" type="text" name="password" />
       </label>
       <button class="signup-form__btn" type="submit">Sign up</button>

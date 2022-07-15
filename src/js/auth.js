@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
+import { closeModal } from './signup-modal';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD975WMSA04Q-mjdqQUXdyvcH4cQe4txRg',
@@ -32,7 +33,7 @@ function onSubmitSignupHandler(e) {
       console.log(user.uid);
       console.log(user.email);
       e.target.reset();
-      // Close modal after good
+      closeModal();
     })
     .catch(error => {
       const errorCode = error.code;
@@ -61,10 +62,12 @@ function onSubmitLoginHandler(e) {
   e.preventDefault();
   const email = e.target.elements.email.value;
   const password = e.target.elements.password.value;
+
   signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
       console.log('User logged in:', user);
+      e.target.reset();
     })
     .catch(error => {
       const errorCode = error.code;
