@@ -6,7 +6,8 @@ import {
   onAuthStateChanged,
   signOut,
 } from 'firebase/auth';
-import { closeModal } from './signup-modal';
+import { closeSignupModal } from './signup-modal';
+import { closeLoginModal } from './login-modal';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD975WMSA04Q-mjdqQUXdyvcH4cQe4txRg',
@@ -19,7 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-const signupForm = document.querySelector('.signup-form');
+const signupForm = document.querySelector('[data-signup-form]');
 signupForm.addEventListener('submit', onSubmitSignupHandler);
 
 function onSubmitSignupHandler(e) {
@@ -33,7 +34,7 @@ function onSubmitSignupHandler(e) {
       console.log(user.uid);
       console.log(user.email);
       e.target.reset();
-      closeModal();
+      closeSignupModal();
     })
     .catch(error => {
       const errorCode = error.code;
@@ -41,7 +42,7 @@ function onSubmitSignupHandler(e) {
     });
 }
 
-const logoutBtn = document.querySelector('.login-form__btn-logout');
+const logoutBtn = document.querySelector('[data-logout]');
 logoutBtn.addEventListener('click', onClickLogoutHandler);
 
 function onClickLogoutHandler(e) {
@@ -55,7 +56,7 @@ function onClickLogoutHandler(e) {
     });
 }
 
-const loginForm = document.querySelector('.login-form');
+const loginForm = document.querySelector('[data-login-form]');
 loginForm.addEventListener('submit', onSubmitLoginHandler);
 
 function onSubmitLoginHandler(e) {
@@ -68,6 +69,7 @@ function onSubmitLoginHandler(e) {
       const user = userCredential.user;
       console.log('User logged in:', user);
       e.target.reset();
+      closeLoginModal();
     })
     .catch(error => {
       const errorCode = error.code;

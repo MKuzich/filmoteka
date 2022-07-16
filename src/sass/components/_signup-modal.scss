@@ -6,10 +6,10 @@
   z-index: 1500;
   width: 100%;
   height: 100%;
-  background-image: rgb(255, 245, 246, 0.3);
+  background-color: map-get($colors, 'header-gr');
 
   opacity: 1;
-  transition: opacity 250ms $chang-func;
+  transition: opacity $chang-time $chang-func;
 
   overflow-y: auto;
   -ms-overflow-style: none;
@@ -24,7 +24,7 @@
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  & .modal {
+  & .signup-modal {
     transform: translate(-50%, -50%) scale(0.1);
   }
 }
@@ -35,7 +35,6 @@
 
 .signup-modal {
   padding: 40px 12px;
-  outline: tomato solid 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,45 +43,110 @@
   width: 320px;
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms $chang-func;
-
+  transition: transform $chang-time $chang-func;
+  @include respond-to('tablet') {
+    width: 400px;
+    padding: 40px 32px;
+  }
+  @include respond-to('desktop') {
+    padding: 40px 40px;
+    width: 480px;
+  }
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+    text-transform: uppercase;
+    text-align: center;
+  }
   &__close-btn {
     display: block;
     padding: 0;
     box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    svg {
+      stroke: map-get($colors, 'main');
+    }
+    &:hover,
+    &:focus {
+      svg {
+        stroke: map-get($colors, 'active');
+        cursor: pointer;
+      }
+    }
   }
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
-  &__header {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.17;
-    text-transform: uppercase;
+  width: 100%;
+  &__field {
+    position: relative;
+    &:last-of-type {
+      margin-top: 20px;
+    }
   }
   &__label {
-    display: flex;
-    flex-direction: column;
-    &:hover,
-    &:focus {
-      .signup-form__name {
-        color: tomato;
-      }
-      .signup-form__icon {
-        fill: tomato;
-      }
-    }
   }
   &__icon {
     display: block;
+    stroke: map-get($colors, 'main');
+    fill: map-get($colors, 'main');
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 34px;
+    left: 8px;
+    transition: stroke $chang-time $chang-func, fill $chang-time $chang-func;
   }
   &__input {
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    padding-left: 32px;
+    border: 1px solid map-get($colors, 'main');
+    border-radius: 4px;
+    transition: border-color $chang-time $chang-func;
+    er,
+    &:focus {
+      outline: 0;
+      border-color: map-get($colors, 'active');
+      & + .signup-form__icon {
+        stroke: map-get($colors, 'active');
+        fill: map-get($colors, 'active');
+      }
+    }
   }
   &__name {
-    transform: translateY(35px) translateX(120px) scale(1.5);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.67;
+    margin-bottom: 4px;
+  }
+  &__btn {
+    margin-top: 32px;
+    padding: 14px 32px 12px 32px;
+    border: 1px solid map-get($colors, 'main');
+    border-radius: 5px;
+    background-color: map-get($colors, 'light');
+    color: map-get($colors, 'main');
+    transition: background-color $chang-time $chang-func,
+      color $chang-time $chang-func, border-color $chang-time $chang-func;
+    margin-left: auto;
+    margin-right: auto;
+    &:hover,
+    &:focus {
+      background-color: map-get($colors, 'active');
+      color: map-get($colors, 'light');
+      border-color: transparent;
+      cursor: pointer;
+    }
   }
 }

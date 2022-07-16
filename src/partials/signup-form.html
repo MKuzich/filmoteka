@@ -1,40 +1,47 @@
-<button type="button" class="signup-modal__open-btn" >Sign up</button>
+<button type="button" class="signup-form__btn" data-signup-modal-open>
+  Sign up
+</button>
 
-<div class="backdrop is-hidden signup-modal__wrapper">
+<div class="backdrop is-hidden" data-signup-modal>
   <div class="signup-modal">
-    <button type="button" class="signup-modal__close-btn">
-      <svg
-      class="signup-modal__close-icon"
-      width="30"
-      height="30"
-      viewBox="0 0 30 30"
-      fill="none"
+    <button
+      type="button"
+      class="signup-modal__close-btn"
+      data-signup-modal-close
     >
-      <path d="M8 8L22 22" stroke="black" stroke-width="2" />
-      <path d="M8 22L22 8" stroke="black" stroke-width="2" />
-    </svg>
+      <svg
+        class="signup-modal__close-icon"
+        width="30"
+        height="30"
+        viewBox="0 0 30 30"
+      >
+        <path d="M8 8L22 22" stroke-width="2" />
+        <path d="M8 22L22 8" stroke-width="2" />
+      </svg>
     </button>
-    <h2 class="signup-form__header">Sign up</h2>
-    <form class="signup-form">
-      <label class="signup-form__label" for="email"></label>
-        <svg class="sign-form__icon"
-          viewBox="0 0 24 24"
-          width="16"
-          height="16"
-        >
-          <path
-            d="M19,1H5A5.006,5.006,0,0,0,0,6V18a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V6A5.006,5.006,0,0,0,19,1ZM5,3H19a3,3,0,0,1,2.78,1.887l-7.658,7.659a3.007,3.007,0,0,1-4.244,0L2.22,4.887A3,3,0,0,1,5,3ZM19,21H5a3,3,0,0,1-3-3V7.5L8.464,13.96a5.007,5.007,0,0,0,7.072,0L22,7.5V18A3,3,0,0,1,19,21Z"
-          />
-        </svg>
-        <span class="signup-form__name">Email</span>
-        <input class="signup-form__input" type="email" name="email" />
-      </label>
-      <label class="signup-form__label" for="password"
-        >
-        <svg class="sign-form__icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19,8.424V7A7,7,0,0,0,5,7V8.424A5,5,0,0,0,2,13v6a5.006,5.006,0,0,0,5,5H17a5.006,5.006,0,0,0,5-5V13A5,5,0,0,0,19,8.424ZM7,7A5,5,0,0,1,17,7V8H7ZM20,19a3,3,0,0,1-3,3H7a3,3,0,0,1-3-3V13a3,3,0,0,1,3-3H17a3,3,0,0,1,3,3Z"/><path d="M12,14a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V15A1,1,0,0,0,12,14Z"/></svg>
-        <span class="signup-form__name">Password</span>
-        <input class="signup-form__input" type="text" name="password" />
-      </label>
+    <h2 class="signup-modal__title">
+      Enter your email and password for sign up
+    </h2>
+    <form class="signup-form" data-signup-form>
+      <div class="signup-form__field">
+        <label class="signup-form__label">
+          <span class="signup-form__name">Email</span>
+          <input class="signup-form__input" type="email" name="email" />
+          <svg class="signup-form__icon">
+            <use href="./images/signup-form-defs.svg#email"></use>
+          </svg>
+        </label>
+      </div>
+      <div class="signup-form__field">
+        <label class="signup-form__label">
+          <span class="signup-form__name">Password</span>
+          <input class="signup-form__input" type="text" name="password" />
+          <svg class="signup-form__icon">
+            <use href="./images/signup-form-defs.svg#password"></use>
+          </svg>
+        </label>
+      </div>
+
       <button class="signup-form__btn" type="submit">Sign up</button>
     </form>
   </div>
