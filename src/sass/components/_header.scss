@@ -282,3 +282,12 @@ header {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  .warning-notification {
+    width: 280px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1.17;
+    font-weight: 400;
+    color: map-get($colors,'alarm');
+  }
+
