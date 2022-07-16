@@ -1,0 +1,103 @@
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.library-cards-film{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.list-films {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.list-films_card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-films_card {
+    display: flex;
+    flex-direction: column;
+    width: calc(100%-32px) / 3;
+        
+    margin-top: 32px;
+    margin-right: 16px;
+    margin-bottom: 0;
+    cursor: pointer;
+  
+    &:nth-child(-n + 3) {
+        margin-top: 0;
+    }
+
+    &:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    &:hover {
+    filter: drop-shadow (0px 4px 4px rgba(0, 0, 0, 0.25));
+    
+    }
+}
+.list-films_card-info_card-film{
+    background: url(4.jpg);
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+.list-films_card>.list-films_card-info-footer {
+    flex-grow: 1;
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding-left:0;
+    border: transparent ;
+    
+}
+
+.list-films_card-info-footer-name-film{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.list-films_card-info-footer-genre-film{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #FF6B08;
+}
+.list-films_card-info-footer-genre-film::after{
+    content: "|";
+    color: #FF6B08;
+    padding-right: 5px;
+    padding-left: 5px;
+
+}
+
+.list-films_card-info-footer-production-year{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #FF6B08;
+    padding-left: 5px;
+    padding-right: 5px;
+}
