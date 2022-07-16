@@ -12,24 +12,75 @@ header {
     color: map-get($colors, 'light');
 
     background-color: map-get($colors, 'light');;
-    background-image: 
-      url(../images/header-background-mobile-2x.jpg);
+    background-image: linear-gradient(
+      to right,
+      map-get($colors, 'header-gr'),
+      map-get($colors, 'header-gr')
+    ),
+      url(../images/header-background-mobile.jpg);
       background-position: top;
       background-repeat: no-repeat;
       background-size: cover;
+
+      @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+      to right,
+      map-get($colors, 'header-gr'),
+      map-get($colors, 'header-gr')
+    ),
+      url(../images/header-background-mobile@2x.jpg);
+    }
 
       @media screen and (min-width: 768px) and (max-width: 1279px) {
         padding: 40px 32px 80px; 
         background-image:
-          url(../images/header-background-tablet@2x.jpg);
+        linear-gradient(
+      to right,
+      map-get($colors, 'header-gr'),
+      map-get($colors, 'header-gr')
+    ),
+          url(../images/header-background-tablet.jpg);
       background-position: top;
       background-repeat: no-repeat;
       background-size: cover;
+
+      @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+        to right,
+        map-get($colors, 'header-gr'),
+        map-get($colors, 'header-gr')
+      ),
+        url(../images/header-background-tablet@2x.jpg);
     }
+  }
+
+    
 
     @media screen and (min-width: 1280px) {
-        background-image: 
-          url(../images/header-background-desktop@2x.jpg);
+        background-image: linear-gradient(
+          to right,
+          map-get($colors, 'header-gr'),
+          map-get($colors, 'header-gr')
+        ),
+          url(../images/header-background-desktop.jpg);
+
+          @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: linear-gradient(
+            to right,
+            map-get($colors, 'header-gr'),
+            map-get($colors, 'header-gr')
+          ),
+            url(../images/header-background-desktop@2x.jpg);
+          }
       }
 
 }
@@ -107,7 +158,7 @@ header {
 
     &:hover,
   &:focus {
-    color: grey;
+    color: map-get($colors, 'additional');
 
     transition-property: color;
     transition-duration: 250ms;
