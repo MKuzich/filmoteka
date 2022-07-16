@@ -1,0 +1,233 @@
+a {
+  text-decoration: none;
+}
+
+header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 40px 20px 90px 20px;
+
+    font-weight: 500;
+    color: map-get($colors, 'light');
+
+    background-color: map-get($colors, 'light');;
+    background-image: 
+      url(../images/header-background-mobile-2x.jpg);
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
+        padding: 40px 32px 80px; 
+        background-image:
+          url(../images/header-background-tablet@2x.jpg);
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    @media screen and (min-width: 1280px) {
+        background-image: 
+          url(../images/header-background-desktop@2x.jpg);
+      }
+
+}
+
+
+.menu {
+    display: flex;
+}
+
+.nav__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 54px;
+
+
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-bottom: 40px;
+      }
+    
+      @media screen and (min-width: 1280px) {
+        padding: 0;
+      }
+}
+
+.logo {
+    display: flex;
+    align-self: flex-end;
+
+    &:hover > .logo__svg {
+        stroke: map-get($colors, 'active');
+      }
+    
+      &:visited {
+        color: map-get($colors, 'light');
+      }
+
+    @media screen and (max-width: 767px) {
+        margin-right: 112px;
+      }
+    
+      @media screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-right: 303px;
+      }
+    
+      @media screen and (min-width: 1280px) {
+        margin-right: 564px;
+      }
+}
+
+.logo__text {
+    font-size: 30px;
+    line-height: 1.16;
+    font-weight: 500;
+    color: map-get($colors, 'light');
+  
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+  
+  .menu__item {
+    position: relative;
+  
+    &:not(:last-child) {
+      margin-right: 39px;
+    }
+  }
+  
+  .menu__link {
+    font-size: 12px;
+    line-height: 1.16;
+    color: map-get($colors, 'light');
+    text-transform: uppercase;
+
+    &:hover,
+  &:focus {
+    color: grey;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  }
+  
+  .menu__link.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7%;
+  
+    width: 34px;
+    height: 3px;
+    border-radius: 2px;
+  
+    background-color: map-get($colors, 'accent');
+  }
+
+  .search-form {
+    display: flex;
+    position: relative;
+  
+    width: 280px;
+    margin: 0 auto;
+  
+    justify-content: center;
+  }
+
+  .search-form-input {
+    width: 280px;
+  height: 20px;
+  padding: 8px 0;
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 0.5px solid white;
+  outline: none;
+
+  background-color: transparent;
+
+  color: map-get($colors, 'light');
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.17;
+
+  &::placeholder {
+    color: map-get($colors , 'light');
+  }
+
+  &:hover,
+  &:focus {
+    border-bottom: 0.5px solid map-get($colors, 'active');
+  }
+
+  transition-property: border-bottom;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  }
+
+.logo__svg {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    stroke: white;
+
+    @media screen and (min-width: 768px) {
+      margin-right: 10px;
+    }
+  
+  &:hover,
+  &:focus,
+  &:active {
+    stroke: map-get($colors, 'active');
+  }
+
+  transition-property: stroke;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search__button-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.search__button {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+  
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  } 
+  
+.search__button-icon {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    stroke: map-get($colors, 'light');
+  
+    &:hover,
+    &:focus,
+    &:active {
+        stroke: map-get($colors, 'active');
+      cursor: pointer;
+    }
+  
+    transition-property: stroke;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
