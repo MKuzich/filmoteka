@@ -6,14 +6,14 @@ const headerWarning = document.querySelector('.warning-notification');
 form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit (evt) {
-    evt.preventdefault();
+    evt.preventDefault();
    const page = 1;
 
-    const inputValue = evt.currentTarget.elements.searchQuery.value.trim();
+    const inputValue = evt.target.elements.searchQuery.value.trim();
     console.log (inputValue);
     if (!inputValue) {
         return (headerWarning.textContent =
-            'Search result not successful. Enter the correct movie name, please!');
+            'Search result is not successful. Enter the correct movie name, please!');
     }
 
     movieSearcher(inputValue, page);
