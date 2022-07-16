@@ -1,3 +1,31 @@
 <header class="hero">
-  <div class="container"></div>
+  <div class="container">
+    <div class="nav__container">
+      <a href="/src/index.html" class="logo">
+        <svg class="logo__svg">
+          <use href="./images/icons/header-sprite.svg#film"></use>
+        </svg>
+        <span class="logo__text">Filmoteka</span>
+      </a>
+      <nav class="navigation">
+        <ul class="menu">
+          <li class="menu__item">
+            <a href="/src/index.html" class="menu__link current">Home</a>
+          </li>
+          <li class="menu__item">
+            <a href="" class="menu__link">My library</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <form id="search-form" class="search-form">
+      <input type="text" placeholder="Movie search" class="search-form-input" name="searchQuery">
+      <button class="search__button" type="submit">
+        <svg class="search__button-icon">
+          <use href="./images/icons/header-sprite.svg#search"></use>
+        </svg>
+      </button>
+    </form>
+  </div>
 </header>
