@@ -1,4 +1,4 @@
-import api from './api/api-service';
+import { fetchMovieSearcher } from './api/api-service';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
@@ -22,9 +22,10 @@ function onFormSubmit (evt) {
 
 async function movieSearcher(searchText, pageNumber) {
     try {
-      const data = await api.fetchMovieSearcher(searchText, pageNumber);
+      const data = await fetchMovieSearcher(searchText, pageNumber);
   
       const result = data.results;
+      console.log(result);
   
       if (result.length === 0) {
         return (headerWarning.textContent =
