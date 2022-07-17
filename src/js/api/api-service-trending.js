@@ -7,5 +7,5 @@ const TIME_WINDOW = 'day';
 const SEARCH_URL = `${BASE_URL}/trending/${MEDIA_TYPE}/${TIME_WINDOW}`;
 
 export function fetchTrendingMovies() {
-  return axios.get(`${SEARCH_URL}?api_key=${API_KEY}`);
+   return axios.get(`${SEARCH_URL}?api_key=${API_KEY}`);
 }

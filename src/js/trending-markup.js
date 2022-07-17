@@ -6,12 +6,14 @@ trendingMarkup();
 
 function trendingMarkup() {
   fetchTrendingMovies()
-    .then(({ data }) => {
+      .then(({ data }) => {
+          localStorage.setItem("downloadedMovies", JSON.stringify("")); 
+          localStorage.setItem("downloadedMovies", JSON.stringify(data.results)); 
       console.log(data);
       const markup = data.results
         .map(
           el =>
-            `<li class="link list-films_card">
+            `<li class="link list-films_card" data-id="${el.id}">
             <a class="link list-films_card-info">
                 <img
                     class="list-films_card-info_card-film"
