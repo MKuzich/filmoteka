@@ -2,7 +2,9 @@ a {
   text-decoration: none;
 }
 
+
 header {
+  position: relative;
     display: block;
     margin: 0 auto;
     width: 100%;
@@ -291,3 +293,7 @@ header {
     color: map-get($colors,'alarm');
   }
 
+// .signup-form__btn {
+//   // position: absolute;
+
+// }
