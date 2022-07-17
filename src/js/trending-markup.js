@@ -8,8 +8,7 @@ function trendingMarkup() {
     fetchTrendingMovies()
         .then(({data}) => {
             console.log(data);
-            const markup = data.results.map(el =>
-                console.log(el.poster_path)
+            const markup = data.results.map(el => 
             `<li class="link list-films_card">
             <a class="link list-films_card-info">
                 <img
@@ -28,7 +27,7 @@ function trendingMarkup() {
                 </div>
             </a>
             </li>`
-            )
+            ).join('');
         
             listFilms.insertAdjacentHTML('afterbegin', markup);
         
