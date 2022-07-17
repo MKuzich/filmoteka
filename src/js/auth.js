@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth';
 import { closeSignupModal } from './signup-modal';
 import { closeLoginModal } from './login-modal';
+import { enableUserInterface } from './user-options';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD975WMSA04Q-mjdqQUXdyvcH4cQe4txRg',
@@ -79,13 +80,6 @@ function onSubmitLoginHandler(e) {
 
 onAuthStateChanged(auth, user => {
   console.log('user status changed:', user);
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
+  // const uid = user.uid;
+  enableUserInterface(user);
 });
