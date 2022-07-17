@@ -1,7 +1,9 @@
 import { fetchMovieSearcher } from './api/api-service';
+import { filmGallaryMarkup } from './film-gallary-markup';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
+const listFilms = document.querySelector('.list-films')
 
 form.addEventListener('submit', onFormSubmit);
 
@@ -21,13 +23,14 @@ function onFormSubmit (evt) {
 }
 
 
-async function movieSearcher(searchText, pageNumber) {
+export async function movieSearcher(searchText, pageNumber) {
     try {
       const data = await fetchMovieSearcher(searchText, pageNumber);
   
       const result = data.results;
-      console.log(result);
-  
+      // console.log(result);
+      filmGallaryMarkup(result);
+     
       if (result.length === 0) {
         return (headerWarning.textContent =
           'There are not any matches! Try again, please!');
