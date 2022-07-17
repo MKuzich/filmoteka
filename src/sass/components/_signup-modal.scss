@@ -145,16 +145,16 @@
     margin-bottom: 4px;
   }
   &__btn {
-    // margin-top: 32px;
-    // padding: 14px 32px 12px 32px;
-    // border: 1px solid map-get($colors, 'main');
-    // border-radius: 5px;
-    // background-color: map-get($colors, 'light');
-    // color: map-get($colors, 'main');
-    // transition: background-color $chang-time $chang-func,
-    //   color $chang-time $chang-func, border-color $chang-time $chang-func;
-    // margin-left: auto;
-    // margin-right: auto;
+    margin-top: 32px;
+    padding: 14px 32px 12px 32px;
+    border: 1px solid map-get($colors, 'main');
+    border-radius: 5px;
+    background-color: map-get($colors, 'light');
+    color: map-get($colors, 'main');
+    transition: background-color $chang-time $chang-func,
+      color $chang-time $chang-func, border-color $chang-time $chang-func;
+    margin-left: auto;
+    margin-right: auto;
     &:hover,
     &:focus {
       background-color: map-get($colors, 'active');
