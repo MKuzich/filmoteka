@@ -160,7 +160,7 @@ header {
 
     &:hover,
   &:focus {
-    color: map-get($colors, 'additional');
+    color: map-get($colors, 'active');
 
     transition-property: color;
     transition-duration: 250ms;
@@ -295,9 +295,26 @@ header {
 
 .btn.signup-form__btn {
   min-width: 60px;
-  padding-top: 7px;
+  padding-top: 6px;
     padding-bottom: 6px;
-    padding-left: 18px;
-    padding-right: 18px;
-
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+   
 }
+
+.login-wrapper {
+  position: absolute;
+  right: 35px;
+}
+
+.logout-wrapper {
+  position: absolute;
+  right: 35px;
+
+  &__text {
+    margin-top: 10px;
+    
+  }
+}
+
