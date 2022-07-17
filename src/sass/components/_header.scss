@@ -176,7 +176,7 @@ header {
     height: 3px;
     border-radius: 2px;
   
-    background-color: map-get($colors, 'accent');
+    background-color: map-get($colors, 'alarm');
   }
 
   .search-form {
