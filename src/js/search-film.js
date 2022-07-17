@@ -16,6 +16,7 @@ function onFormSubmit (evt) {
             'Search result is not successful. Enter the correct movie name, please!');
     }
 
+    headerWarning.textContent = '';
     movieSearcher(inputValue, page);
 }
 
