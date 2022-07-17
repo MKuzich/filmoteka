@@ -1,0 +1,207 @@
+.modal-backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0000008f;
+  &--hidden{
+    display: none;
+  }
+}
+
+.modal-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #fff;
+  max-width: 344px;
+  margin: 0 auto;
+  padding: 48px 20px 40px;
+  @include respond-to ('tablet') {
+    max-width: 704px;
+    width: 100%;
+    // min-height: 552px;
+    padding: 40px 36px ;
+    // display: flex;
+  }
+  @include respond-to ('desktop') {
+    max-width: 806px;
+    width: 100%;
+    height: auto;
+    padding: 40px 12px;
+  }
+}
+.modal-close {
+    padding: 0;
+    background-color: #0000;
+    border: none;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    &__button-icon {
+      stroke: #000;
+      width: 30px;
+      height: 30px;
+      &:hover {
+        stroke: map-get($colors, 'accent' );
+        cursor: pointer;
+      }
+    }
+  }
+  
+.modal-content {
+    display: block;
+    @include respond-to('tablet') {
+        display: flex;
+    }
+}
+.modal-thumb {
+  max-width: 240px;
+  margin: 0 auto 20px;
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    
+  }
+  @include respond-to ('tablet') {
+    // max-width: 264px;
+    min-width: 264px;
+    // width: 100%;
+    max-height: 374px;
+    margin: 0;
+  }
+  @include respond-to ('desktop') {
+    min-width: 375px;
+    max-height: 478px;
+  }
+}
+.modal-description{
+    // display: flex;
+    @include respond-to('tablet'){
+        margin-left: 68px;
+        // display: flex;
+    }
+    @include respond-to('desktop') {
+        margin-left: 16px;
+    }
+}
+
+.modal-description__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  @include respond-to('tablet') {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+  @include respond-to('desktop') {
+    font-size: 30px;
+    line-height: 1.16;
+  }
+}
+
+.modal-description__info-block {
+    border-spacing: 0;
+  margin-bottom: 20px;
+  &  tr {
+    margin-bottom: 8px;
+    display: block;
+    &:last-child{
+        margin-bottom: 0;
+    }
+  }
+}
+
+.info-block__keys {
+  color: #8c8c8c;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  width: 108px;
+}
+
+.info-block__values {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+  color: #000;
+  &--orange {
+    font-weight: 500;
+    background-color: #ff6b01;
+    color: #fff;
+    border-radius: 5px;
+    padding: 1px 10px;
+    width: 36px;
+  }
+  &--gray {
+    font-weight: 500;
+    background-color: #f7f7f7;
+    color: #000;
+    border-radius: 5px;
+    padding: 1px 4px;
+    width: 36px;
+  }
+  &--uppercase {
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+
+.modal-description__about {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.66;
+  margin-bottom: 20px;
+  &-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1.33;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  @include respond-to ('tablet') {
+    justify-content: flex-start;
+  }
+
+}
+
+.modal-button {
+  background-color: #0000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  min-width: 110px;
+  min-height: 44px;
+  max-width: 124px;
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background-color: #ff6b01;
+    color: #fff;
+    border-color: #ff6b01;
+  }
+  @include respond-to ('tablet'){
+    min-width: 125px;
+  }
+  @include respond-to ('desktop') {
+    min-width: 136px;
+  }
+}
