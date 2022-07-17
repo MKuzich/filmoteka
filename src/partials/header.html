@@ -19,15 +19,31 @@
       </nav>
     </div>
 
-    <form id="search-form" class="search-form"  autocomplete="off">
-      <input type="text" placeholder="Movie search" class="search-form-input" name="searchQuery"/>
+    <form id="search-form" class="search-form" autocomplete="off">
+      <input
+        type="text"
+        placeholder="Movie search"
+        class="search-form-input"
+        name="searchQuery"
+      />
       <button class="search__button" type="submit">
         <svg class="search__button-icon">
           <use href="./images/icons/header-sprite.svg#search"></use>
         </svg>
       </button>
     </form>
+    <p class="warning-notification"></p>
+    <div class="login-wrapper">
+      <button type="button" class="login__btn btn" data-login-modal-open>
+        Log in
+      </button>
+      <button type="button" class="login__btn btn" data-signup-modal-open>
+        Sign up
+      </button>
+    </div>
+    <div class="logout-wrapper">
+      <p class="logout-wrapper__text"></p>
+      <button class="login__btn btn" type="button" data-logout>Log Out</button>
+    </div>
   </div>
-<p class="warning-notification"></p>
-  
 </header>
