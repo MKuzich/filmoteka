@@ -293,7 +293,11 @@ header {
     color: map-get($colors,'alarm');
   }
 
-// .signup-form__btn {
-//   // position: absolute;
+.btn.signup-form__btn {
+  min-width: 60px;
+  padding-top: 7px;
+    padding-bottom: 6px;
+    padding-left: 18px;
+    padding-right: 18px;
 
-// }
+}
