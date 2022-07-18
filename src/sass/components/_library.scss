@@ -1,0 +1,30 @@
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.library-cards-film {
+    padding: 20px 20px 40px;
+    .list-films_card:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        padding: 59px 32px 60px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding: 60px 30px;    
+    }
+}
+
+.list-films {
+    display: flex;
+    flex-wrap: wrap;
+}
