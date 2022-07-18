@@ -6,5 +6,5 @@ const MEDIA_TYPE = 'movie';
 const SEARCH_URL = `${BASE_URL}/trending/${MEDIA_TYPE}/`;
 
 export function fetchTrendingMovies(time) {
-   return axios.get(`${SEARCH_URL}${time}?api_key=${API_KEY}`);
+  return axios.get(`${SEARCH_URL}${time}?api_key=${API_KEY}`);
 }
