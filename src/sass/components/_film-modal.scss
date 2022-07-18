@@ -19,17 +19,20 @@
   max-width: 344px;
   margin: 0 auto;
   padding: 48px 20px 40px;
+  min-width: 280px;
+  min-height: 700px;
   @include respond-to ('tablet') {
     max-width: 704px;
     width: 100%;
-    // min-height: 552px;
+    min-height: 450px;
     padding: 40px 36px ;
     // display: flex;
   }
   @include respond-to ('desktop') {
     max-width: 806px;
     width: 100%;
-    height: auto;
+    // height: auto;
+    min-height: 550px;
     padding: 40px 12px;
   }
 }
