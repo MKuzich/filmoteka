@@ -1,11 +1,36 @@
 import { fetchTrendingMovies } from './api/api-service-trending';
 
 const listFilms = document.querySelector('.list-films');
+const trendingSelector = document.querySelector('.trending-selector');
+const dayBtn = document.querySelector('.day');
+const weekBtn = document.querySelector('.week');
 
-trendingMarkup();
+// dayBtn.classList.add('act')
+let TIME_WINDOW = 'day';
+dayBtn.disabled = true;
 
-function trendingMarkup() {
-  fetchTrendingMovies()
+trendingMarkup(TIME_WINDOW);
+
+dayBtn.addEventListener('click', timeChangeDay)
+
+weekBtn.addEventListener('click', timeChangeWeek)
+
+function timeChangeDay() {
+  listFilms.innerHTML = '';
+  activeBtnDay()
+  TIME_WINDOW = 'day'
+  trendingMarkup(TIME_WINDOW);
+}
+function timeChangeWeek() {
+  listFilms.innerHTML = '';
+  activeBtnWeek()
+  TIME_WINDOW = 'week'
+  trendingMarkup(TIME_WINDOW);
+}
+
+function trendingMarkup(time) {
+trendingSelector.classList.remove('visually-hidden');
+  fetchTrendingMovies(time)
       .then(({ data }) => {
           localStorage.setItem("downloadedMovies", JSON.stringify("")); 
           localStorage.setItem("downloadedMovies", JSON.stringify(data.results)); 
@@ -23,10 +48,10 @@ function trendingMarkup() {
                     height="574"
                 />
                 <div class="list-films_card-info-footer">
-                <h2 class="list-films_card-info-footer-name-film">for example</h2>
+                <h2 class="list-films_card-info-footer-name-film">${el.title.slice(0, 20)}</h2>
                 <p class="list-films_card-info-footer-genre-film">for example</p>
                 <p class="list-films_card-info-footer-production-year">
-                    for example
+                ${el.release_date.slice(0, 4)}
                 </p>
                 </div>
             </a>
@@ -40,3 +65,17 @@ function trendingMarkup() {
       console.log(error);
     });
 }
+
+function activeBtnDay() {
+  dayBtn.classList.add('current')
+  dayBtn.disabled = true
+  weekBtn.classList.remove('current')
+  weekBtn.disabled = false
+};
+
+function activeBtnWeek() {
+  weekBtn.classList.add('current')
+  weekBtn.disabled = true
+  dayBtn.classList.remove('current')
+  dayBtn.disabled = false
+};

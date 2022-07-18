@@ -3,6 +3,7 @@ import { filmGallaryMarkup } from './film-gallary-markup';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
+const trendingSelector = document.querySelector('.trending-selector');
 
 form.addEventListener('submit', onFormSubmit);
 
@@ -17,6 +18,8 @@ function onFormSubmit(evt) {
   }
 
   headerWarning.textContent = '';
+  trendingSelector.classList.add('visually-hidden');
+
   movieSearcher(inputValue, page);
 }
 
