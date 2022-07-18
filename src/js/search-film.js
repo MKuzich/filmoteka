@@ -1,11 +1,14 @@
 import { fetchMovieSearcher } from './api/api-service';
 import { filmGallaryMarkup } from './film-gallary-markup';
+import { listFilms } from './film-gallary-markup';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
 const trendingSelector = document.querySelector('.trending-selector');
+const inputField = document.querySelector('input');
 
 form.addEventListener('submit', onFormSubmit);
+inputField.addEventListener('input', onInputChange);
 
 function onFormSubmit(evt) {
   evt.preventDefault();
@@ -37,3 +40,9 @@ export async function movieSearcher(searchText, pageNumber) {
     console.error('Smth went wrong!');
   }
 }
+
+
+function onInputChange() {
+  headerWarning.textContent = "";
+  listFilms.innerHTML = "";
+  }

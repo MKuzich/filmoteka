@@ -1,6 +1,6 @@
 import { moviesGenresConvertation } from './movies-genres-convertation';
 
-const listFilms = document.querySelector('.list-films');
+export const listFilms = document.querySelector('.list-films');
 
 export function filmGallaryMarkup(array) {
   const markup = array
