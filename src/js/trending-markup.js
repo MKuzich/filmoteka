@@ -55,12 +55,14 @@ function trendingMarkup(time) {
                   0,
                   20
                 )}</h2>
-                <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
-                  el.genre_ids
-                )}</p>
-                <p class="list-films_card-info-footer-production-year">
-                ${el.release_date.slice(0, 4)}
-                </p>
+                  <div class="card-info-footer_characteristics">
+                  <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
+                    el.genre_ids
+                  )}</p>
+                  <p class="list-films_card-info-footer-production-year">
+                  ${el.release_date.slice(0, 4)}
+                  </p>
+                  </div>
                 </div>
             </a>
             </li>`
