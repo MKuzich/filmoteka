@@ -2,6 +2,7 @@ import { fetchMovieSearcher } from './api/api-service';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
+const trendingSelector = document.querySelector('.trending-selector');
 
 form.addEventListener('submit', onFormSubmit);
 
@@ -16,8 +17,9 @@ function onFormSubmit (evt) {
             'Search result is not successful. Enter the correct movie name, please!');
     }
 
-    headerWarning.textContent = '';
-    movieSearcher(inputValue, page);
+  headerWarning.textContent = '';
+  trendingSelector.classList.add('visually-hidden');
+  movieSearcher(inputValue, page);
 }
 
 
