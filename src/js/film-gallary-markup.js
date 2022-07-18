@@ -16,12 +16,14 @@ export function filmGallaryMarkup(array) {
             />
             <div class="list-films_card-info-footer">
             <h2 class="list-films_card-info-footer-name-film">${item.title}</h2>
-            <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
-              item.genre_ids
-            )}</p>
-            <p class="list-films_card-info-footer-production-year">
-                for example
-            </p>
+              <div class="card-info-footer_characteristics">
+              <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
+                item.genre_ids
+              )}</p>
+              <p class="list-films_card-info-footer-production-year">
+                  for example
+              </p>
+              </div>
             </div>
         </a>
         </li>`;
