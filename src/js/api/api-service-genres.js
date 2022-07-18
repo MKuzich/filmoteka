@@ -11,8 +11,7 @@ export async function fetchMovieGenres() {
     );
     localStorage.setItem('genres', JSON.stringify(''));
     localStorage.setItem('genres', JSON.stringify(data.genres));
-    return console.log(data.genres);
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
   }
 }

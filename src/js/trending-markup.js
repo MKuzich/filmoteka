@@ -1,4 +1,6 @@
 import { fetchTrendingMovies } from './api/api-service-trending';
+import { fetchMovieGenres } from './api/api-service-genres';
+import { moviesGenresConvertation } from './movies-genres-convertation';
 
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
@@ -9,31 +11,32 @@ const weekBtn = document.querySelector('.week');
 let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
 
+fetchMovieGenres();
 trendingMarkup(TIME_WINDOW);
 
-dayBtn.addEventListener('click', timeChangeDay)
+dayBtn.addEventListener('click', timeChangeDay);
 
-weekBtn.addEventListener('click', timeChangeWeek)
+weekBtn.addEventListener('click', timeChangeWeek);
 
 function timeChangeDay() {
   listFilms.innerHTML = '';
-  activeBtnDay()
-  TIME_WINDOW = 'day'
+  activeBtnDay();
+  TIME_WINDOW = 'day';
   trendingMarkup(TIME_WINDOW);
 }
 function timeChangeWeek() {
   listFilms.innerHTML = '';
-  activeBtnWeek()
-  TIME_WINDOW = 'week'
+  activeBtnWeek();
+  TIME_WINDOW = 'week';
   trendingMarkup(TIME_WINDOW);
 }
 
 function trendingMarkup(time) {
-trendingSelector.classList.remove('visually-hidden');
+  trendingSelector.classList.remove('visually-hidden');
   fetchTrendingMovies(time)
-      .then(({ data }) => {
-          localStorage.setItem("downloadedMovies", JSON.stringify("")); 
-          localStorage.setItem("downloadedMovies", JSON.stringify(data.results)); 
+    .then(({ data }) => {
+      localStorage.setItem('downloadedMovies', JSON.stringify(''));
+      localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
       console.log(data);
       const markup = data.results
         .map(
@@ -48,8 +51,13 @@ trendingSelector.classList.remove('visually-hidden');
                     height="574"
                 />
                 <div class="list-films_card-info-footer">
-                <h2 class="list-films_card-info-footer-name-film">${el.title.slice(0, 20)}</h2>
-                <p class="list-films_card-info-footer-genre-film">for example</p>
+                <h2 class="list-films_card-info-footer-name-film">${el.title.slice(
+                  0,
+                  20
+                )}</h2>
+                <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
+                  el.genre_ids
+                )}</p>
                 <p class="list-films_card-info-footer-production-year">
                 ${el.release_date.slice(0, 4)}
                 </p>
@@ -67,15 +75,15 @@ trendingSelector.classList.remove('visually-hidden');
 }
 
 function activeBtnDay() {
-  dayBtn.classList.add('current')
-  dayBtn.disabled = true
-  weekBtn.classList.remove('current')
-  weekBtn.disabled = false
-};
+  dayBtn.classList.add('current');
+  dayBtn.disabled = true;
+  weekBtn.classList.remove('current');
+  weekBtn.disabled = false;
+}
 
 function activeBtnWeek() {
-  weekBtn.classList.add('current')
-  weekBtn.disabled = true
-  dayBtn.classList.remove('current')
-  dayBtn.disabled = false
-};
+  weekBtn.classList.add('current');
+  weekBtn.disabled = true;
+  dayBtn.classList.remove('current');
+  dayBtn.disabled = false;
+}
