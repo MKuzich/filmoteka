@@ -3,7 +3,7 @@ import { filmGallaryMarkup } from './film-gallary-markup';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
-const listFilms = document.querySelector('.list-films')
+
 
 form.addEventListener('submit', onFormSubmit);
 
@@ -40,3 +40,4 @@ export async function movieSearcher(searchText, pageNumber) {
     }
   }
 
+  
