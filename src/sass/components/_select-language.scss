@@ -1,6 +1,6 @@
 .select-lang {
     display: flex;
-    justify-content: left;
+    justify-content: right;
     align-items: center;
     
   }
@@ -32,7 +32,7 @@
     position: relative;
     display: block;
     margin: 6px;
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .checkbox-label {
@@ -65,5 +65,5 @@
     left: 54px;
   }
   .checkbox:checked + .checkbox-label:after {
-    background-color: #27ae60;
+    background-color: map-get($colors, 'active');
   }
