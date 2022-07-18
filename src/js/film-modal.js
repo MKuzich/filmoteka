@@ -1,12 +1,13 @@
 import { createMarkupModal } from './film-modal-render';
+import { USER_ID } from './auth';
 
-const uid = 'qPtYne1lNfWrtdJJYcg4nv78kwr1';
+
 
 const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
 const modalCardRef = document.querySelector('.modal-card');
 const modalCloseBtnRef = document.querySelector('.modal-close');
 const listFilmsRef = document.querySelector('.list-films');
-let modalBtnRef;
+let modalWatchBtnRef;
 let modalQueueBtnRef;
 
 listFilmsRef.addEventListener('click', openModal);
@@ -58,26 +59,32 @@ function openModal(e) {
   modalQueueBtnRef = document.querySelector(
     '.modal-button[data-action="queue"]'
   );
-
+// console.log(modalWatchBtnRef);
+// console.log(modalQueueBtnRef);
   let arrayData = {
     watched: [],
     queue: [],
   };
 
   function addToWatch(data) {
-    if (!JSON.parse(localStorage.getItem(uid))) {
-      localStorage.setItem(uid, JSON.stringify(arrayData));
+    if (!USER_ID) {
+      alert('please log in or sign up')
+      return
     }
-    arrayData = JSON.parse(localStorage.getItem(uid));
+
+    if (!JSON.parse(localStorage.getItem(USER_ID))) {
+      localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+    }
+    arrayData = JSON.parse(localStorage.getItem(USER_ID));
 
     if (arrayData.watched.some(value => value.id === data.id)) {
       arrayData.watched = removeToWatch(arrayData, data.id);
-      return localStorage.setItem(uid, JSON.stringify(arrayData));
+      return localStorage.setItem(USER_ID, JSON.stringify(arrayData));
     }
 
     arrayData.watched.push(data);
 
-    localStorage.setItem(uid, JSON.stringify(arrayData));
+    localStorage.setItem(USER_ID, JSON.stringify(arrayData));
   }
   function removeToWatch(data, id) {
     const newArr = data.watched.filter(value => value.id !== id);
