@@ -1,8 +1,9 @@
-const listFilms = document.querySelector('.list-films')
+const listFilms = document.querySelector('.list-films');
 
-export function filmGallaryMarkup (array) {
-    const markup = array.map(item => {
-        `<li class="link list-films_card">
+export function filmGallaryMarkup(array) {
+  const markup = array
+    .map(item => {
+      return `<li class="link list-films_card">
         <a class="link list-films_card-info">
             <img
                 class="list-films_card-info_card-film"
@@ -19,11 +20,9 @@ export function filmGallaryMarkup (array) {
             </p>
             </div>
         </a>
-        </li>`
-    }).join('');
+        </li>`;
+    })
+    .join('');
 
-    listFilms.insertAdjacentHTML('afterbegin', markup);
+  listFilms.insertAdjacentHTML('afterbegin', markup);
 }
-
-
-
