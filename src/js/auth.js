@@ -87,6 +87,12 @@ onAuthStateChanged(auth, user => {
   enableUserInterface(user);
 });
 
-export function getUsedId() {
-  return USER_ID;
-}
+export const authStatus = async () => {
+  const answer = await onAuthStateChanged(auth, user => {
+    if (user) {
+      return (USER_ID = user.uid);
+    }
+    return null;
+  });
+  return answer;
+};
