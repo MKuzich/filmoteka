@@ -90,7 +90,7 @@
     
     /* свойства размещения карточек */
         &__item {
-            width: calc((100% - 5px * 3) / 3);
+            // width: calc((100% - 5px * 6) / 3);
             perspective: 400px;
             // position: relative;
             float: left;
@@ -110,18 +110,6 @@
             content: "";
             display: table;
             clear: both;
-        }
-
-        &__item h3 {
-            margin: 0;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-    
-        &__item p {
-            font-size: 12px;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.8);
         }
     
         &__img {
@@ -279,6 +267,47 @@
     border-radius: 4px;
     pointer-events: none;
     background-color: map-get($colors, 'accent');
+    
+}
+
+.info__icon {
+    z-index: 19000;
+}
+.info__name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // align-items: baseline;
+    margin-top: 10;
+    margin-bottom: 10;
+}
+.modal__item h3 {
+   
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    // text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+    //     0px -5px 35px rgba(255, 255, 255, 0.3);
+    padding-right: 5px;
+    
+}
+
+.info__role{
+text-transform: uppercase;
+position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+
+.info__text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+    // border: 2px solid white;
+    // border-style: outset;
+    // border-style: inset;
 }
 
 .in-top .info {
