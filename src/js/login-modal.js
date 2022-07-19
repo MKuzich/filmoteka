@@ -1,5 +1,4 @@
-import { logInUk } from "./ua/logInUk";
-import { logInEn } from "./ua/logInEn";
+
 
 const refs = {
   openModalBtn: document.querySelector('[data-login-modal-open]'),
@@ -39,13 +38,5 @@ function openModal() {
   document.addEventListener('keydown', closeModalOnEsc);
   refs.modal.addEventListener('click', closeLoginModalOnAreaClick);
   
-  // console.log(selectedLang.checked);
-  if(selectedLang.checked) {
-    // console.log('uk');
-    refs.modal.innerHTML = logInUk;
-  } else {
-    // console.log('en');
-    refs.modal.innerHTML = logInEn;
 
-  }
 }
