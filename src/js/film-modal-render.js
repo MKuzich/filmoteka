@@ -50,7 +50,7 @@ export function createMarkupModal({
         ${overview}
       </p>
       <div class="modal-buttons">
-        <button class="modal-button" data-action="watch" >Add to watched</button>
+        <button class="modal-button" data-action="watched" >Add to watched</button>
         <button class="modal-button" data-action="queue" >Add to queue</button>
       </div>
     </div>
