@@ -2,6 +2,9 @@ import { createMarkupModal } from './film-modal-render';
 
 const uid = 'qPtYne1lNfWrtdJJYcg4nv78kwr1';
 
+const selectedLang = document.querySelector("#checkbox");
+
+
 const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
 const modalCardRef = document.querySelector('.modal-card');
 const modalCloseBtnRef = document.querySelector('.modal-close');

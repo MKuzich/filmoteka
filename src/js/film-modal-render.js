@@ -1,3 +1,6 @@
+const selectedLang = document.querySelector("#checkbox");
+
+
 export function createMarkupModal({
   original_title,
   title,
@@ -10,7 +13,51 @@ export function createMarkupModal({
 }) {
 
 //   const genres = localStorage.getItem('genres')
-
+if(selectedLang.checked) {
+  return `<section class="modal-content">
+    <div class="modal-thumb">
+      <img
+        class="modal-thumb__img"
+        src="https://image.tmdb.org/t/p/original/${poster_path}"
+        alt="${title}"
+      />
+    </div>
+    <div class="modal-description">
+      <h2 class="modal-description__title">${title}</h2>
+      <table class="modal-description__info-block">
+        <tbody>
+          <tr>
+            <td class="info-block__keys">Голос /К-сть голосів</td>
+            <td class="info-block__values">
+              <span class="info-block__values--orange">${vote_average.toFixed(1)}</span> /
+              <span class="info-block__values--gray">${vote_count}</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="info-block__keys">Популярність</td>
+            <td class="info-block__values">${popularity.toFixed(1)}</td>
+          </tr>
+          <tr>
+            <td class="info-block__keys">Оригінальна назва</td>
+            <td class="info-block__values--uppercase">${original_title}</td>
+          </tr>
+          <tr>
+            <td class="info-block__keys">Жанри</td>
+            <td class="info-block__values">${genre_ids.join(', ')}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="modal-description__about-title">Опис</p>
+      <p class="modal-description__about">
+        ${overview}
+      </p>
+      <div class="modal-buttons">
+        <button class="modal-button" data-action="watch" >Додати до  переглянутих</button>
+        <button class="modal-button" data-action="queue" >Додати до черги</button>
+      </div>
+    </div>
+  </section>`;
+} else {
   return `<section class="modal-content">
     <div class="modal-thumb">
       <img
@@ -54,4 +101,6 @@ export function createMarkupModal({
       </div>
     </div>
   </section>`;
+}
+  
 }
