@@ -92,7 +92,6 @@
         &__item {
             // width: calc((100% - 5px * 6) / 3);
             perspective: 400px;
-            // position: relative;
             float: left;
             width: 200px;
             height: 200px;
@@ -146,7 +145,7 @@
     opacity: .5;
     text-decoration: none;
 
-    /* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
     &:focus,
     &:hover {
         color: map-get($colors, 'accent');
@@ -170,9 +169,6 @@
 }
 
 @media (min-width: 900px) {
-    // .modal__dialog {
-    //     // max-width: 872px;
-    // }
     .modal__content {
         -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
         box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
@@ -267,47 +263,89 @@
     border-radius: 4px;
     pointer-events: none;
     background-color: map-get($colors, 'accent');
-    
+
+    &__name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // align-items: baseline;
+        margin-top: 10;
+        margin-bottom: 10;
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.8);
+        // border: 2px solid gray;
+        // border-style: outset;
+        // border-style: inset;
+    }
+
+    &__role {
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+    }
 }
 
-.info__icon {
-    z-index: 19000;
-}
-.info__name{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // align-items: baseline;
-    margin-top: 10;
-    margin-bottom: 10;
-}
 .modal__item h3 {
-   
     font-size: 16px;
     color: rgba(255, 255, 255, 0.9);
     // text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
     //     0px -5px 35px rgba(255, 255, 255, 0.3);
     padding-right: 5px;
-    
 }
 
-.info__role{
-text-transform: uppercase;
-position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
+/* свойства карточки, которая будет видна, когла на екране по 2 картки */
+.last__block {
+    background-color: map-get($colors, 'accent');
+    border-radius: 4px;
+    height: 200px;
+    width: 200px;
 }
 
+.blockquote {
+    position: relative;
+    padding: 30px 24px;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    color: map-get($colors, 'light');
+    // border-top: 2px solid #337AB7;
+    border-bottom: 2px solid map-get($colors, 'light');
+}
 
+.blockquote::after {
+    font-family: Times, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    content: "”";
+    color: map-get($colors, 'light');
+    font-size: 65px;
+    line-height: 0;
+    bottom: -40px;
+    right: 5px;
+    text-shadow: 2px 0 0 map-get($colors, 'main'), -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'), 0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'), -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'), -1px 1px 0 map-get($colors, 'main');
+}
 
-.info__text {
-    font-size: 12px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
-    // border: 2px solid white;
-    // border-style: outset;
-    // border-style: inset;
+.blockquote cite {
+    color: map-get($colors, 'main');
+    font-size: 15px;
+    padding-top: 10px;
+    display: block;
+}
+
+li[hidden] {
+    display: none;
+}
+
+@media (min-width: 440px) and (max-width: 655px) {
+    li[hidden] {
+        display: block;
+    }
 }
 
 .in-top .info {
