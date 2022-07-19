@@ -7,7 +7,6 @@ const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
 const weekBtn = document.querySelector('.week');
 
-
 let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
 
@@ -47,8 +46,6 @@ function trendingMarkup(time) {
                     class="list-films_card-info_card-film"
                     src=https://image.tmdb.org/t/p/original/${el.poster_path}
                     alt="movie poster"
-                    width="395"
-                    height="574"
                 />
                 <div class="list-films_card-info-footer">
                 <h2 class="list-films_card-info-footer-name-film">${el.title.slice(
