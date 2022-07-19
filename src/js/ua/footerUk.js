@@ -1,7 +1,7 @@
 export function footerUk() {
   return `
   <div class="container footer__container">
-    <span class="footer__text">© 2020 | всі права захищено | </span>
+    <span class="footer__text">© 2020 | Всі права захищено | </span>
 
     <div class="footer__text footer__text--down">
       <span class="footer__text">Розроблено з</span>

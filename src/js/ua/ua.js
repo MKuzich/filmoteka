@@ -1,5 +1,5 @@
 import { footerEn } from "./footerEn";
-import { footerUK } from "./footerUk";
+import { footerUk } from "./footerUk";
 
 const selectedLang = document.querySelector("#checkbox");
 
@@ -66,7 +66,7 @@ function uaVersion() {
   searchInput.setAttribute('placeholder',"Пошук фільмів");
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
-  footerCont.innerHTML = footerUK;
+  footerCont.innerHTML = footerUk();
 
 
 }
