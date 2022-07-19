@@ -23,8 +23,9 @@
     /* ширина модального окна и его отступы от экрана */
         &__dialog {
             position: relative;
-            width: auto;
-            margin: 10px;
+            // width: auto;
+            width: 632px;
+            margin: 30px auto; /* для отображения модального окна по центру */
         }
     
     /* свойства для блока, содержащего контент модального окна */
@@ -83,14 +84,15 @@
             -webkit-flex: 1 1 auto;
             -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-            padding: 15px;
+            // padding: 15px;
             // overflow: auto;
         }
     
     /* свойства размещения карточек */
         &__item {
+            width: calc((100% - 5px * 3) / 3);
             perspective: 400px;
-            position: relative;
+            // position: relative;
             float: left;
             width: 200px;
             height: 200px;
@@ -167,25 +169,22 @@
     }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 655px) {
     .modal__dialog {
-        max-width: 242px;
-        margin: 30px auto;
-        /* для отображения модального окна по центру */
+        max-width: 422px;
     }
 }
 
-@media (min-width: 576px) {
+@media (max-width: 440px) {
     .modal__dialog {
-        max-width: 452px;
-        margin: 30px auto;
+        max-width: 212px;
     }
 }
 
 @media (min-width: 900px) {
-    .modal__dialog {
-        max-width: 872px;
-    }
+    // .modal__dialog {
+    //     // max-width: 872px;
+    // }
     .modal__content {
         -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
         box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
