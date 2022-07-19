@@ -285,15 +285,16 @@ a {
 
 .selector.btn {
   min-width: 60px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 12px;
+  
 }
 
 .selector:first-child {
-  margin-right: 16px;
+  margin-right: 5px;
 }
 
 .selector.btn.act {
@@ -328,15 +329,15 @@ a {
 
 .login__btn.btn {
   min-width: 60px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 12px;
 }
 
 .login__btn:first-child {
-  margin-right: 16px;
+  margin-right: 5px;
 }
 
 .login-wrapper {

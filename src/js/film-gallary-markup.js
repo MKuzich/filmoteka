@@ -10,9 +10,7 @@ export function filmGallaryMarkup(array) {
             <img
                 class="list-films_card-info_card-film"
                 src=https://image.tmdb.org/t/p/original/${item.poster_path}
-                alt="movie poster"
-                width="395"
-                height="574"
+                alt="${item.title} poster"
             />
             <div class="list-films_card-info-footer">
             <h2 class="list-films_card-info-footer-name-film">${item.title.slice(

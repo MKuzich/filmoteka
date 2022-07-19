@@ -10,6 +10,7 @@ export let inputValue;
 form.addEventListener('submit', onFormSubmit);
 inputField.addEventListener('input', onInputChange);
 
+
 function onFormSubmit(evt) {
   evt.preventDefault();
   const page = 1;
@@ -40,6 +41,8 @@ export async function movieSearcher(searchText, pageNumber) {
     localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
 
     filmGallaryMarkup(result);
+    
+
   } catch (error) {
     console.error('Smth went wrong!');
   }
@@ -48,5 +51,6 @@ export async function movieSearcher(searchText, pageNumber) {
 
 function onInputChange() {
   headerWarning.textContent = "";
-  listFilms.innerHTML = "";
+  // listFilms.innerHTML = "";
+ 
   }
