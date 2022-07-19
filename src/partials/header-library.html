@@ -9,10 +9,10 @@
       </a>
       <nav class="navigation">
         <ul class="menu">
-          <li class="menu__item">
+          <li class="menu__item" id = 'home'>
             <a href="/src/index.html" class="menu__link">Home</a>
           </li>
-          <li class="menu__item">
+          <li class="menu__item" id = 'library'>
             <a
               href="/src/library.html"
               class="menu__link menu__link-library current"
@@ -27,6 +27,17 @@
         Watched
       </button>
       <button class="btn queue-btn" type="button" data-queue-btn>Queue</button>
+    </div>
+    <!--select language-->
+    <div class="select-lang">
+      <span class="span-lang">EN</span>
+
+      <div class="checkbox-group"> 
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label"></label>
+      </div>
+
+      <span class="span-lang">UA</span>
     </div>
     <div class="login-wrapper">
       <button type="button" class="login__btn btn" data-login-modal-open>

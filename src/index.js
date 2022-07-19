@@ -7,3 +7,4 @@ import './js/search-film';
 import './js/user-options';
 import './js/film-modal';
 import './js/ua/ua'
+import './js/ua/libr'

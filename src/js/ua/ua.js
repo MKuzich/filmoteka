@@ -1,5 +1,5 @@
-import { footerEn } from "./footerEn";
-import { footerUk } from "./footerUk";
+// import { footerEn } from "./footerEn";
+// import { footerUk } from "./footerUk";
 
 const selectedLang = document.querySelector("#checkbox");
 
@@ -9,19 +9,23 @@ const menuLibrary = document.querySelector('#library');
 const searchInput = document.querySelector('.search-form-input');
 const btnLogIn = document.querySelector('[data-login-modal-open]');
 const btnSignUp = document.querySelector('[data-signup-modal-open]');
-const footerCont = document.querySelector('.footer');
+const footerRights = document.querySelector('#footerRight');
+const developText = document.querySelector('#developText');
+const footerText = document.querySelector('#footerText');
+const footerStudent = document.querySelector('#footerStudent');
 
+const langValue = localStorage.getItem('localLang');
+// console.log(footerCont);
 
+if(langValue === 'uk') {
+  console.log(langValue);
 
-
-const langValue = localStorage.getItem('localLang')
-console.log(footerCont);
-
-if(localStorage.getItem('localLang')) {
   selectedLang.checked = true;
-  uaVersion()
+  uaVersion();
 
 } else {
+  console.log(langValue);
+
   selectedLang.checked = false;
   languege.setAttribute('html', 'en');
   enVersion();
@@ -50,7 +54,13 @@ function enVersion() {
   searchInput.setAttribute('placeholder',"Movie search");
   btnLogIn.textContent = 'Log in';
   btnSignUp.textContent = 'Sign up';
-  footerCont.innerHTML = footerEn();
+
+  // footer
+  footerRights.textContent = '© 2022 | All Rights Reserved |';
+  developText.textContent = 'Developed with';
+  footerText.textContent = 'by';
+  footerStudent.textContent = 'GoIT Students';
+
 
 }
 
@@ -66,7 +76,13 @@ function uaVersion() {
   searchInput.setAttribute('placeholder',"Пошук фільмів");
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
-  footerCont.innerHTML = footerUk();
+
+  // footer
+  footerRights.textContent = '© 2022 | Всі права захищено |';
+  developText.textContent = 'Розроблено зі';
+  footerText.textContent = '';
+  footerStudent.textContent = 'Cтудентами GoIt';
+  
 
 
 }
