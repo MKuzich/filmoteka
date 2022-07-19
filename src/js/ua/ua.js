@@ -1,4 +1,5 @@
 
+// import fo
 const selectedLang = document.querySelector("#checkbox");
 
 const languege = document.querySelector('html');
@@ -50,7 +51,7 @@ function enVersion() {
 function uaVersion() {
   // logoText.textContent = 'Фільмотека';
   languege.setAttribute('html', 'uk');
-  console.log('pislia '+languege.getAttribute('html'));
+  // console.log('pislia '+languege.getAttribute('html'));
   localLang();
 
 
