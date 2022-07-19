@@ -1,5 +1,5 @@
-import { signUpEn } from "./ua/signUpEn";
-import { signUpUk } from "./ua/signUpUk";
+import { logInUk } from "./ua/logInUk";
+import { logInEn } from "./ua/logInEn";
 
 const refs = {
   openModalBtn: document.querySelector('[data-login-modal-open]'),
@@ -8,7 +8,7 @@ const refs = {
   title: document.querySelector('.signup-modal'),
 };
 
-//global 
+
 const selectedLang = document.querySelector("#checkbox");
 
 
@@ -42,10 +42,10 @@ function openModal() {
   // console.log(selectedLang.checked);
   if(selectedLang.checked) {
     // console.log('uk');
-    refs.modal.innerHTML = signUpUk;
+    refs.modal.innerHTML = logInUk;
   } else {
     // console.log('en');
-    refs.modal.innerHTML = signUpEn;
+    refs.modal.innerHTML = logInEn;
 
   }
 }

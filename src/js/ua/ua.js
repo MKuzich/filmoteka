@@ -8,9 +8,6 @@ const searchInput = document.querySelector('.search-form-input');
 const btnLogIn = document.querySelector('[data-login-modal-open]');
 const btnSignUp = document.querySelector('[data-signup-modal-open]');
 
-//signUp Modal
-const signUpTitle = document.querySelector('signup-modal__title')
-console.log(signUpTitle);
 
 const langValue = localStorage.getItem('localLang')
 // console.log(langValue);

@@ -1,9 +1,9 @@
-export function signUpUk() {
+export function logInUk() {
     return `<div class="signup-modal">
     <button
       type="button"
       class="signup-modal__close-btn"
-      data-signup-modal-close
+      data-login-modal-close
     >
       <svg
         class="signup-modal__close-icon"
@@ -16,9 +16,9 @@ export function signUpUk() {
       </svg>
     </button>
     <h2 class="signup-modal__title">
-      Введіть мило і пароль для реєстрації
+      Введіть мило і пароль для входу
     </h2>
-    <form class="signup-form" data-signup-form>
+    <form class="signup-form" data-login-form>
       <div class="signup-form__field">
         <label class="signup-form__label">
           <span class="signup-form__name">Мило</span>
@@ -38,7 +38,7 @@ export function signUpUk() {
         </label>
       </div>
 
-      <button class="signup-form__btn" type="submit">Пароль</button>
+      <button class="signup-form__btn" type="submit">Вхід</button>
     </form>
   </div>`
 }

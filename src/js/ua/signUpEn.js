@@ -3,7 +3,7 @@ export function signUpEn() {
     <button
       type="button"
       class="signup-modal__close-btn"
-      data-login-modal-close
+      data-signup-modal-close
     >
       <svg
         class="signup-modal__close-icon"
@@ -16,9 +16,9 @@ export function signUpEn() {
       </svg>
     </button>
     <h2 class="signup-modal__title">
-      Enter your email and password for log in
+      Enter your email and password for sign up
     </h2>
-    <form class="signup-form" data-login-form>
+    <form class="signup-form" data-signup-form>
       <div class="signup-form__field">
         <label class="signup-form__label">
           <span class="signup-form__name">Email</span>
@@ -38,7 +38,7 @@ export function signUpEn() {
         </label>
       </div>
 
-      <button class="signup-form__btn" type="submit">Log in</button>
+      <button class="signup-form__btn" type="submit">Sign up</button>
     </form>
   </div>`
 }
