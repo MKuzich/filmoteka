@@ -287,11 +287,12 @@ a {
   margin-right: 16px;
 }
 
-// .current {
-//   border: 1px solid map-get($colors, 'active');
-//   background: map-get($colors, 'active');
-//   box-shadow: (0px 8px 43px map-get($colors, 'shadow'));
-// }
+.selector.btn.act {
+  border: 1px solid map-get($colors, 'active');
+  background: map-get($colors, 'active');
+  box-shadow: (0px 8px 43px map-get($colors, 'shadow'));
+  cursor: default;
+}
 
 .trending-selector {
   position: absolute;
