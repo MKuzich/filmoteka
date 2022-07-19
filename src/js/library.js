@@ -1,9 +1,9 @@
 import { authStatus } from './auth';
 
 // userLoginCheck(USER_ID);
-authStatus().then(uid => {
-  return console.log(uid);
-});
+// authStatus().then(uid => {
+//   return console.log(uid);
+// });
 
 function userLoginCheck(uid) {
   if (uid) {
