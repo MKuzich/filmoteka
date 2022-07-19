@@ -7,7 +7,7 @@ const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
 const weekBtn = document.querySelector('.week');
 
-// dayBtn.classList.add('act')
+
 let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
 
@@ -77,15 +77,15 @@ function trendingMarkup(time) {
 }
 
 function activeBtnDay() {
-  dayBtn.classList.add('current');
+  dayBtn.classList.add('act');
   dayBtn.disabled = true;
-  weekBtn.classList.remove('current');
+  weekBtn.classList.remove('act');
   weekBtn.disabled = false;
 }
 
 function activeBtnWeek() {
-  weekBtn.classList.add('current');
+  weekBtn.classList.add('act');
   weekBtn.disabled = true;
-  dayBtn.classList.remove('current');
+  dayBtn.classList.remove('act');
   dayBtn.disabled = false;
 }

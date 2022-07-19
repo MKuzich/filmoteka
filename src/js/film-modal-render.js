@@ -1,3 +1,4 @@
+import { moviesGenresConvertation } from './movies-genres-convertation';
 export function createMarkupModal({
   original_title,
   title,
@@ -40,7 +41,7 @@ export function createMarkupModal({
           </tr>
           <tr>
             <td class="info-block__keys">Genres</td>
-            <td class="info-block__values">${genre_ids.join(', ')}</td>
+            <td class="info-block__values">${moviesGenresConvertation(genre_ids).join(', ')}</td>
           </tr>
         </tbody>
       </table>
@@ -49,7 +50,7 @@ export function createMarkupModal({
         ${overview}
       </p>
       <div class="modal-buttons">
-        <button class="modal-button" data-action="watch" >Add to watched</button>
+        <button class="modal-button" data-action="watched" >Add to watched</button>
         <button class="modal-button" data-action="queue" >Add to queue</button>
       </div>
     </div>

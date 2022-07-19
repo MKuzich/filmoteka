@@ -6,14 +6,14 @@ const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
 const trendingSelector = document.querySelector('.trending-selector');
 const inputField = document.querySelector('input');
-
+export let inputValue;
 form.addEventListener('submit', onFormSubmit);
 inputField.addEventListener('input', onInputChange);
 
 function onFormSubmit(evt) {
   evt.preventDefault();
   const page = 1;
-  const inputValue = evt.target.elements.searchQuery.value.trim();
+  inputValue = evt.target.elements.searchQuery.value.trim();
 
   if (!inputValue) {
     return (headerWarning.textContent =
