@@ -1,3 +1,4 @@
+import { moviesGenresConvertation } from './movies-genres-convertation';
 export function createMarkupModal({
   original_title,
   title,
@@ -40,7 +41,7 @@ export function createMarkupModal({
           </tr>
           <tr>
             <td class="info-block__keys">Genres</td>
-            <td class="info-block__values">${genre_ids.join(', ')}</td>
+            <td class="info-block__values">${moviesGenresConvertation(genre_ids).join(', ')}</td>
           </tr>
         </tbody>
       </table>
