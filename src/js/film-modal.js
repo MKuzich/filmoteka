@@ -55,6 +55,10 @@ function openModal(e) {
     watched: [],
     queue: [],
   };
+    // Создаем пустое хранилище, если до этого его небыло
+  if (!JSON.parse(localStorage.getItem(USER_ID))) {
+    localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+  }
 
   const modalButtonsRef = document.querySelector('.modal-buttons');
   const btns = Array.from(modalButtonsRef.children);
@@ -76,11 +80,12 @@ function openModal(e) {
       alert('please log in or sign up');
       return;
     }
+  // // Создаем пустое хранилище, если до этого его небыло
+  // if (!JSON.parse(localStorage.getItem(USER_ID))) {
+  //   localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+  // }
 
-    // Создаем пустое хранилище, если до этого его небыло
-    if (!JSON.parse(localStorage.getItem(USER_ID))) {
-      localStorage.setItem(USER_ID, JSON.stringify(arrayData));
-    }
+    
 
     // Вытягиваем из хранилища текущие данные, для дальнейшей работы
     arrayData = JSON.parse(localStorage.getItem(USER_ID));
