@@ -1,5 +1,6 @@
+import { footerEn } from "./footerEn";
+import { footerUK } from "./footerUk";
 
-// import fo
 const selectedLang = document.querySelector("#checkbox");
 
 const languege = document.querySelector('html');
@@ -8,10 +9,13 @@ const menuLibrary = document.querySelector('#library');
 const searchInput = document.querySelector('.search-form-input');
 const btnLogIn = document.querySelector('[data-login-modal-open]');
 const btnSignUp = document.querySelector('[data-signup-modal-open]');
+const footerCont = document.querySelector('.footer');
+
+
 
 
 const langValue = localStorage.getItem('localLang')
-// console.log(langValue);
+console.log(footerCont);
 
 if(localStorage.getItem('localLang')) {
   selectedLang.checked = true;
@@ -46,6 +50,8 @@ function enVersion() {
   searchInput.setAttribute('placeholder',"Movie search");
   btnLogIn.textContent = 'Log in';
   btnSignUp.textContent = 'Sign up';
+  footerCont.innerHTML = footerEn();
+
 }
 
 function uaVersion() {
@@ -60,6 +66,7 @@ function uaVersion() {
   searchInput.setAttribute('placeholder',"Пошук фільмів");
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
+  footerCont.innerHTML = footerUK;
 
 
 }
