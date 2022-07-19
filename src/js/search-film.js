@@ -33,8 +33,12 @@ export async function movieSearcher(searchText, pageNumber) {
 
     if (result.length === 0) {
       return (headerWarning.textContent =
-        'There are not any matches! Try again, please!');
+        'Search result is not successful. Enter the correct movie name, please!');
     }
+
+    localStorage.setItem('downloadedMovies', JSON.stringify(''));
+    localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
+
     filmGallaryMarkup(result);
   } catch (error) {
     console.error('Smth went wrong!');

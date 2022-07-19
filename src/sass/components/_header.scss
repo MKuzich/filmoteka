@@ -263,6 +263,9 @@ a {
 }
 
 .warning-notification {
+  position: absolute;
+  left: 20px;
+  top: 10px;
   width: 280px;
   margin: 16px auto 16px;
   font-size: 14px;
@@ -271,6 +274,10 @@ a {
   color: map-get($colors, 'alarm');
   @include respond-to('tablet') {
     margin-top: 20px;
+    left: 245px;
+  }
+  @include respond-to('desktop') {
+    left: 500px;
   }
 }
 
