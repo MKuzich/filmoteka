@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   background-color: #0000008f;
-  &--hidden{
+  &--hidden {
     display: none;
   }
 }
@@ -18,58 +18,52 @@
 .modal-card {
   overflow: auto;
   position: absolute;
-  // top: 50%;
-  // top:0;
+  border-radius: 5px;
   left: 50%;
-  // transform: translate(-50%, -50%) scale(1);
   transform: translate(-50%);
   background-color: #fff;
   max-width: 344px;
   margin: 0 auto;
   padding: 48px 20px 40px;
   min-width: 280px;
-  // height: 100vh;
-  max-height: 940px;
-  @include respond-to ('tablet') {
+  max-height: 100vh;
+  @include respond-to('tablet') {
     max-width: 704px;
     width: 100%;
     min-height: 450px;
-    padding: 40px 36px ;
-    // display: flex;
-    top:50%;
-    transform: translate(-50%, -50%)
+    padding: 40px 36px;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
-  @include respond-to ('desktop') {
+  @include respond-to('desktop') {
     max-width: 806px;
-    width: 100%;
-    // height: auto;
     min-height: 550px;
     padding: 40px 12px;
   }
 }
 .modal-close {
-    padding: 0;
-    background-color: #0000;
-    border: none;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    &__button-icon {
-      stroke: #000;
-      width: 30px;
-      height: 30px;
-      &:hover {
-        stroke: map-get($colors, 'accent' );
-        cursor: pointer;
-      }
+  padding: 0;
+  background-color: #0000;
+  border: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  &__button-icon {
+    stroke: #000;
+    width: 30px;
+    height: 30px;
+    &:hover {
+      stroke: map-get($colors, 'accent');
+      cursor: pointer;
     }
   }
-  
+}
+
 .modal-content {
-    display: block;
-    @include respond-to('tablet') {
-        display: flex;
-    }
+  display: block;
+  @include respond-to('tablet') {
+    display: flex;
+  }
 }
 .modal-thumb {
   max-width: 240px;
@@ -78,29 +72,24 @@
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    
   }
-  @include respond-to ('tablet') {
-    // max-width: 264px;
+  @include respond-to('tablet') {
     min-width: 264px;
-    // width: 100%;
     max-height: 374px;
     margin: 0;
   }
-  @include respond-to ('desktop') {
+  @include respond-to('desktop') {
     min-width: 375px;
     max-height: 478px;
   }
 }
-.modal-description{
-    // display: flex;
-    @include respond-to('tablet'){
-        margin-left: 68px;
-        // display: flex;
-    }
-    @include respond-to('desktop') {
-        margin-left: 16px;
-    }
+.modal-description {
+  @include respond-to('tablet') {
+    margin-left: 68px;
+  }
+  @include respond-to('desktop') {
+    margin-left: 16px;
+  }
 }
 
 .modal-description__title {
@@ -120,13 +109,13 @@
 }
 
 .modal-description__info-block {
-    border-spacing: 0;
+  border-spacing: 0;
   margin-bottom: 20px;
-  &  tr {
+  & tr {
     margin-bottom: 8px;
     display: block;
-    &:last-child{
-        margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
@@ -172,6 +161,9 @@
   font-weight: 500;
   line-height: 1.66;
   margin-bottom: 20px;
+  max-height: 236px;
+  padding-right: 7px;
+  overflow-y: auto;
   &-title {
     font-size: 12px;
     text-transform: uppercase;
@@ -184,10 +176,9 @@
 .modal-buttons {
   display: flex;
   justify-content: space-between;
-  @include respond-to ('tablet') {
+  @include respond-to('tablet') {
     justify-content: flex-start;
   }
-
 }
 
 .modal-button {
@@ -212,10 +203,10 @@
     color: #fff;
     border-color: #ff6b01;
   }
-  @include respond-to ('tablet'){
+  @include respond-to('tablet') {
     min-width: 125px;
   }
-  @include respond-to ('desktop') {
+  @include respond-to('desktop') {
     min-width: 136px;
   }
 }

@@ -7,7 +7,6 @@ const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
 const weekBtn = document.querySelector('.week');
 
-// dayBtn.classList.add('act')
 let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
 
@@ -43,13 +42,13 @@ function trendingMarkup(time) {
           el =>
             `<li class="link list-films_card" data-id="${el.id}">
             <a class="link list-films_card-info">
-                <img
+                <div class="card-image__wrapper">
+                    <img
                     class="list-films_card-info_card-film"
                     src=https://image.tmdb.org/t/p/original/${el.poster_path}
                     alt="movie poster"
-                    width="395"
-                    height="574"
                 />
+                </div>
                 <div class="list-films_card-info-footer">
                 <h2 class="list-films_card-info-footer-name-film">${el.title.slice(
                   0,
@@ -77,15 +76,15 @@ function trendingMarkup(time) {
 }
 
 function activeBtnDay() {
-  dayBtn.classList.add('current');
+  dayBtn.classList.add('act');
   dayBtn.disabled = true;
-  weekBtn.classList.remove('current');
+  weekBtn.classList.remove('act');
   weekBtn.disabled = false;
 }
 
 function activeBtnWeek() {
-  weekBtn.classList.add('current');
+  weekBtn.classList.add('act');
   weekBtn.disabled = true;
-  dayBtn.classList.remove('current');
+  dayBtn.classList.remove('act');
   dayBtn.disabled = false;
 }

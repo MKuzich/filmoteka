@@ -263,6 +263,9 @@ a {
 }
 
 .warning-notification {
+  position: absolute;
+  left: 20px;
+  
   width: 280px;
   margin: 16px auto 16px;
   font-size: 14px;
@@ -271,27 +274,35 @@ a {
   color: map-get($colors, 'alarm');
   @include respond-to('tablet') {
     margin-top: 20px;
+    left: 245px;
+
+  }
+  @include respond-to('desktop') {
+    left: 500px;
+    
   }
 }
 
 .selector.btn {
   min-width: 60px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 12px;
+  
 }
 
 .selector:first-child {
-  margin-right: 16px;
+  margin-right: 5px;
 }
 
-// .current {
-//   border: 1px solid map-get($colors, 'active');
-//   background: map-get($colors, 'active');
-//   box-shadow: (0px 8px 43px map-get($colors, 'shadow'));
-// }
+.selector.btn.act {
+  border: 1px solid map-get($colors, 'active');
+  background: map-get($colors, 'active');
+  box-shadow: (0px 8px 43px map-get($colors, 'shadow'));
+  cursor: default;
+}
 
 .trending-selector {
   position: absolute;
@@ -318,15 +329,15 @@ a {
 
 .login__btn.btn {
   min-width: 60px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 12px;
 }
 
 .login__btn:first-child {
-  margin-right: 16px;
+  margin-right: 5px;
 }
 
 .login-wrapper {
