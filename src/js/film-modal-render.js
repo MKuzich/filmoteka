@@ -7,11 +7,8 @@ export function createMarkupModal({
   popularity,
   overview,
   poster_path,
-  genre_ids
+  genre_ids,
 }) {
-
-//   const genres = localStorage.getItem('genres')
-
   return `<section class="modal-content">
     <div class="modal-thumb">
       <img
@@ -27,7 +24,9 @@ export function createMarkupModal({
           <tr>
             <td class="info-block__keys">Vote / Votes</td>
             <td class="info-block__values">
-              <span class="info-block__values--orange">${vote_average.toFixed(1)}</span> /
+              <span class="info-block__values--orange">${vote_average.toFixed(
+                1
+              )}</span> /
               <span class="info-block__values--gray">${vote_count}</span>
             </td>
           </tr>
@@ -41,7 +40,9 @@ export function createMarkupModal({
           </tr>
           <tr>
             <td class="info-block__keys">Genres</td>
-            <td class="info-block__values">${moviesGenresConvertation(genre_ids).join(', ')}</td>
+            <td class="info-block__values">${moviesGenresConvertation(
+              genre_ids
+            ).join(', ')}</td>
           </tr>
         </tbody>
       </table>

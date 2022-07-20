@@ -1,28 +1,30 @@
 import { createMarkupModal } from './film-modal-render';
 import { USER_ID } from './auth';
 
-const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
+// const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
+const modalBackdropRef = document.querySelector('[data-film-modal]');
+// console.log(modalBackdropRef);
+
 const modalCardRef = document.querySelector('.modal-card');
 const modalCloseBtnRef = document.querySelector('.modal-close');
 const listFilmsRef = document.querySelector('.list-films');
 
 listFilmsRef.addEventListener('click', openModal);
+
 //Функия рендера разметки, принимает массив с данными о фильме
 function renderModalMarkup(data) {
   return modalCardRef.insertAdjacentHTML('beforeend', createMarkupModal(data));
 }
 
 function closeModal() {
-  //Очищаем разметку
-  modalCardRef.lastChild.remove();
   //Удаляем слушатель кнопки закрытия модалки
   modalCloseBtnRef.removeEventListener('click', closeModal);
 
   //Скрываем модалку
-  modalBackdropRef.classList.replace(
-    'modal-backdrop',
-    'modal-backdrop--hidden'
-  );
+  modalBackdropRef.classList.add('is-hidden');
+
+  //Очищаем разметку
+  modalCardRef.lastChild.remove();
 }
 
 function openModal(e) {
@@ -30,13 +32,15 @@ function openModal(e) {
   if (!e.target.closest('li')) {
     return;
   }
+
+  let arrayData = {};
+
   //Добавление слушателя на кнопку закрытия
   modalCloseBtnRef.addEventListener('click', closeModal);
+
   //Отображение модалки
-  modalBackdropRef.classList.replace(
-    'modal-backdrop--hidden',
-    'modal-backdrop'
-  );
+  modalBackdropRef.classList.remove('is-hidden');
+
   // id фильма с карточки
   const filmId = Number(e.target.closest('li').dataset.id);
   //массив популярных фильмов с локального хранилища
@@ -46,26 +50,32 @@ function openModal(e) {
   const currentFilmData = localDataFilm.find(film => {
     return film.id === filmId;
   });
+  console.log(currentFilmData);
   //Рендер разметки в модальном окне
   renderModalMarkup(currentFilmData);
+  //
+  const modalButtonsRef = document.querySelector('.modal-buttons');
 
   ////////////////////////////////////////////////////////////////////////////////
 
-  let arrayData = {
-    watched: [],
-    queue: [],
-  };
-    // Создаем пустое хранилище, если до этого его небыло
-  if (!JSON.parse(localStorage.getItem(USER_ID))) {
-    localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+  function refreshEmptyArray(btnsArr) {
+    console.log(btnsArr);
+    btnsArr.map(e => {
+      console.log(e.dataset.action);
+      arrayData[e.dataset.action] = [];
+      console.log(arrayData);
+    });
   }
 
-  const modalButtonsRef = document.querySelector('.modal-buttons');
-  const btns = Array.from(modalButtonsRef.children);
-  // console.log(modalButtonsRef);
+  // Создаем пустое хранилище, если до этого его небыло
+  if (USER_ID) {
+    if (!JSON.parse(localStorage.getItem(USER_ID))) {
+      refreshEmptyArray(btns(modalButtonsRef));
+      localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+    }
+  }
 
   modalButtonsRef.addEventListener('click', e => {
-    // console.log('click');
     const key = e.target.dataset.action;
 
     addToLocal(currentFilmData, key);
@@ -80,12 +90,7 @@ function openModal(e) {
       alert('please log in or sign up');
       return;
     }
-  // // Создаем пустое хранилище, если до этого его небыло
-  // if (!JSON.parse(localStorage.getItem(USER_ID))) {
-  //   localStorage.setItem(USER_ID, JSON.stringify(arrayData));
-  // }
-
-    
+    refreshModalButtons(filmId);
 
     // Вытягиваем из хранилища текущие данные, для дальнейшей работы
     arrayData = JSON.parse(localStorage.getItem(USER_ID));
@@ -103,9 +108,10 @@ function openModal(e) {
   }
 
   function removeToLocal(data, id, key) {
-    btns.map(e => {
+    btns(modalButtonsRef).map(e => {
       if (e.dataset.action === key) {
         e.textContent = `Add to ${key}`;
+        e.classList.replace('modal-button--active','modal-button')
         return;
       }
     });
@@ -116,15 +122,20 @@ function openModal(e) {
   function refreshModalButtons(filmId) {
     arrayData = JSON.parse(localStorage.getItem(USER_ID));
 
-    btns.map(e => {
-      const key = e.dataset.action;
-      arrayData[key].map(i => {
-        if (i.id === filmId) {
-          e.textContent = `Remove from ${key}`;
-
-          return;
+    btns(modalButtonsRef).map(btnRef => {
+      const key = btnRef.dataset.action;
+      console.log(key);
+      arrayData[key].map(filmData => {
+        console.log(filmData);
+        if (filmData.id === filmId) {
+          // console.log(1);
+          btnRef.textContent = `Remove from ${key}`;
+          btnRef.classList.replace('modal-button','modal-button--active')
         }
       });
     });
+  }
+  function btns(ref) {
+    return Array.from(ref.children);
   }
 }
