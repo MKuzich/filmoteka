@@ -1,17 +1,19 @@
 import { fetchTrendingMovies } from './api/api-service-trending';
 import { fetchMovieGenres } from './api/api-service-genres';
 import { moviesGenresConvertation } from './movies-genres-convertation';
+import { currentPage } from './pagination';
+import { createMarkupPaginationBtn } from './pagination-markup';
 
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
 const weekBtn = document.querySelector('.week');
 
-let TIME_WINDOW = 'day';
+export let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
 
 fetchMovieGenres();
-trendingMarkup(TIME_WINDOW);
+trendingMarkup(TIME_WINDOW, currentPage);
 
 dayBtn.addEventListener('click', timeChangeDay);
 
@@ -30,13 +32,14 @@ function timeChangeWeek() {
   trendingMarkup(TIME_WINDOW);
 }
 
-function trendingMarkup(time) {
+export function trendingMarkup(time, page) {
   trendingSelector.classList.remove('visually-hidden');
-  fetchTrendingMovies(time)
+  fetchTrendingMovies(time, page)
     .then(({ data }) => {
       localStorage.setItem('downloadedMovies', JSON.stringify(''));
       localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
       console.log(data);
+      createMarkupPaginationBtn(data.total_pages);
       const markup = data.results
         .map(
           el =>
@@ -67,7 +70,7 @@ function trendingMarkup(time) {
             </li>`
         )
         .join('');
-
+      listFilms.innerHTML = '';
       listFilms.insertAdjacentHTML('afterbegin', markup);
     })
     .catch(error => {
