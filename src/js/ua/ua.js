@@ -29,14 +29,13 @@ const footerText = document.querySelector('#footerText');
 const footerStudent = document.querySelector('#footerStudent');
 
 const langValue = localStorage.getItem('localLang');
-// console.log(footerCont);
 
-// islanguegeSelect(langValue);
 if(langValue === 'uk') {
-  console.log(langValue);
+  
 
   selectedLang.checked = true;
   uaVersion();
+  console.log(langValue, selectedLang.checked);
 
 } else {
   console.log(langValue);

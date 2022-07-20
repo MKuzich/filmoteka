@@ -46,6 +46,8 @@ if(langValue === 'uk') {
 selectedLang.addEventListener('input',onChange);
 
 function onChange (evt)  {
+  console.log(selectedLang.checked);
+
     evt.preventDefault();
       if(!selectedLang.checked) {
           enVersion();
@@ -61,6 +63,9 @@ function enVersion() {
 
     btnWatched.textContent = 'Watched';
     btnQueue.textContent ='Queue';
+
+    menuHome.textContent = 'Home';
+    menuLibrary.textContent = 'My library';
 
     btnLogIn.textContent = 'Log in';
     btnSignUp.textContent = 'Sign up';
@@ -85,6 +90,9 @@ function enVersion() {
     developText.textContent = 'Developed with';
     footerText.textContent = 'by';
     footerStudent.textContent = 'GoIT Students';
+
+    languege.setAttribute('html', 'en');
+  localLang();
 
     
 }
