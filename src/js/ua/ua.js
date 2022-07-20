@@ -1,6 +1,6 @@
 
 const selectedLang = document.querySelector("#checkbox");
-// header
+// headerHome
 const languege = document.querySelector('html');
 const menuHome = document.querySelector('#home');
 const menuLibrary = document.querySelector('#library');
@@ -13,8 +13,12 @@ const modalLogInTitle = document.querySelector('#logInTitle');
 const modalLogInEmail = document.querySelector('#logInEmail');
 const modalLogInPassword = document.querySelector('#logInPassword');
 const modalbtnLogIn = document.querySelector('#logInBtn')
-// console.log(modalLogInTitle);
 
+//signUp
+const modalSignUpTitle = document.querySelector('#signUpTitle');
+const modalSignUpEmail = document.querySelector('#signUpEmail');
+const modalSignUpPassword = document.querySelector('#signUpPasswoerd');
+const modalBtnSignUp = document.querySelector('#btnSignUp');
 
 //footer
 const footerRights = document.querySelector('#footerRight');
@@ -68,6 +72,13 @@ function enVersion() {
   modalLogInEmail.textContent =  'Email';
   modalLogInPassword.textContent = 'Password';
   modalbtnLogIn.textContent = 'Log in';
+
+  //signUp
+  modalSignUpTitle.textContent = 'Enter your email and password for sign up';
+  modalSignUpEmail.textContent = 'Email';
+  modalLogInPassword.textContent = 'Password';
+  modalBtnSignUp.textContent = 'Sign up';
+
   
 
   // footer
@@ -75,14 +86,10 @@ function enVersion() {
   developText.textContent = 'Developed with';
   footerText.textContent = 'by';
   footerStudent.textContent = 'GoIT Students';
-
-
 }
 
 function uaVersion() {
-  // logoText.textContent = 'Фільмотека';
   languege.setAttribute('html', 'uk');
-  // console.log('pislia '+languege.getAttribute('html'));
   localLang();
 
   //header
@@ -97,16 +104,18 @@ function uaVersion() {
   modalLogInEmail.textContent = 'Електронна скринька';
   modalLogInPassword.textContent = 'Пароль';
   modalbtnLogIn.textContent = 'Вхід';
-  
+
+  //signUp
+  modalSignUpTitle.textContent = 'Введіть електрону скриньку та пароль для реєстрації';
+  modalSignUpEmail.textContent = 'Електронна скринька';
+  modalLogInPassword.textContent = 'Пароль';
+  modalBtnSignUp.textContent = 'Зареєструватися';
   
   // footer
   footerRights.textContent = '© 2022 | Всі права захищено |';
   developText.textContent = 'Розроблено зі';
   footerText.textContent = '';
   footerStudent.textContent = 'Cтудентами GoIt';
-  
-
-
 }
 
 

@@ -1,6 +1,3 @@
-import { signUpEn } from "./ua/signUpEn";
-import { signUpUk } from "./ua/signUpUk";
-
 const refs = {
   openModalBtn: document.querySelector('[data-signup-modal-open]'),
   closeModalBtn: document.querySelector('[data-signup-modal-close]'),
@@ -35,13 +32,5 @@ function openModal() {
   refs.modal.classList.remove('is-hidden');
   document.addEventListener('keydown', closeModalOnEsc);
   refs.modal.addEventListener('click', closeSignupModalOnAreaClick);
-
-  if (selectedLang.checked) {
-    console.log('uk');
-    refs.modal.innerHTML = signUpUk;    
-  } else {
-console.log('en')
-    refs.modal.innerHTML = signUpEn;
-  }
 
 }
