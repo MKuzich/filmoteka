@@ -7,9 +7,16 @@ const auth = getAuth();
 onAuthStateChanged(auth, user => {
   if (user) {
     USER_ID = user.uid;
+    watched.classList.add('library-active-btn');
+    watched.removeAttribute('disabled');
+    queue.removeAttribute('disabled');
     markupLibraryRender(USER_ID);
   } else {
-    alert('You must be loginned for using this function!');
+    const markup = `<strong class="library-warning">You must be loginned for using this library! Please log in or sign up!</strong>`;
+    listFilms.innerHTML = '';
+    listFilms.insertAdjacentHTML('afterbegin', markup);
+    watched.setAttribute('disabled', 'disabled');
+    queue.setAttribute('disabled', 'disabled');
   }
 });
 
@@ -24,10 +31,14 @@ queue.addEventListener('click', onClickFilterChange);
 function onClickFilterChange(e) {
   if (e.target.hasAttribute('data-watched-btn')) {
     FILTER = 'watched';
+    watched.classList.add('library-active-btn');
+    queue.classList.remove('library-active-btn');
     markupLibraryRender(USER_ID);
     return;
   }
   FILTER = 'queue';
+  watched.classList.remove('library-active-btn');
+  queue.classList.add('library-active-btn');
   markupLibraryRender(USER_ID);
 }
 
@@ -58,7 +69,12 @@ function markupLibraryRender(uid) {
                 item.genre_ids
               )}</p>
               <p class="list-films_card-info-footer-production-year">
-                  for example
+                  ${item.release_date.slice(
+                    0,
+                    4
+                  )} <span class="info-block__values--orange">${item.vote_average.toFixed(
+        1
+      )}</span>
               </p>
               </div>
             </div>
