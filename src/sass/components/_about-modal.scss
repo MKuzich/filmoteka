@@ -1,35 +1,44 @@
-/* модалка */
-.modal {
+.footer__backdrop {
     position: fixed;
-    /* фиксированное положение */
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    background: map-get($colors, 'header-gr');
-    /* цвет фона */
     z-index: 1050;
-    opacity: 0;
-    /* по умолчанию модальное окно прозрачно */
-    -webkit-transition: opacity 200ms ease-in;
-    -moz-transition: opacity 200ms ease-in;
-    transition: opacity 200ms ease-in;
-    /* анимация перехода */
-    pointer-events: none;
-    /* элемент невидим для событий мыши */
-    margin: 0;
-    padding: 0;
-
-    /* ширина модального окна и его отступы от экрана */
-        &__dialog {
-            position: relative;
-            // width: auto;
-            width: 632px;
-            margin: 30px auto; /* для отображения модального окна по центру */
-        }
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity $chang-time $chang-func;
+    background-color: map-get($colors, 'header-gr');
+    overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     
-    /* свойства для блока, содержащего контент модального окна */
-        &__content {
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+}
+
+.footer__backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+        &.footer-modal {
+            transform: translate(-50%, -50%) scale(0.1);
+        }
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+    .footer-modal { /* ширина модального окна и его отступы от экрана */
+        position: relative;
+        width: 632px;
+        margin: 30px auto;
+            @media (max-width: 655px) { max-width: 422px; }           
+            @media (max-width: 440px) { max-width: 212px; }
+
+        &__content { /* свойства для блока, содержащего контент модального окна */
             position: relative;
             display: -webkit-box;
             display: -webkit-flex;
@@ -46,10 +55,14 @@
             border: 1px solid rgba(0, 0, 0, .2);
             border-radius: .3rem;
             outline: 0;
+
+            @media (min-width: 900px) {
+                -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, .5);                   
+            }
         }
 
-    /* свойства для хедера и заголовка модального окна */
-        &__header {
+        &__header { /* свойства для хедера и заголовка модального окна */
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -76,41 +89,20 @@
             justify-content: center;
             color: map-get($colors, 'light');
         }
-    
-    /* свойства для блока, содержащего основное содержимое окна */
-        &__body {
+
+        &__logo {
+            display: flex;
+            align-items: center;
+        }
+
+        &__body { /* свойства для блока, содержащего основное содержимое окна */
             position: relative;
             -webkit-box-flex: 1;
             -webkit-flex: 1 1 auto;
             -ms-flex: 1 1 auto;
             flex: 1 1 auto;
-            // padding: 15px;
-            // overflow: auto;
         }
-    
-    /* свойства размещения карточек */
-        &__item {
-            // width: calc((100% - 5px * 6) / 3);
-            perspective: 400px;
-            float: left;
-            width: 200px;
-            height: 200px;
-            margin: 5px;
-            padding: 0;
-            list-style: none;
-        }
-    
-        &__list {
-            padding: 0;
-            margin: 0 auto;
-        }
-    
-        &__list:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    
+
         &__img {
             width: 100%;
             height: 100%;
@@ -121,18 +113,94 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
+        &__item { /* свойства разметки карточек */
+            // width: calc((100% - 5px * 6) / 3);
+            perspective: 400px;
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            padding: 0;
+            list-style: none;
+        }
+        
+        &__list {
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        &__list:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 }
 
+.footer-modal__item h3 {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    // text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+    //     0px -5px 35px rgba(255, 255, 255, 0.3);
+    padding-right: 5px;
+}
+
+/* свойства карточки, которая будет видна, когла на екране по 2 картки */
+li[hidden] {
+    display: none;
+
+    @media (min-width: 440px) and (max-width: 655px) {
+        display: block;
+    }
+}
+
+.last__block {
+    background-color: map-get($colors, 'accent');
+    border-radius: 4px;
+    height: 200px;
+    width: 200px;
+}
+
+.blockquote {
+    position: relative;
+    padding: 30px 24px;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    color: map-get($colors, 'light');
+    // border-top: 2px solid #337AB7;
+    border-bottom: 2px solid map-get($colors, 'light');
+
+    &::after {
+            font-family: Times, sans-serif;
+            font-weight: bold;
+            position: absolute;
+            content: "”";
+            color: map-get($colors, 'light');
+            font-size: 65px;
+            line-height: 0;
+            bottom: -40px;
+            right: 5px;
+            text-shadow: 2px 0 0 map-get($colors, 'main'), -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'), 0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'), -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'), -1px 1px 0 map-get($colors, 'main');
+        }
+
+    &__cite {
+        color: map-get($colors, 'main');
+        font-size: 15px;
+        padding-top: 10px;
+        display: block;
+    }
+}
 
 /* при отображении модального окно */
-.modal:target {
-    opacity: 1;
+// .modal:target {
+    // opacity: 1;
     /* делаем окно видимым */
-    pointer-events: auto;
-    /* элемент видим для событий мыши */
-    overflow-y: auto;
+    // pointer-events: auto;
+    // /* элемент видим для событий мыши */
+    // overflow-y: auto;
     /* добавляем прокрутку по y, когда элемент не помещается на страницу */
-}
+// }
 
 /* свойства для кнопки "Закрыть" */
 .close {
@@ -156,25 +224,6 @@
     }
 }
 
-@media (max-width: 655px) {
-    .modal__dialog {
-        max-width: 422px;
-    }
-}
-
-@media (max-width: 440px) {
-    .modal__dialog {
-        max-width: 212px;
-    }
-}
-
-@media (min-width: 900px) {
-    .modal__content {
-        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-    }
-}
-
 /* свойства для анимации логотипа */
 .cub_wrapper {
     perspective: 500px;
@@ -182,12 +231,7 @@
 
     .header__icon {
         stroke: map-get($colors, 'accent');
-    }
-}
-
-.header__logo {
-    display: flex;
-    align-items: center;
+        }
 }
 
 .cube {
@@ -247,11 +291,7 @@
     }
 }
 
-
-/* the important bits */
-@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
-
-/* свойства эффектов */
+/* свойства инфо карт + эффектов */
 .info {
     transform: rotate3d(1, 0, 0, 90deg);
     width: 100%;
@@ -262,13 +302,16 @@
     left: 0;
     border-radius: 4px;
     pointer-events: none;
+    // @media (min-width: 440px) and (max-width: 655px) {
+    //     pointer-events: all;
+    // }
     background-color: map-get($colors, 'accent');
 
     &__name {
         display: flex;
         justify-content: center;
         align-items: center;
-        // align-items: baseline;
+        align-items: painted;
         margin-top: 10;
         margin-bottom: 10;
     }
@@ -291,62 +334,9 @@
     }
 }
 
-.modal__item h3 {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-    // text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
-    //     0px -5px 35px rgba(255, 255, 255, 0.3);
-    padding-right: 5px;
-}
-
-/* свойства карточки, которая будет видна, когла на екране по 2 картки */
-.last__block {
-    background-color: map-get($colors, 'accent');
-    border-radius: 4px;
-    height: 200px;
-    width: 200px;
-}
-
-.blockquote {
-    position: relative;
-    padding: 30px 24px;
-    margin: 0;
-    font-size: 16px;
-    text-align: center;
-    color: map-get($colors, 'light');
-    // border-top: 2px solid #337AB7;
-    border-bottom: 2px solid map-get($colors, 'light');
-}
-
-.blockquote::after {
-    font-family: Times, sans-serif;
-    font-weight: bold;
-    position: absolute;
-    content: "”";
-    color: map-get($colors, 'light');
-    font-size: 65px;
-    line-height: 0;
-    bottom: -40px;
-    right: 5px;
-    text-shadow: 2px 0 0 map-get($colors, 'main'), -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'), 0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'), -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'), -1px 1px 0 map-get($colors, 'main');
-}
-
-.blockquote cite {
-    color: map-get($colors, 'main');
-    font-size: 15px;
-    padding-top: 10px;
-    display: block;
-}
-
-li[hidden] {
-    display: none;
-}
-
-@media (min-width: 440px) and (max-width: 655px) {
-    li[hidden] {
-        display: block;
-    }
-}
+// .info__icon{
+//     pointer-events: painted;
+// }
 
 .in-top .info {
     transform-origin: 50% 0%;

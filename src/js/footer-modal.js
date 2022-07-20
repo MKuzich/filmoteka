@@ -1,15 +1,35 @@
-document.addEventListener("DOMContentLoaded", function(){
-  var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
-  document.querySelector('[href="#openModal"]').addEventListener('click',function(){
-    document.body.style.overflow = 'hidden';
-    document.querySelector('#openModal').style.marginLeft = scrollbar;
-  });
-  document.querySelector('[href="#close"]').addEventListener('click',function(){
-    document.body.style.overflow = 'visible';
-    document.querySelector('#openModal').style.marginLeft = '0px';
-  });
-});
+const refs = {
+  openModal: document.querySelector('.footer__link'),
+  closeModal: document.querySelector('[data-footer-modal-close]'),
+  modalWindow: document.querySelector('[data-footer-modal]'),
+};
 
+refs.openModal.addEventListener('click', openFooterModal);
+refs.closeModal.addEventListener('click', closeFooterModal);
+
+function openFooterModal() {
+  document.body.classList.add('modal-open');
+  refs.modalWindow.classList.remove('is-hidden');
+  document.addEventListener('keydown', closeModalOnEsc);
+  refs.modalWindow.addEventListener('click', closeFooterModalOnAreaClick);
+}
+
+function closeFooterModal() {
+  document.body.classList.remove('modal-open');
+  refs.modalWindow.classList.add('is-hidden');
+  document.removeEventListener('keydown', closeModalOnEsc);
+  refs.modalWindow.removeEventListener('click', closeFooterModalOnAreaClick);
+}
+
+function closeFooterModalOnAreaClick(e) {
+  if (e.target.classList.contains('footer__backdrop')) {
+    closeFooterModal();
+  }
+}
+
+function closeModalOnEsc(e) {
+  e.key === 'Escape' ? closeFooterModal() : null;
+}
 
 // ефект для карточек
 
