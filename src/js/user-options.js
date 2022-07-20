@@ -9,6 +9,7 @@ export function enableUserInterface(user) {
     logout.classList.remove('is-hidden');
 
     if (localStorage.getItem('localLang') === 'uk') {
+
       text.insertAdjacentHTML(
         'beforeend',
         `Привіт <span class="logout-wrapper__text--accent">${user.email}</span>`

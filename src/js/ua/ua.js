@@ -1,4 +1,4 @@
-
+import { enableUserInterface } from "../user-options";
 
 const selectedLang = document.querySelector("#checkbox");
 // headerHome
@@ -50,6 +50,7 @@ selectedLang.addEventListener('input', onChange);
 
 function onChange (evt)  {
   evt.preventDefault();
+
     if(!selectedLang.checked) {
         enVersion();
     } else {
