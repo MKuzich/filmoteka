@@ -12,7 +12,7 @@ onAuthStateChanged(auth, user => {
     queue.removeAttribute('disabled');
     markupLibraryRender(USER_ID);
   } else {
-    const markup = `<strong class="library-warning">You must be loginned for using this library! Please log in or sign up!</strong>`;
+    const markup = `<li><strong class="library-warning">You must be loginned for using this library! Please log in or sign up!</strong></li>`;
     listFilms.innerHTML = '';
     listFilms.insertAdjacentHTML('afterbegin', markup);
     watched.setAttribute('disabled', 'disabled');
