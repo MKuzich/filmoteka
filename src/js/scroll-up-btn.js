@@ -6,9 +6,9 @@ scrollBtn.addEventListener('click', scrollToTop);
 
 scrollBtn.classList.add('visually-hidden');
 
-const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
 
 function handleScroll() {
+    const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
     if (rootElement.scrollTop / scrollTotal > 0.4) {
         scrollBtn.classList.remove('visually-hidden')
     } else {
@@ -23,10 +23,3 @@ function scrollToTop() {
   })
 };
 
-// function scrollCheck() {
-//     if (rootElement.scrollTop / scrollTotal > 0.9) {
-//         scrollBtn.classList.add('mob')
-//     } else {
-//         scrollBtn.classList.remove('mob')
-//     }
-// };
