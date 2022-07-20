@@ -1,5 +1,5 @@
 import { movieSearcher, inputValue } from './search-film';
-import { currentPage, max_page } from './pagination';
+import { currentPage } from './pagination';
 
 const galleryRef = document.querySelector('.library-cards-film');
 
@@ -28,7 +28,7 @@ function createPaginationOneBtn(num, logic) {
   return (arrayBtn += `<button class='btn-pagination'>${num}</button>`);
 }
 
-export function createMarkupPaginationBtn() {
+export function createMarkupPaginationBtn(totalPage) {
   let data = '';
   if (currentPage < 6) {
     data += createPaginationOneBtn(1);
@@ -39,11 +39,11 @@ export function createMarkupPaginationBtn() {
     data += createPaginationOneBtn(6);
     data += createPaginationOneBtn(7);
     data += createPaginationOneBtn(currentPage, true);
-    data += createPaginationOneBtn(max_page);
+    data += createPaginationOneBtn(totalPage);
     data += btnRight;
     data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
-  } else if (currentPage <= max_page - 5) {
+  } else if (currentPage <= totalPage - 5) {
     if (window.matchMedia('(min-width: 768px)').matches) {
       data += btnLeft;
       data += createPaginationOneBtn(1);
@@ -54,7 +54,7 @@ export function createMarkupPaginationBtn() {
       data += createPaginationOneBtn(currentPage + 1);
       data += createPaginationOneBtn(currentPage + 2);
       data += createPaginationOneBtn(currentPage, true);
-      data += createPaginationOneBtn(max_page);
+      data += createPaginationOneBtn(totalPage);
       data += btnRight;
       data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
       galleryRef.insertAdjacentHTML('beforeend', data);
@@ -68,7 +68,7 @@ export function createMarkupPaginationBtn() {
     data += createPaginationOneBtn(currentPage);
     data += createPaginationOneBtn(currentPage + 1);
     data += createPaginationOneBtn(currentPage, true);
-    data += createPaginationOneBtn(max_page);
+    data += createPaginationOneBtn(totalPage);
     data += btnRight;
     data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
@@ -76,13 +76,13 @@ export function createMarkupPaginationBtn() {
     data += btnLeft;
     data += createPaginationOneBtn(1);
     data += createPaginationOneBtn(currentPage, true);
-    data += createPaginationOneBtn(max_page - 6);
-    data += createPaginationOneBtn(max_page - 5);
-    data += createPaginationOneBtn(max_page - 4);
-    data += createPaginationOneBtn(max_page - 3);
-    data += createPaginationOneBtn(max_page - 2);
-    data += createPaginationOneBtn(max_page - 1);
-    data += createPaginationOneBtn(max_page);
+    data += createPaginationOneBtn(totalPage - 6);
+    data += createPaginationOneBtn(totalPage - 5);
+    data += createPaginationOneBtn(totalPage - 4);
+    data += createPaginationOneBtn(totalPage - 3);
+    data += createPaginationOneBtn(totalPage - 2);
+    data += createPaginationOneBtn(totalPage - 1);
+    data += createPaginationOneBtn(totalPage);
     data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
   }

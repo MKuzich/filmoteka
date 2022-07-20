@@ -1,12 +1,10 @@
 import { movieSearcher, inputValue } from './search-film';
 import { createMarkupPaginationBtn } from './pagination-markup';
+import { trendingMarkup, TIME_WINDOW, totalPages } from './trending-markup';
 
 export let currentPage = 1;
-export let max_page = 50;
 
 const galleryRef = document.querySelector('.library-cards-film');
-
-createMarkupPaginationBtn();
 
 galleryRef.addEventListener('click', handlePage);
 
@@ -19,16 +17,19 @@ function handlePage(e) {
   if (e.target.dataset.action === 'flip-left') {
     overlayListRef.remove();
     currentPage--;
-    createMarkupPaginationBtn();
+    trendingMarkup(TIME_WINDOW, currentPage);
+    window.scrollTo(0, 0);
     return;
   }
   if (e.target.dataset.action === 'flip-right') {
     overlayListRef.remove();
     currentPage++;
-
-    createMarkupPaginationBtn();
+    trendingMarkup(TIME_WINDOW, currentPage);
+    window.scrollTo(0, 0);
     return;
   }
   currentPage = Number(e.target.textContent);
-  createMarkupPaginationBtn();
+  overlayListRef.remove();
+  trendingMarkup(TIME_WINDOW, currentPage);
+  window.scrollTo(0, 0);
 }
