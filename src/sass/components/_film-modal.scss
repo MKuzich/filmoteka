@@ -1,64 +1,62 @@
-.modal-backdrop {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #0000008f;
-  &--hidden{
-    display: none;
-  }
+.backdrop.is-hidden .modal-card {
+  transform: translate(-50%, -50%) scale(0.1);
 }
 
 .modal-card {
+  transform: translate(-50%) scale(1);
+  margin-top: 20px;
   position: absolute;
-  top: 50%;
+  border-radius: 5px;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  background-color: #fff;
+  transition: transform $chang-time $chang-func;
+  background-color: map-get($colors, 'light');
   max-width: 344px;
-  margin: 0 auto;
+  margin: 20px auto 0;
   padding: 48px 20px 40px;
   min-width: 280px;
-  min-height: 700px;
-  @include respond-to ('tablet') {
+  max-height: 100vh;
+  @include respond-to('tablet') {
+    margin: 0 auto;
     max-width: 704px;
     width: 100%;
     min-height: 450px;
-    padding: 40px 36px ;
-    // display: flex;
+    padding: 40px 36px;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: $chang-time $chang-func;
   }
-  @include respond-to ('desktop') {
+  @include respond-to('desktop') {
+    transition: $chang-time $chang-func;
     max-width: 806px;
-    width: 100%;
-    // height: auto;
     min-height: 550px;
     padding: 40px 12px;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 .modal-close {
-    padding: 0;
-    background-color: #0000;
-    border: none;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    &__button-icon {
-      stroke: #000;
-      width: 30px;
-      height: 30px;
-      &:hover {
-        stroke: map-get($colors, 'accent' );
-        cursor: pointer;
-      }
+  padding: 0;
+  background-color: map-get($colors, 'light');
+  border: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  &__button-icon {
+    transition: $chang-time $chang-func;
+    stroke: map-get($colors, 'main');
+    width: 30px;
+    height: 30px;
+    &:hover {
+      stroke: map-get($colors, 'accent');
+      cursor: pointer;
     }
   }
-  
+}
+
 .modal-content {
-    display: block;
-    @include respond-to('tablet') {
-        display: flex;
-    }
+  display: block;
+  @include respond-to('tablet') {
+    display: flex;
+  }
 }
 .modal-thumb {
   max-width: 240px;
@@ -67,29 +65,28 @@
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    
+    object-fit: cover;
+    @include respond-to('tablet') {
+      object-fit: fill;
+    }
   }
-  @include respond-to ('tablet') {
-    // max-width: 264px;
+  @include respond-to('tablet') {
     min-width: 264px;
-    // width: 100%;
     max-height: 374px;
     margin: 0;
   }
-  @include respond-to ('desktop') {
+  @include respond-to('desktop') {
     min-width: 375px;
     max-height: 478px;
   }
 }
-.modal-description{
-    // display: flex;
-    @include respond-to('tablet'){
-        margin-left: 68px;
-        // display: flex;
-    }
-    @include respond-to('desktop') {
-        margin-left: 16px;
-    }
+.modal-description {
+  @include respond-to('tablet') {
+    margin-left: 68px;
+  }
+  @include respond-to('desktop') {
+    margin-left: 16px;
+  }
 }
 
 .modal-description__title {
@@ -109,19 +106,19 @@
 }
 
 .modal-description__info-block {
-    border-spacing: 0;
+  border-spacing: 0;
   margin-bottom: 20px;
-  &  tr {
+  & tr {
     margin-bottom: 8px;
     display: block;
-    &:last-child{
-        margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
 
 .info-block__keys {
-  color: #8c8c8c;
+  color: map-get($colors, 'modal-add');
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -132,19 +129,19 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.16;
-  color: #000;
+  color: map-get($colors, 'main');
   &--orange {
     font-weight: 500;
-    background-color: #ff6b01;
-    color: #fff;
+    background-color: map-get($colors, 'active');
+    color: map-get($colors, 'light');
     border-radius: 5px;
     padding: 1px 10px;
     width: 36px;
   }
   &--gray {
     font-weight: 500;
-    background-color: #f7f7f7;
-    color: #000;
+    background-color: map-get($colors, 'footer-bg');
+    color: map-get($colors, 'main');
     border-radius: 5px;
     padding: 1px 4px;
     width: 36px;
@@ -161,6 +158,9 @@
   font-weight: 500;
   line-height: 1.66;
   margin-bottom: 20px;
+  max-height: 236px;
+  padding-right: 7px;
+  overflow-y: auto;
   &-title {
     font-size: 12px;
     text-transform: uppercase;
@@ -172,16 +172,16 @@
 
 .modal-buttons {
   display: flex;
-  justify-content: space-between;
-  @include respond-to ('tablet') {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @include respond-to('tablet') {
     justify-content: flex-start;
   }
-
 }
 
 .modal-button {
   background-color: #0000;
-  border: 1px solid #000;
+  border: 1px solid map-get($colors, 'main');
   border-radius: 5px;
   font-weight: 500;
   font-size: 12px;
@@ -192,19 +192,47 @@
   min-width: 110px;
   min-height: 44px;
   max-width: 124px;
-  margin-right: 15px;
-  &:last-child {
-    margin-right: 0;
-  }
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: $chang-time $chang-func;
   &:hover {
-    background-color: #ff6b01;
-    color: #fff;
-    border-color: #ff6b01;
+    background-color: map-get($colors, 'active');
+    color: map-get($colors, 'light');
+    border-color: map-get($colors, 'active');
+    box-shadow: 0px 0px 6px 2px map-get($colors, 'shadow');
   }
-  @include respond-to ('tablet'){
+  @include respond-to('tablet') {
+    margin-right: 15px;
     min-width: 125px;
   }
-  @include respond-to ('desktop') {
+  @include respond-to('desktop') {
     min-width: 136px;
+  }
+  &--active {
+    cursor: pointer;
+    background-color: map-get($colors, 'active');
+    color: map-get($colors, 'light');
+    border: 1px solid map-get($colors, 'active');
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    min-width: 110px;
+    min-height: 44px;
+    max-width: 124px;
+    margin-bottom: 15px;
+    &:hover {
+      box-shadow: 0px 0px 6px 2px map-get($colors, 'shadow');
+    }
+    @include respond-to('tablet') {
+      min-width: 125px;
+      margin-right: 15px;
+    }
+    @include respond-to('desktop') {
+      min-width: 136px;
+    }
   }
 }

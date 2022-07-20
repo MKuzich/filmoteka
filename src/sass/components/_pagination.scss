@@ -1,0 +1,53 @@
+.overlay-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-pagination,
+.btn-pagination-arrow,
+.btn-pagination-active {
+  width: 30px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    color: map-get($colors, 'light');
+    background-color: map-get($colors, 'accent');
+  }
+  @include respond-to('tablet') {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.btn-pagination {
+  background-color: map-get($colors, 'light');
+  &:disabled {
+    color: map-get($colors, 'main');
+  }
+}
+
+.btn-pagination-arrow {
+  background-color: map-get($colors, 'footer-bg');
+}
+
+.btn-pagination-active {
+  color: map-get($colors, 'light');
+  background-color: map-get($colors, 'accent');
+}
+
+.btn-pagination-text {
+  padding: 0 5px;
+}
+
+// .pagination-dots {
+//   @include respond-to('mobile') {
+//     display: none;
+//   }
+//   @include respond-to('tablet') {
+//     display: block;
+//   }
+// }

@@ -1,33 +1,32 @@
 import { createMarkupModal } from './film-modal-render';
+import { USER_ID } from './auth';
 
-const uid = 'qPtYne1lNfWrtdJJYcg4nv78kwr1';
+// const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
+const modalBackdropRef = document.querySelector('[data-film-modal]');
+// console.log(modalBackdropRef);
 
 const selectedLang = document.querySelector("#checkbox");
 
-
-const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
 const modalCardRef = document.querySelector('.modal-card');
 const modalCloseBtnRef = document.querySelector('.modal-close');
 const listFilmsRef = document.querySelector('.list-films');
-let modalBtnRef;
-let modalQueueBtnRef;
 
 listFilmsRef.addEventListener('click', openModal);
+
 //Функия рендера разметки, принимает массив с данными о фильме
 function renderModalMarkup(data) {
   return modalCardRef.insertAdjacentHTML('beforeend', createMarkupModal(data));
 }
 
 function closeModal() {
-  //Очищаем разметку
-  modalCardRef.lastChild.remove();
   //Удаляем слушатель кнопки закрытия модалки
   modalCloseBtnRef.removeEventListener('click', closeModal);
+
   //Скрываем модалку
-  modalBackdropRef.classList.replace(
-    'modal-backdrop',
-    'modal-backdrop--hidden'
-  );
+  modalBackdropRef.classList.add('is-hidden');
+
+  //Очищаем разметку
+  modalCardRef.lastChild.remove();
 }
 
 function openModal(e) {
@@ -35,63 +34,110 @@ function openModal(e) {
   if (!e.target.closest('li')) {
     return;
   }
+
+  let arrayData = {};
+
   //Добавление слушателя на кнопку закрытия
   modalCloseBtnRef.addEventListener('click', closeModal);
+
   //Отображение модалки
-  modalBackdropRef.classList.replace(
-    'modal-backdrop--hidden',
-    'modal-backdrop'
-  );
+  modalBackdropRef.classList.remove('is-hidden');
+
   // id фильма с карточки
-  const filmId = e.target.closest('li').dataset.id;
+  const filmId = Number(e.target.closest('li').dataset.id);
   //массив популярных фильмов с локального хранилища
   const localDataFilm = JSON.parse(localStorage.getItem('downloadedMovies'));
   //Поиск данных про текущий фильм в карточке из массива в локальном хранилище
   //Возвращает обьект фильма
   const currentFilmData = localDataFilm.find(film => {
-    return film.id === Number(filmId);
+    return film.id === filmId;
   });
+  console.log(currentFilmData);
   //Рендер разметки в модальном окне
   renderModalMarkup(currentFilmData);
+  //
+  const modalButtonsRef = document.querySelector('.modal-buttons');
 
   ////////////////////////////////////////////////////////////////////////////////
-  modalWatchBtnRef = document.querySelector(
-    '.modal-button[data-action="watch"]'
-  );
-  modalQueueBtnRef = document.querySelector(
-    '.modal-button[data-action="queue"]'
-  );
 
-  let arrayData = {
-    watched: [],
-    queue: [],
-  };
-
-  function addToWatch(data) {
-    if (!JSON.parse(localStorage.getItem(uid))) {
-      localStorage.setItem(uid, JSON.stringify(arrayData));
-    }
-    arrayData = JSON.parse(localStorage.getItem(uid));
-
-    if (arrayData.watched.some(value => value.id === data.id)) {
-      arrayData.watched = removeToWatch(arrayData, data.id);
-      return localStorage.setItem(uid, JSON.stringify(arrayData));
-    }
-
-    arrayData.watched.push(data);
-
-    localStorage.setItem(uid, JSON.stringify(arrayData));
+  function refreshEmptyArray(btnsArr) {
+    console.log(btnsArr);
+    btnsArr.map(e => {
+      console.log(e.dataset.action);
+      arrayData[e.dataset.action] = [];
+      console.log(arrayData);
+    });
   }
-  function removeToWatch(data, id) {
-    const newArr = data.watched.filter(value => value.id !== id);
-    return newArr;
+
+  // Создаем пустое хранилище, если до этого его небыло
+  if (USER_ID) {
+    if (!JSON.parse(localStorage.getItem(USER_ID))) {
+      refreshEmptyArray(btns(modalButtonsRef));
+      localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+    }
   }
-  modalWatchBtnRef.addEventListener('click', () => addToWatch(currentFilmData));
+
+  modalButtonsRef.addEventListener('click', e => {
+    const key = e.target.dataset.action;
+
+    addToLocal(currentFilmData, key);
+    refreshModalButtons(filmId);
+  });
+
+  refreshModalButtons(filmId);
+
+  function addToLocal(data, key) {
+    // Проверка на логин
+    if (!USER_ID) {
+      alert('please log in or sign up');
+      return;
+    }
+    refreshModalButtons(filmId);
+
+    // Вытягиваем из хранилища текущие данные, для дальнейшей работы
+    arrayData = JSON.parse(localStorage.getItem(USER_ID));
+
+    // Проверка на наличие фильма в хранилище. Если есть - удаляем
+    if (arrayData[key].some(value => value.id === data.id)) {
+      arrayData[key] = removeToLocal(arrayData, data.id, key);
+      // console.dir(modalButtonsRef);
+      return localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+    }
+    //Запись в массив обновленных данных
+    arrayData[key].push(data);
+    // Запись в хранилище массива
+    localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+  }
+
+  function removeToLocal(data, id, key) {
+    btns(modalButtonsRef).map(e => {
+      if (e.dataset.action === key) {
+        e.textContent = `Add to ${key}`;
+        e.classList.replace('modal-button--active','modal-button')
+        return;
+      }
+    });
+    const updatedArray = data[key].filter(value => value.id !== id);
+    return updatedArray;
+  }
+
+  function refreshModalButtons(filmId) {
+    arrayData = JSON.parse(localStorage.getItem(USER_ID));
+
+    btns(modalButtonsRef).map(btnRef => {
+      const key = btnRef.dataset.action;
+      console.log(key);
+      arrayData[key].map(filmData => {
+        console.log(filmData);
+        if (filmData.id === filmId) {
+          // console.log(1);
+          btnRef.textContent = `Remove from ${key}`;
+          btnRef.classList.replace('modal-button','modal-button--active')
+        }
+      });
+    });
+  }
+  function btns(ref) {
+    return Array.from(ref.children);
+  }
 }
-
-// const test = {
-//   id: {
-//     watched: [{},{}],
-//     queue: [{},{}],
-//   },
-// };

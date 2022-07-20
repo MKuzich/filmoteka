@@ -1,5 +1,7 @@
+
 const selectedLang = document.querySelector("#checkbox");
 
+import { moviesGenresConvertation } from './movies-genres-convertation';
 
 export function createMarkupModal({
   original_title,
@@ -9,7 +11,7 @@ export function createMarkupModal({
   popularity,
   overview,
   poster_path,
-  genre_ids
+  genre_ids,
 }) {
 
 //   const genres = localStorage.getItem('genres')
@@ -73,7 +75,9 @@ if(selectedLang.checked) {
           <tr>
             <td class="info-block__keys">Vote / Votes</td>
             <td class="info-block__values">
-              <span class="info-block__values--orange">${vote_average.toFixed(1)}</span> /
+              <span class="info-block__values--orange">${vote_average.toFixed(
+                1
+              )}</span> /
               <span class="info-block__values--gray">${vote_count}</span>
             </td>
           </tr>
@@ -87,7 +91,9 @@ if(selectedLang.checked) {
           </tr>
           <tr>
             <td class="info-block__keys">Genres</td>
-            <td class="info-block__values">${genre_ids.join(', ')}</td>
+            <td class="info-block__values">${moviesGenresConvertation(
+              genre_ids
+            ).join(', ')}</td>
           </tr>
         </tbody>
       </table>
@@ -96,7 +102,7 @@ if(selectedLang.checked) {
         ${overview}
       </p>
       <div class="modal-buttons">
-        <button class="modal-button" data-action="watch" >Add to watched</button>
+        <button class="modal-button" data-action="watched" >Add to watched</button>
         <button class="modal-button" data-action="queue" >Add to queue</button>
       </div>
     </div>

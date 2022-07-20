@@ -19,6 +19,8 @@ const firebaseConfig = {
   appId: '1:873079027017:web:dadfb10493f9c7b3e51698',
 };
 
+export let USER_ID = null;
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const signupForm = document.querySelector('[data-signup-form]');
@@ -79,7 +81,8 @@ function onSubmitLoginHandler(e) {
 }
 
 onAuthStateChanged(auth, user => {
-  console.log('user status changed:', user);
-  // const uid = user.uid;
+  if (user) {
+    USER_ID = user.uid;
+  }
   enableUserInterface(user);
 });
