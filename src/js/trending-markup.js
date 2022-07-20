@@ -49,7 +49,6 @@ function trendingMarkup(time) {
                     alt="movie poster"
                 />
                 </div>
-
                 <div class="list-films_card-info-footer">
                 <h2 class="list-films_card-info-footer-name-film">${el.title.slice(
                   0,
