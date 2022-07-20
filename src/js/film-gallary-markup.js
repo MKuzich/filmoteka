@@ -24,7 +24,7 @@ export function filmGallaryMarkup(array) {
                 item.genre_ids
               )}</p>
               <p class="list-films_card-info-footer-production-year">
-                  for example
+                  ${item.release_date.slice(0, 4)}
               </p>
               </div>
             </div>

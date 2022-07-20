@@ -12,6 +12,7 @@
   border: none;
   padding: 0;
   border-radius: 5px;
+  cursor: pointer;
   &:hover {
     color: map-get($colors, 'light');
     background-color: map-get($colors, 'accent');
