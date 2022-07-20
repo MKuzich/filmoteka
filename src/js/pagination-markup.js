@@ -31,6 +31,20 @@ function createPaginationOneBtn(num, logic) {
 export function createMarkupPaginationBtn(totalPage) {
   let data = '';
   if (currentPage < 6) {
+    if (window.matchMedia('(max-width: 320px)').matches) {
+      data += createPaginationOneBtn(1);
+      data += createPaginationOneBtn(2);
+      data += createPaginationOneBtn(3);
+      data += createPaginationOneBtn(4);
+      data += createPaginationOneBtn(5);
+      data += createPaginationOneBtn(6);
+      data += createPaginationOneBtn(currentPage, true);
+      data += createPaginationOneBtn(totalPage);
+      data += btnRight;
+      data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+      galleryRef.insertAdjacentHTML('beforeend', data);
+      return;
+    }
     data += createPaginationOneBtn(1);
     data += createPaginationOneBtn(2);
     data += createPaginationOneBtn(3);
@@ -73,6 +87,20 @@ export function createMarkupPaginationBtn(totalPage) {
     data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
   } else {
+    if (window.matchMedia('(max-width: 320px)').matches) {
+      data += btnLeft;
+      data += createPaginationOneBtn(1);
+      data += createPaginationOneBtn(currentPage, true);
+      data += createPaginationOneBtn(totalPage - 5);
+      data += createPaginationOneBtn(totalPage - 4);
+      data += createPaginationOneBtn(totalPage - 3);
+      data += createPaginationOneBtn(totalPage - 2);
+      data += createPaginationOneBtn(totalPage - 1);
+      data += createPaginationOneBtn(totalPage);
+      data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+      galleryRef.insertAdjacentHTML('beforeend', data);
+      return;
+    }
     data += btnLeft;
     data += createPaginationOneBtn(1);
     data += createPaginationOneBtn(currentPage, true);
