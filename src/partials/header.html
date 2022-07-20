@@ -9,11 +9,11 @@
       </a>
       <nav class="navigation">
         <ul class="menu">
-          <li class="menu__item">
-            <a href="/src/index.html" class="menu__link current">Home</a>
+          <li class="menu__item" >
+            <a href="/src/index.html" class="menu__link current" id = 'home'>Home</a>
           </li>
-          <li class="menu__item">
-            <a href="/src/library.html" class="menu__link">My library</a>
+          <li class="menu__item" >
+            <a href="/src/library.html" class="menu__link" id = 'library'>My library</a>
           </li>
         </ul>
       </nav>
@@ -33,6 +33,17 @@
       </button>
     </form>
     <p class="warning-notification"></p>
+    <div class="select-lang">
+      <span class="span-lang">EN</span>
+
+      <div class="checkbox-group"> 
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label"></label>
+      </div>
+
+      <span class="span-lang">UA</span>
+    </div>
+
     <div class="trending-selector">
       <button type="button" class="selector day btn act">
         Day

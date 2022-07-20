@@ -5,6 +5,8 @@ import { USER_ID } from './auth';
 const modalBackdropRef = document.querySelector('[data-film-modal]');
 // console.log(modalBackdropRef);
 
+const selectedLang = document.querySelector("#checkbox");
+
 const modalCardRef = document.querySelector('.modal-card');
 const modalCloseBtnRef = document.querySelector('.modal-close');
 const listFilmsRef = document.querySelector('.list-films');
