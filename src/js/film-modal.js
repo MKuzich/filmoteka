@@ -1,12 +1,9 @@
 import { createMarkupModal } from './film-modal-render';
 import { USER_ID } from './auth';
 
-// const modalBackdropRef = document.querySelector('.modal-backdrop--hidden');
+const selectedLang = document.querySelector('#checkbox');
+
 const modalBackdropRef = document.querySelector('[data-film-modal]');
-// console.log(modalBackdropRef);
-
-const selectedLang = document.querySelector("#checkbox");
-
 const modalCardRef = document.querySelector('.modal-card');
 const modalCloseBtnRef = document.querySelector('.modal-close');
 const listFilmsRef = document.querySelector('.list-films');
@@ -46,62 +43,56 @@ function openModal(e) {
   // id фильма с карточки
   const filmId = Number(e.target.closest('li').dataset.id);
   //массив популярных фильмов с локального хранилища
-  const localDataFilm = JSON.parse(localStorage.getItem('downloadedMovies'));
+  const localDataFilms = JSON.parse(localStorage.getItem('downloadedMovies'));
   //Поиск данных про текущий фильм в карточке из массива в локальном хранилище
   //Возвращает обьект фильма
-  const currentFilmData = localDataFilm.find(film => {
+  const currentFilmData = localDataFilms.find(film => {
     return film.id === filmId;
   });
-  console.log(currentFilmData);
+
   //Рендер разметки в модальном окне
   renderModalMarkup(currentFilmData);
   //
+  //Ссылка на родителя кнопок
   const modalButtonsRef = document.querySelector('.modal-buttons');
 
-  ////////////////////////////////////////////////////////////////////////////////
-
-  function refreshEmptyArray(btnsArr) {
-    console.log(btnsArr);
-    btnsArr.map(e => {
-      console.log(e.dataset.action);
-      arrayData[e.dataset.action] = [];
-      console.log(arrayData);
+  //Функция которая создает хранилище с ключами из data атрибутов кнопок
+  function refreshEmptyArray(buttonsRef) {
+    buttonsRef.map(btn => {
+      arrayData[btn.dataset.action] = [];
     });
   }
 
   // Создаем пустое хранилище, если до этого его небыло
   if (USER_ID) {
     if (!JSON.parse(localStorage.getItem(USER_ID))) {
-      refreshEmptyArray(btns(modalButtonsRef));
+      refreshEmptyArray(parseToArray(modalButtonsRef));
       localStorage.setItem(USER_ID, JSON.stringify(arrayData));
     }
   }
-
-  modalButtonsRef.addEventListener('click', e => {
+  modalButtonsRef.addEventListener('click', handleUpdadeFilmData);
+  function handleUpdadeFilmData(e) {
     const key = e.target.dataset.action;
-
-    addToLocal(currentFilmData, key);
+    updateToLocal(currentFilmData, key);
     refreshModalButtons(filmId);
-  });
+  }
 
-  refreshModalButtons(filmId);
-
-  function addToLocal(data, key) {
+  function updateToLocal(data, key) {
     // Проверка на логин
     if (!USER_ID) {
       alert('please log in or sign up');
       return;
     }
-    refreshModalButtons(filmId);
 
     // Вытягиваем из хранилища текущие данные, для дальнейшей работы
     arrayData = JSON.parse(localStorage.getItem(USER_ID));
 
     // Проверка на наличие фильма в хранилище. Если есть - удаляем
     if (arrayData[key].some(value => value.id === data.id)) {
-      arrayData[key] = removeToLocal(arrayData, data.id, key);
+      arrayData[key] = removeFilm(arrayData, data.id, key);
       // console.dir(modalButtonsRef);
-      return localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+      localStorage.setItem(USER_ID, JSON.stringify(arrayData));
+      return;
     }
     //Запись в массив обновленных данных
     arrayData[key].push(data);
@@ -109,35 +100,54 @@ function openModal(e) {
     localStorage.setItem(USER_ID, JSON.stringify(arrayData));
   }
 
-  function removeToLocal(data, id, key) {
-    btns(modalButtonsRef).map(e => {
-      if (e.dataset.action === key) {
-        e.textContent = `Add to ${key}`;
-        e.classList.replace('modal-button--active','modal-button')
-        return;
-      }
-    });
+  // Функция удаляет фильм из текущих данных
+  function removeFilm(data, id, key) {
     const updatedArray = data[key].filter(value => value.id !== id);
     return updatedArray;
   }
+  refreshModalButtons(filmId);
 
+  // Функция обновления содержимого кнопок
   function refreshModalButtons(filmId) {
-    arrayData = JSON.parse(localStorage.getItem(USER_ID));
-
-    btns(modalButtonsRef).map(btnRef => {
+    let localDataFilm = JSON.parse(localStorage.getItem(USER_ID));
+    parseToArray(modalButtonsRef).map(btnRef => {
       const key = btnRef.dataset.action;
-      console.log(key);
-      arrayData[key].map(filmData => {
-        console.log(filmData);
-        if (filmData.id === filmId) {
-          // console.log(1);
-          btnRef.textContent = `Remove from ${key}`;
-          btnRef.classList.replace('modal-button','modal-button--active')
+      localDataFilm = JSON.parse(localStorage.getItem(USER_ID));
+      if (localDataFilm[key].length !== 0) {
+        for (const filmData of localDataFilm[key]) {
+          if (filmData.id === filmId) {
+            if (selectedLang.checked) {
+              btnRef.textContent = `Видалити з ${btnRef.dataset.lang}`;
+              btnRef.classList.replace('modal-button', 'modal-button--active');
+            } else {
+              btnRef.textContent = `Remove from ${key}`;
+              btnRef.classList.replace('modal-button', 'modal-button--active');
+            }
+            return;
+          } else {
+            if (selectedLang.checked) {
+              btnRef.textContent = `Додати до ${btnRef.dataset.lang}`;
+              btnRef.classList.replace('modal-button--active', 'modal-button');
+            } else {
+              btnRef.textContent = `Add to ${key}`;
+              btnRef.classList.replace('modal-button--active', 'modal-button');
+            }
+          }
         }
-      });
+      } else {
+        if (selectedLang.checked) {
+          btnRef.textContent = `Додати до ${btnRef.dataset.lang}`;
+          btnRef.classList.replace('modal-button--active', 'modal-button');
+        } else {
+          btnRef.textContent = `Add to ${key}`;
+          btnRef.classList.replace('modal-button--active', 'modal-button');
+        }
+      }
     });
   }
-  function btns(ref) {
+
+  //Превращает HTMLCollect в Array
+  function parseToArray(ref) {
     return Array.from(ref.children);
   }
 }
