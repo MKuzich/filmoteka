@@ -136,14 +136,14 @@ a {
   line-height: 1.16;
   color: map-get($colors, 'light');
   text-transform: uppercase;
-
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     color: map-get($colors, 'active');
 
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
   }
 }
 
