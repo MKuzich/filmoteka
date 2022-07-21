@@ -1,0 +1,69 @@
+.select-lang {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    
+  }
+
+  .checkbox {
+    visibility: hidden;
+  }
+  .checkbox-group {
+    position: relative;
+    width: 80px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  }
+  .checkbox-group:after {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    height: 2px;
+    width: 52px;
+    background-color: #111;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+  }
+
+  .span-lang {
+    position: relative;
+    display: block;
+    margin: 6px;
+    font-size: 16px;
+  }
+
+  .checkbox-label {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 4px;
+    z-index: 1;
+    left: 4px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+  .checkbox-label:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 0px rgba(255, 255, 255, 0.8);
+  }
+  .checkbox:checked + .checkbox-label {
+    left: 54px;
+  }
+  .checkbox:checked + .checkbox-label:after {
+    background-color: map-get($colors, 'active');
+  }

@@ -1,0 +1,31 @@
+.scroll-up{
+    position: fixed;
+    display: inline-block;
+    right: 10px;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    color: map-get($colors, 'additional');
+
+    @include respond-to('tablet') {
+            width: 40px;
+            height: 40px;
+        }
+
+    &:hover {
+        background-color: map-get($colors, 'active');
+        color: map-get($colors, 'light');
+        cursor: pointer;
+    }
+
+}
+
+
+.scroll-pic {
+    height: 100%;
+    width: 100%;
+    fill: currentColor;
+}

@@ -15,13 +15,13 @@
         <path d="M8 22L22 8" stroke-width="2" />
       </svg>
     </button>
-    <h2 class="signup-modal__title">
+    <h2 class="signup-modal__title" id = 'signUpTitle'>
       Enter your email and password for sign up
     </h2>
     <form class="signup-form" data-signup-form>
       <div class="signup-form__field">
         <label class="signup-form__label">
-          <span class="signup-form__name">Email</span>
+          <span class="signup-form__name" id = 'signUpEmail'>Email</span>
           <input class="signup-form__input" type="email" name="email" />
           <svg class="signup-form__icon">
             <use href="./images/signup-form-defs.svg#email"></use>
@@ -30,7 +30,7 @@
       </div>
       <div class="signup-form__field">
         <label class="signup-form__label">
-          <span class="signup-form__name">Password</span>
+          <span class="signup-form__name" id = 'signUpPasswoerd'>Password</span>
           <input class="signup-form__input" type="password" name="password" />
           <svg class="signup-form__icon">
             <use href="./images/signup-form-defs.svg#password"></use>
@@ -38,7 +38,7 @@
         </label>
       </div>
 
-      <button class="signup-form__btn" type="submit">Sign up</button>
+      <button class="signup-form__btn" type="submit" id="btnSignUp">Sign up</button>
     </form>
   </div>
 </div>

@@ -4,6 +4,9 @@ const refs = {
   modal: document.querySelector('[data-signup-modal]'),
 };
 
+const selectedLang = document.querySelector("#checkbox");
+
+
 refs.openModalBtn.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', closeSignupModal);
 
@@ -29,4 +32,5 @@ function openModal() {
   refs.modal.classList.remove('is-hidden');
   document.addEventListener('keydown', closeModalOnEsc);
   refs.modal.addEventListener('click', closeSignupModalOnAreaClick);
+
 }
