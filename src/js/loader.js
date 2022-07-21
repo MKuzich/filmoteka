@@ -18,5 +18,5 @@ window.onload = function () {
     }
     $body.classList.add('loaded_hiding');
     $preloader.addEventListener('transitionend', afterTransition);
-  }
+}
   

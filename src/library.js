@@ -1,4 +1,4 @@
-import './js/loader';
+// import './js/loader';
 import './js/ua/lib';
 import './js/auth';
 import './js/signup-modal';
