@@ -1,4 +1,4 @@
-import { enableSpinnerOnLogin, disableSpinnerOnLogin } from './loaders'; 
+import { enableSpinnerOn, disableSpinnerOn } from './loaders';
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -29,6 +29,9 @@ signupForm.addEventListener('submit', onSubmitSignupHandler);
 
 function onSubmitSignupHandler(e) {
   e.preventDefault();
+  const signupBtn = document.querySelector('#btnSignUp');
+  const spinner = document.querySelector('#spinnersignup');
+  enableSpinnerOn(signupBtn, spinner);
   const email = e.target.elements.email.value;
   const password = e.target.elements.password.value;
   createUserWithEmailAndPassword(auth, email, password)
@@ -38,9 +41,11 @@ function onSubmitSignupHandler(e) {
       console.log(user.uid);
       console.log(user.email);
       e.target.reset();
+      disableSpinnerOn(signupBtn, spinner);
       closeSignupModal();
     })
     .catch(error => {
+      disableSpinnerOn(signupBtn, spinner);
       const errorCode = error.code;
       console.log(errorCode);
     });
@@ -65,7 +70,9 @@ loginForm.addEventListener('submit', onSubmitLoginHandler);
 
 function onSubmitLoginHandler(e) {
   e.preventDefault();
-  enableSpinnerOnLogin();
+  const loginBtn = document.querySelector('#logInBtn');
+  const spinner = document.querySelector('#spinnerlogin');
+  enableSpinnerOn(loginBtn, spinner);
   const email = e.target.elements.email.value;
   const password = e.target.elements.password.value;
 
@@ -74,11 +81,11 @@ function onSubmitLoginHandler(e) {
       const user = userCredential.user;
       console.log('User logged in:', user);
       e.target.reset();
-      disableSpinnerOnLogin();
+      disableSpinnerOn(loginBtn, spinner);
       closeLoginModal();
     })
     .catch(error => {
-      disableSpinnerOnLogin();
+      disableSpinnerOn(loginBtn, spinner);
       const errorCode = error.code;
       console.log(errorCode);
     });
