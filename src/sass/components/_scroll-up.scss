@@ -19,6 +19,10 @@
         background-color: map-get($colors, 'active');
         color: map-get($colors, 'light');
         cursor: pointer;
+
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 }

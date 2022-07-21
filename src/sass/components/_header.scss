@@ -284,6 +284,24 @@ a {
   }
 }
 
+.trending-selector {
+  position: absolute;
+  text-align: center;
+  left: 20px;
+  bottom: -40px;
+
+  @include respond-to('tablet') {
+    left: 32px;
+  }
+}
+
+.selector-label{
+  font-size: 12px;
+  line-height: 1.16;
+  color: map-get($colors, 'light');
+  text-transform: uppercase;
+}
+
 .selector.btn {
   min-width: 60px;
   padding-top: 5px;
@@ -305,14 +323,6 @@ a {
   cursor: default;
 }
 
-.trending-selector {
-  position: absolute;
-  left: 20px;
-
-  @include respond-to('tablet') {
-    left: 32px;
-  }
-}
 
 // .logout-wrapper {
 //   position: absolute;

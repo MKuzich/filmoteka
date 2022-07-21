@@ -5,6 +5,9 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const MEDIA_TYPE = 'movie';
 const SEARCH_URL = `${BASE_URL}/trending/${MEDIA_TYPE}/`;
 
+let lang = '';
+
 export function fetchTrendingMovies(time, page) {
-  return axios.get(`${SEARCH_URL}${time}?api_key=${API_KEY}&page=${page}`);
+  lang = localStorage.getItem('localLang');
+  return axios.get(`${SEARCH_URL}${time}?api_key=${API_KEY}&language=${lang}&page=${page}`);
 }

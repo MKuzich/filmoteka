@@ -8,6 +8,8 @@ const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
 const weekBtn = document.querySelector('.week');
+const checkBox = document.querySelector("#checkbox");
+const selectorLabel = document.querySelector('.selector-label');
 
 export let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
@@ -15,8 +17,9 @@ dayBtn.disabled = true;
 fetchMovieGenres();
 trendingMarkup(TIME_WINDOW, currentPage);
 
+document.addEventListener('DOMContentLoaded', changeLang);
+checkBox.addEventListener('input', changeLang);
 dayBtn.addEventListener('click', timeChangeDay);
-
 weekBtn.addEventListener('click', timeChangeWeek);
 
 function timeChangeDay() {
@@ -70,7 +73,7 @@ export function trendingMarkup(time, page) {
             </li>`
         )
         .join('');
-      listFilms.innerHTML = '';
+      // listFilms.innerHTML = '';
       listFilms.insertAdjacentHTML('afterbegin', markup);
     })
     .catch(error => {
@@ -90,4 +93,18 @@ function activeBtnWeek() {
   weekBtn.disabled = true;
   dayBtn.classList.remove('act');
   dayBtn.disabled = false;
+}
+
+
+function changeLang(e) {
+  e.preventDefault();
+  if (checkBox.checked) {
+      selectorLabel.innerHTML = 'Популярні за'
+      dayBtn.innerHTML = 'День'
+      weekBtn.innerHTML = 'Тиждень'
+  } else {
+      selectorLabel.innerHTML = 'Popular by'
+      dayBtn.innerHTML = 'Day'
+      weekBtn.innerHTML = 'Week'
+  }
 }
