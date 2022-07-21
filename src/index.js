@@ -11,3 +11,5 @@ import './js/footer-modal';
 import './js/film-modal';
 import './js/pagination';
 import './js/scroll-up-btn';
+import './js/loaders';
+
