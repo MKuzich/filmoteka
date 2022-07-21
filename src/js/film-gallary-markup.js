@@ -1,4 +1,5 @@
 import { moviesGenresConvertation } from './movies-genres-convertation';
+import { titleSrinking, genresSrinking } from './card-shrinking';
 
 export const listFilms = document.querySelector('.list-films');
 
@@ -15,13 +16,12 @@ export function filmGallaryMarkup(array) {
               />
             </div>
             <div class="list-films_card-info-footer">
-            <h2 class="list-films_card-info-footer-name-film">${item.title.slice(
-              0,
-              30
+            <h2 class="list-films_card-info-footer-name-film">${titleSrinking(
+              item.title
             )}</h2>
               <div class="card-info-footer_characteristics">
-              <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
-                item.genre_ids
+              <p class="list-films_card-info-footer-genre-film">${genresSrinking(
+                moviesGenresConvertation(item.genre_ids)
               )}</p>
               <p class="list-films_card-info-footer-production-year">
                   ${item.release_date.slice(0, 4)}

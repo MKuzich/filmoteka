@@ -3,6 +3,7 @@ import { fetchMovieGenres } from './api/api-service-genres';
 import { moviesGenresConvertation } from './movies-genres-convertation';
 import { currentPage } from './pagination';
 import { createMarkupPaginationBtn } from './pagination-markup';
+import { titleSrinking, genresSrinking } from './card-shrinking';
 
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
@@ -55,13 +56,12 @@ export function trendingMarkup(time, page) {
                 />
                 </div>
                 <div class="list-films_card-info-footer">
-                <h2 class="list-films_card-info-footer-name-film">${el.title.slice(
-                  0,
-                  20
+                <h2 class="list-films_card-info-footer-name-film">${titleSrinking(
+                  el.title
                 )}</h2>
                   <div class="card-info-footer_characteristics">
-                  <p class="list-films_card-info-footer-genre-film">${moviesGenresConvertation(
-                    el.genre_ids
+                  <p class="list-films_card-info-footer-genre-film">${genresSrinking(
+                    moviesGenresConvertation(el.genre_ids)
                   )}</p>
                   <p class="list-films_card-info-footer-production-year">
                   ${el.release_date.slice(0, 4)}
