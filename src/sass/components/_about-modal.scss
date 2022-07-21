@@ -145,7 +145,7 @@
     padding-right: 5px;
 }
 
-/* свойства карточки, которая будет видна, когла на екране по 2 картки */
+/* свойства карточки, которая будет видна, когда на екране по 2 картки */
 li[hidden] {
     display: none;
 
@@ -193,14 +193,14 @@ li[hidden] {
 }
 
 /* при отображении модального окно */
-// .modal:target {
+.modal:target {
     // opacity: 1;
     /* делаем окно видимым */
-    // pointer-events: auto;
+    pointer-events: auto;
     // /* элемент видим для событий мыши */
-    // overflow-y: auto;
+    overflow-y: auto;
     /* добавляем прокрутку по y, когда элемент не помещается на страницу */
-// }
+}
 
 /* свойства для кнопки "Закрыть" */
 .close {
@@ -335,26 +335,15 @@ li[hidden] {
         text-align: center;
     }
 
-    // &__role {
-    //     text-transform: uppercase;
-    //     position: absolute;
-    //     bottom: 0;
-        // left: 50%;
-        // transform: translate(-50%);
-    // }
+    &__role {
+        text-transform: uppercase;
+        text-align: center;
+        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+            0px -5px 35px rgba(255, 255, 255, 0.3);
+        display: flex;
+        justify-content: center;
+    }
 }
-
-.info__role {
-    text-transform: uppercase;
-    text-align: center;
-    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
-        0px -5px 35px rgba(255, 255, 255, 0.3);
-    // position: absolute;
-    // bottom: 0;
-    display: flex;
-    justify-content: center;               
-}
-
 
 // .info__icon{
     // pointer-events: painted;
