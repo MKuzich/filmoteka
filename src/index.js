@@ -10,4 +10,5 @@ import './js/ua/ua'
 import './js/footer-modal';
 import './js/film-modal';
 import './js/pagination';
+import './js/pagination-search';
 import './js/scroll-up-btn';

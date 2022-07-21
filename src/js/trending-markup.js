@@ -13,7 +13,7 @@ export let TIME_WINDOW = 'day';
 dayBtn.disabled = true;
 
 fetchMovieGenres();
-trendingMarkup(TIME_WINDOW, currentPage);
+trendingMarkup(TIME_WINDOW, currentPage.data);
 
 dayBtn.addEventListener('click', timeChangeDay);
 
@@ -23,13 +23,15 @@ function timeChangeDay() {
   listFilms.innerHTML = '';
   activeBtnDay();
   TIME_WINDOW = 'day';
-  trendingMarkup(TIME_WINDOW);
+  currentPage.change(1);
+  trendingMarkup(TIME_WINDOW, 1);
 }
 function timeChangeWeek() {
   listFilms.innerHTML = '';
   activeBtnWeek();
   TIME_WINDOW = 'week';
-  trendingMarkup(TIME_WINDOW);
+  currentPage.change(1);
+  trendingMarkup(TIME_WINDOW, 1);
 }
 
 export function trendingMarkup(time, page) {
@@ -39,7 +41,7 @@ export function trendingMarkup(time, page) {
       localStorage.setItem('downloadedMovies', JSON.stringify(''));
       localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
       console.log(data);
-      createMarkupPaginationBtn(data.total_pages);
+      createMarkupPaginationBtn(data.total_pages, 'overlay-list-trends');
       const markup = data.results
         .map(
           el =>
