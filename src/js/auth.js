@@ -1,3 +1,4 @@
+import { enableSpinnerOnLogin, disableSpinnerOnLogin } from './loaders'; 
 import { initializeApp } from 'firebase/app';
 import {
   getAuth,
@@ -64,6 +65,7 @@ loginForm.addEventListener('submit', onSubmitLoginHandler);
 
 function onSubmitLoginHandler(e) {
   e.preventDefault();
+  enableSpinnerOnLogin();
   const email = e.target.elements.email.value;
   const password = e.target.elements.password.value;
 
@@ -72,9 +74,11 @@ function onSubmitLoginHandler(e) {
       const user = userCredential.user;
       console.log('User logged in:', user);
       e.target.reset();
+      disableSpinnerOnLogin();
       closeLoginModal();
     })
     .catch(error => {
+      disableSpinnerOnLogin();
       const errorCode = error.code;
       console.log(errorCode);
     });
