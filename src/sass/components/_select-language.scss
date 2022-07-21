@@ -2,7 +2,14 @@
     display: flex;
     justify-content: right;
     align-items: center;
-    
+    margin-top: 37px;
+
+    @include respond-to('tablet') {
+      margin-top: 10px;
+    }
+    @include respond-to('desktop') {
+      margin-top: 10px;
+    }
   }
 
   .checkbox {
@@ -32,7 +39,8 @@
     position: relative;
     display: block;
     margin: 6px;
-    font-size: 16px;
+    font-size: 12px;
+    
   }
 
   .checkbox-label {
