@@ -8,3 +8,4 @@ import './js/user-options';
 import './js/footer-modal';
 import './js/film-modal';
 import './js/pagination';
+import './js/pagination-search';
