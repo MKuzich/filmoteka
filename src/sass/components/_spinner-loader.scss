@@ -14,8 +14,12 @@
     border-radius: 50%;
     -webkit-animation: .75s linear infinite spinner-border;
     animation: .75s linear infinite spinner-border;
+    margin-right: 15px;
   }
 
   .submit-spinner_hide {
     display: none;
   }
+.header-spinner {
+  color: white;
+}
