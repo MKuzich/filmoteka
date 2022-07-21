@@ -43,11 +43,6 @@
   padding: 0 5px;
 }
 
-// .pagination-dots {
-//   @include respond-to('mobile') {
-//     display: none;
-//   }
-//   @include respond-to('tablet') {
-//     display: block;
-//   }
-// }
+.svg-pagination-btn {
+  pointer-events: none;
+}

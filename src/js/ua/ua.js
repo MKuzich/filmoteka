@@ -10,6 +10,9 @@ const btnLogIn = document.querySelector('[data-login-modal-open]');
 const btnSignUp = document.querySelector('[data-signup-modal-open]');
 const btnLogOut = document.querySelector('[data-logout]');
 
+const btnDay = document.querySelector('#btnDay');
+const btnWeek = document.querySelector('#btnWeek');
+
 //login
 const modalLogInTitle = document.querySelector('#logInTitle');
 const modalLogInEmail = document.querySelector('#logInEmail');
@@ -71,12 +74,16 @@ function enVersion() {
   btnLogIn.textContent = 'Log in';
   btnSignUp.textContent = 'Sign up';
   btnLogOut.textContent = 'Log out';
+  btnDay.textContent = 'Day';
+  btnWeek.textContent = 'Week';
 
   //logIn
   modalLogInTitle.textContent = 'Enter your email and password for log in';
   modalLogInEmail.textContent =  'Email';
   modalLogInPassword.textContent = 'Password';
   modalbtnLogIn.textContent = 'Log in';
+
+ 
 
   //signUp
   modalSignUpTitle.textContent = 'Enter your email and password for sign up';
@@ -105,6 +112,9 @@ function uaVersion() {
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
   btnLogOut.textContent = 'Вихід';
+  btnDay.textContent = 'День';
+  btnWeek.textContent = 'Тиждень';
+
 
   //logIn
   modalLogInTitle.textContent = 'Введіть електронну скриньку та пароль для входу';
