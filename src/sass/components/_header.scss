@@ -88,7 +88,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 54px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-bottom: 40px;
@@ -136,14 +136,14 @@ a {
   line-height: 1.16;
   color: map-get($colors, 'light');
   text-transform: uppercase;
-
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     color: map-get($colors, 'active');
 
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
   }
 }
 
@@ -268,18 +268,22 @@ a {
   left: 20px;
   
   width: 280px;
-  margin: 16px auto 16px;
-  font-size: 14px;
+  margin: 10px auto 10px;
+  font-size: 12px;
   line-height: 1.17;
   font-weight: 400;
   color: map-get($colors, 'alarm');
   @include respond-to('tablet') {
     margin-top: 20px;
     left: 245px;
+    font-size: 14px;
+    margin: 16px auto 16px;
 
   }
   @include respond-to('desktop') {
     left: 500px;
+    font-size: 14px;
+    margin: 16px auto 16px;
     
   }
 }
@@ -290,8 +294,15 @@ a {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: 12px;
-  
+  margin-top: 10px;
+
+  @include respond-to('tablet') {
+    margin-top: 12px;
+  }
+
+  @include respond-to('tablet') {
+    margin-top: 12px;
+  }
 }
 
 .selector:first-child {
@@ -308,10 +319,22 @@ a {
 .trending-selector {
   position: absolute;
   left: 20px;
+  margin-top: 6px;
 
   @include respond-to('tablet') {
     left: 32px;
   }
+}
+
+.trending-selector-text {
+font-size: 12px;
+@include respond-to('tablet') {
+  font-size: 14px;
+}
+
+@include respond-to('tablet') {
+  font-size: 14px;
+}
 }
 
 // .logout-wrapper {
@@ -334,11 +357,19 @@ a {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: 12px;
+  margin-top: 30px;
+
+  @include respond-to('tablet') {
+    margin-top: 33px;
+  }
+
+  @include respond-to('desktop') {
+    margin-top: 33px;
+  }
 }
 
 .login__btn:first-child {
-  margin-right: 5px;
+  margin-right: 0px;
 }
 
 .login-wrapper {
@@ -354,12 +385,37 @@ a {
   position: absolute;
   right: 20px;
 
+  @include respond-to('mobile') {
+   margin-top: 6px;
+  }
   @include respond-to('tablet') {
     right: 32px;
   }
   .login__btn {
     position: absolute;
     right: 0;
+  }
+}
+
+.login__btn.logout {
+  @include respond-to('mobile') {
+    margin-top: 10px;
+  }
+
+  @include respond-to('tablet') {
+    margin-top: 12px;
+  }
+
+  @include respond-to('tablet') {
+    margin-top: 12px;
+  }
+  
+}
+
+.logout-wrapper__text {
+  font-size: 12px;
+  @include respond-to('tablet') {
+    font-size: 14px;
   }
 }
 
