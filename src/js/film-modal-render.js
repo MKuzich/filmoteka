@@ -1,5 +1,4 @@
-
-const selectedLang = document.querySelector("#checkbox");
+const selectedLang = document.querySelector('#checkbox');
 
 import { moviesGenresConvertation } from './movies-genres-convertation';
 
@@ -13,10 +12,9 @@ export function createMarkupModal({
   poster_path,
   genre_ids,
 }) {
-
-//   const genres = localStorage.getItem('genres')
-if(selectedLang.checked) {
-  return `<section class="modal-content">
+  //   const genres = localStorage.getItem('genres')
+  if (selectedLang.checked) {
+    return `<section class="modal-content">
     <div class="modal-thumb">
       <img
         class="modal-thumb__img"
@@ -31,7 +29,9 @@ if(selectedLang.checked) {
           <tr>
             <td class="info-block__keys">Голос /К-сть голосів</td>
             <td class="info-block__values">
-              <span class="info-block__values--orange">${vote_average.toFixed(1)}</span> /
+              <span class="info-block__values--orange">${vote_average.toFixed(
+                1
+              )}</span> /
               <span class="info-block__values--gray">${vote_count}</span>
             </td>
           </tr>
@@ -45,7 +45,9 @@ if(selectedLang.checked) {
           </tr>
           <tr>
             <td class="info-block__keys">Жанри</td>
-            <td class="info-block__values">${genre_ids.join(', ')}</td>
+            <td class="info-block__values">${moviesGenresConvertation(
+              genre_ids
+            ).join(', ')}</td>
           </tr>
         </tbody>
       </table>
@@ -54,13 +56,13 @@ if(selectedLang.checked) {
         ${overview}
       </p>
       <div class="modal-buttons">
-        <button class="modal-button" data-action="watch" >Додати до  переглянутих</button>
-        <button class="modal-button" data-action="queue" >Додати до черги</button>
+        <button class="modal-button" data-lang="переглянутих" data-action="watched" >Додати до  переглянутих</button>
+        <button class="modal-button" data-lang="черги" data-action="queue" >Додати до черги</button>
       </div>
     </div>
   </section>`;
-} else {
-  return `<section class="modal-content">
+  } else {
+    return `<section class="modal-content">
     <div class="modal-thumb">
       <img
         class="modal-thumb__img"
@@ -103,10 +105,9 @@ if(selectedLang.checked) {
       </p>
       <div class="modal-buttons">
         <button class="modal-button" data-action="watched" >Add to watched</button>
-        <button class="modal-button" data-action="queue" >Add to queue</button>
+        <button class="modal-button" data-action="queue" >Add to queue</button> <!--  -->
       </div>
     </div>
   </section>`;
-}
-  
+  }
 }

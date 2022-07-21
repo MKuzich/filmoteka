@@ -1,14 +1,13 @@
-import { movieSearcher, inputValue } from './search-film';
 import { currentPage } from './pagination';
 
 const galleryRef = document.querySelector('.library-cards-film');
 
-const btnLeft = `<button class='btn-pagination-arrow' data-action='flip-left'><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+const btnLeft = `<button class='btn-pagination-arrow' data-action='flip-left'><svg class='svg-pagination-btn' width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12.6666 8H3.33325" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M7.99992 12.6667L3.33325 8.00004L7.99992 3.33337" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 </button>`;
-const btnRight = `<button class='btn-pagination-arrow' data-action='flip-right'><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+const btnRight = `<button class='btn-pagination-arrow' data-action='flip-right'><svg class='svg-pagination-btn' width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.33341 8H12.6667" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M8.00008 12.6667L12.6667 8.00004L8.00008 3.33337" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -22,15 +21,23 @@ function createPaginationOneBtn(num, logic) {
   let arrayBtn = '';
   if (logic) {
     return (arrayBtn += `<button class="btn-pagination pagination-dots" disabled='true'>...</button>`);
-  } else if (num === currentPage) {
+  } else if (num === currentPage.data) {
     return (arrayBtn += `<button class='btn-pagination-active'>${num}</button>`);
   }
   return (arrayBtn += `<button class='btn-pagination'>${num}</button>`);
 }
 
-export function createMarkupPaginationBtn(totalPage) {
+export function createMarkupPaginationBtn(totalPage, idForPagination) {
+  const overlayListTrendsRef = document.querySelector('#overlay-list-trends');
+  const overlayListSearchRef = document.querySelector('#overlay-list-search');
+  if (overlayListTrendsRef) {
+    overlayListTrendsRef.remove();
+  }
+  if (overlayListSearchRef) {
+    overlayListSearchRef.remove();
+  }
   let data = '';
-  if (currentPage < 6) {
+  if (currentPage.data < 6) {
     if (window.matchMedia('(max-width: 320px)').matches) {
       data += createPaginationOneBtn(1);
       data += createPaginationOneBtn(2);
@@ -38,10 +45,10 @@ export function createMarkupPaginationBtn(totalPage) {
       data += createPaginationOneBtn(4);
       data += createPaginationOneBtn(5);
       data += createPaginationOneBtn(6);
-      data += createPaginationOneBtn(currentPage, true);
+      data += createPaginationOneBtn(currentPage.data, true);
       data += createPaginationOneBtn(totalPage);
       data += btnRight;
-      data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+      data = `<div class='overlay-pagination' id='${idForPagination}'>${data}</div>`;
       galleryRef.insertAdjacentHTML('beforeend', data);
       return;
     }
@@ -52,58 +59,58 @@ export function createMarkupPaginationBtn(totalPage) {
     data += createPaginationOneBtn(5);
     data += createPaginationOneBtn(6);
     data += createPaginationOneBtn(7);
-    data += createPaginationOneBtn(currentPage, true);
+    data += createPaginationOneBtn(currentPage.data, true);
     data += createPaginationOneBtn(totalPage);
     data += btnRight;
-    data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+    data = `<div class='overlay-pagination' id='${idForPagination}'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
-  } else if (currentPage <= totalPage - 5) {
+  } else if (currentPage.data <= totalPage - 5) {
     if (window.matchMedia('(min-width: 768px)').matches) {
       data += btnLeft;
       data += createPaginationOneBtn(1);
-      data += createPaginationOneBtn(currentPage, true);
-      data += createPaginationOneBtn(currentPage - 2);
-      data += createPaginationOneBtn(currentPage - 1);
-      data += createPaginationOneBtn(currentPage);
-      data += createPaginationOneBtn(currentPage + 1);
-      data += createPaginationOneBtn(currentPage + 2);
-      data += createPaginationOneBtn(currentPage, true);
+      data += createPaginationOneBtn(currentPage.data, true);
+      data += createPaginationOneBtn(currentPage.data - 2);
+      data += createPaginationOneBtn(currentPage.data - 1);
+      data += createPaginationOneBtn(currentPage.data);
+      data += createPaginationOneBtn(currentPage.data + 1);
+      data += createPaginationOneBtn(currentPage.data + 2);
+      data += createPaginationOneBtn(currentPage.data, true);
       data += createPaginationOneBtn(totalPage);
       data += btnRight;
-      data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+      data = `<div class='overlay-pagination' id='${idForPagination}'>${data}</div>`;
       galleryRef.insertAdjacentHTML('beforeend', data);
       return;
     } else {
     }
     data += btnLeft;
     data += createPaginationOneBtn(1);
-    data += createPaginationOneBtn(currentPage, true);
-    data += createPaginationOneBtn(currentPage - 1);
-    data += createPaginationOneBtn(currentPage);
-    data += createPaginationOneBtn(currentPage + 1);
-    data += createPaginationOneBtn(currentPage, true);
+    data += createPaginationOneBtn(currentPage.data, true);
+    data += createPaginationOneBtn(currentPage.data - 1);
+    data += createPaginationOneBtn(currentPage.data);
+    data += createPaginationOneBtn(currentPage.data + 1);
+    data += createPaginationOneBtn(currentPage.data, true);
     data += createPaginationOneBtn(totalPage);
     data += btnRight;
-    data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+    data = `<div class='overlay-pagination' id='${idForPagination}'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
   } else {
     if (window.matchMedia('(max-width: 320px)').matches) {
       data += btnLeft;
       data += createPaginationOneBtn(1);
-      data += createPaginationOneBtn(currentPage, true);
+      data += createPaginationOneBtn(currentPage.data, true);
       data += createPaginationOneBtn(totalPage - 5);
       data += createPaginationOneBtn(totalPage - 4);
       data += createPaginationOneBtn(totalPage - 3);
       data += createPaginationOneBtn(totalPage - 2);
       data += createPaginationOneBtn(totalPage - 1);
       data += createPaginationOneBtn(totalPage);
-      data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+      data = `<div class='overlay-pagination' id='${idForPagination}'>${data}</div>`;
       galleryRef.insertAdjacentHTML('beforeend', data);
       return;
     }
     data += btnLeft;
     data += createPaginationOneBtn(1);
-    data += createPaginationOneBtn(currentPage, true);
+    data += createPaginationOneBtn(currentPage.data, true);
     data += createPaginationOneBtn(totalPage - 6);
     data += createPaginationOneBtn(totalPage - 5);
     data += createPaginationOneBtn(totalPage - 4);
@@ -111,7 +118,7 @@ export function createMarkupPaginationBtn(totalPage) {
     data += createPaginationOneBtn(totalPage - 2);
     data += createPaginationOneBtn(totalPage - 1);
     data += createPaginationOneBtn(totalPage);
-    data = `<div class='overlay-pagination' id='overlay-list'>${data}</div>`;
+    data = `<div class='overlay-pagination' id='${idForPagination}'>${data}</div>`;
     galleryRef.insertAdjacentHTML('beforeend', data);
   }
 }
