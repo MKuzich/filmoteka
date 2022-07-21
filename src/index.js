@@ -1,4 +1,4 @@
-import './js/loader';
+// import './js/loader';
 import './js/auth';
 import './js/signup-modal';
 import './js/login-modal';
@@ -12,3 +12,5 @@ import './js/film-modal';
 import './js/pagination';
 import './js/pagination-search';
 import './js/scroll-up-btn';
+import './js/loaders';
+

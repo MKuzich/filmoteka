@@ -1,6 +1,6 @@
-import { enableUserInterface } from "../user-options";
+import { enableUserInterface } from '../user-options';
 
-const selectedLang = document.querySelector("#checkbox");
+const selectedLang = document.querySelector('#checkbox');
 // headerHome
 const languege = document.querySelector('html');
 const menuHome = document.querySelector('#home');
@@ -17,7 +17,7 @@ const btnWeek = document.querySelector('#btnWeek');
 const modalLogInTitle = document.querySelector('#logInTitle');
 const modalLogInEmail = document.querySelector('#logInEmail');
 const modalLogInPassword = document.querySelector('#logInPassword');
-const modalbtnLogIn = document.querySelector('#logInBtn')
+const modalbtnLogIn = document.querySelector('#logInBtn');
 
 //signUp
 const modalSignUpTitle = document.querySelector('#signUpTitle');
@@ -33,13 +33,10 @@ const footerStudent = document.querySelector('#footerStudent');
 
 const langValue = localStorage.getItem('localLang');
 
-if(langValue === 'uk') {
-  
-
+if (langValue === 'uk') {
   selectedLang.checked = true;
   uaVersion();
   console.log(langValue, selectedLang.checked);
-
 } else {
   console.log(langValue);
 
@@ -48,29 +45,26 @@ if(langValue === 'uk') {
   enVersion();
 }
 
-
 selectedLang.addEventListener('input', onChange);
 
-function onChange (evt)  {
+function onChange(evt) {
   evt.preventDefault();
 
-    if(!selectedLang.checked) {
-        enVersion();
-    } else {
-        uaVersion();
-    };
+  if (!selectedLang.checked) {
+    enVersion();
+  } else {
+    uaVersion();
+  }
 }
 
-
 function enVersion() {
-  
   languege.setAttribute('html', 'en');
   localLang();
   //header
-  menuHome.textContent = 'Home'
+  menuHome.textContent = 'Home';
   // '<a href="index.html" class="menu__link current">Home</a>';
   menuLibrary.textContent = 'My library';
-  searchInput.setAttribute('placeholder',"Movie search");
+  searchInput.setAttribute('placeholder', 'Movie search');
   btnLogIn.textContent = 'Log in';
   btnSignUp.textContent = 'Sign up';
   btnLogOut.textContent = 'Log out';
@@ -79,9 +73,10 @@ function enVersion() {
 
   //logIn
   modalLogInTitle.textContent = 'Enter your email and password for log in';
-  modalLogInEmail.textContent =  'Email';
+  modalLogInEmail.textContent = 'Email';
   modalLogInPassword.textContent = 'Password';
-  modalbtnLogIn.textContent = 'Log in';
+  modalbtnLogIn.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Log in';
 
  
 
@@ -89,9 +84,8 @@ function enVersion() {
   modalSignUpTitle.textContent = 'Enter your email and password for sign up';
   modalSignUpEmail.textContent = 'Email';
   modalLogInPassword.textContent = 'Password';
-  modalBtnSignUp.textContent = 'Sign up';
-
-  
+  modalBtnSignUp.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnersignup"></span>Sign up';
 
   // footer
   footerRights.textContent = '© 2022 | All Rights Reserved |';
@@ -108,7 +102,7 @@ function uaVersion() {
   menuHome.textContent = 'Домашня';
   // '<a href="index.html" class="menu__link current">Домашня</a>';
   menuLibrary.textContent = 'Моя бібліотека';
-  searchInput.setAttribute('placeholder',"Пошук фільмів");
+  searchInput.setAttribute('placeholder', 'Пошук фільмів');
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
   btnLogOut.textContent = 'Вихід';
@@ -117,17 +111,21 @@ function uaVersion() {
 
 
   //logIn
-  modalLogInTitle.textContent = 'Введіть електронну скриньку та пароль для входу';
+  modalLogInTitle.textContent =
+    'Введіть електронну скриньку та пароль для входу';
   modalLogInEmail.textContent = 'Електронна скринька';
   modalLogInPassword.textContent = 'Пароль';
-  modalbtnLogIn.textContent = 'Вхід';
+  modalbtnLogIn.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Вхід';
 
   //signUp
-  modalSignUpTitle.textContent = 'Введіть електрону скриньку та пароль для реєстрації';
+  modalSignUpTitle.textContent =
+    'Введіть електрону скриньку та пароль для реєстрації';
   modalSignUpEmail.textContent = 'Електронна скринька';
   modalLogInPassword.textContent = 'Пароль';
-  modalBtnSignUp.textContent = 'Зареєструватися';
-  
+  modalBtnSignUp.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnersignup"></span>Зареєструватися';
+
   // footer
   footerRights.textContent = '© 2022 | Всі права захищено |';
   developText.textContent = 'Розроблено зі';
@@ -135,7 +133,6 @@ function uaVersion() {
   footerStudent.textContent = 'Cтудентами GoIt';
 }
 
-
 function localLang() {
-  localStorage.setItem('localLang',languege.getAttribute('html'));
+  localStorage.setItem('localLang', languege.getAttribute('html'));
 }
