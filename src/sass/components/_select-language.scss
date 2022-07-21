@@ -17,19 +17,23 @@
   }
   .checkbox-group {
     position: relative;
-    width: 80px;
-    height: 30px;
+    // width: 80px;
+    // height: 30px;
+    width: 55px;
+    height: 27px;
     background-color: #333;
     border-radius: 50px;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+    transform: scale(0.9);
   }
   .checkbox-group:after {
     content: '';
     position: absolute;
     top: 14px;
-    left: 14px;
+    left: 13px;
     height: 2px;
-    width: 52px;
+    // width: 52px;
+    width: 30px;
     background-color: #111;
     border-radius: 50px;
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
@@ -38,8 +42,8 @@
   .span-lang {
     position: relative;
     display: block;
-    margin: 6px;
-    font-size: 12px;
+    margin: 6px 0;
+    font-size: 11px;
     
   }
 
@@ -70,7 +74,7 @@
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.9), 0px 1px 0px rgba(255, 255, 255, 0.8);
   }
   .checkbox:checked + .checkbox-label {
-    left: 54px;
+    left: 29px;
   }
   .checkbox:checked + .checkbox-label:after {
     background-color: map-get($colors, 'active');
