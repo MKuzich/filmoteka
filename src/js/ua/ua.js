@@ -78,8 +78,6 @@ function enVersion() {
   modalbtnLogIn.innerHTML =
     '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Log in';
 
- 
-
   //signUp
   modalSignUpTitle.textContent = 'Enter your email and password for sign up';
   modalSignUpEmail.textContent = 'Email';
@@ -108,7 +106,6 @@ function uaVersion() {
   btnLogOut.textContent = 'Вихід';
   btnDay.textContent = 'День';
   btnWeek.textContent = 'Тиждень';
-
 
   //logIn
   modalLogInTitle.textContent =
