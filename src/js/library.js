@@ -13,11 +13,21 @@ onAuthStateChanged(auth, user => {
     queue.removeAttribute('disabled');
     markupLibraryRender(USER_ID);
   } else {
-    const markup = `<li><strong class="library-warning">You must be loginned for using this library! Please log in or sign up!</strong></li>`;
+    let markup;
+
+    if (localStorage.getItem('localLang') === 'uk') {
+      console.log('ukra');
+      markup = `<li><strong class="library-warning" id = 'warning'>Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></li>`;
+    } else {
+      markup = `<li><strong class="library-warning" id = 'warning'>You must be loginned for using this library! Please log in or sign up!</strong></li>`;
+
+    }
+
     listFilms.innerHTML = '';
     listFilms.insertAdjacentHTML('afterbegin', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
+
   }
 });
 
