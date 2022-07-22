@@ -5,7 +5,7 @@ import './js/login-modal';
 import './js/trending-markup';
 import './js/search-film';
 import './js/user-options';
-import './js/ua/ua'
+import './js/ua/ua';
 // import './js/ua/lib'
 import './js/footer-modal';
 import './js/film-modal';
@@ -13,4 +13,4 @@ import './js/pagination';
 import './js/pagination-search';
 import './js/scroll-up-btn';
 import './js/loaders';
-
+import './js/pagination-library';

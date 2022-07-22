@@ -1,6 +1,17 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { moviesGenresConvertation } from './movies-genres-convertation';
 import { titleSrinking, genresSrinking } from './card-shrinking';
+import {
+  createMarkupPaginationLibraryBtn,
+  currentPageLibrary,
+} from './pagination-library';
+
+export let currentFilter = {
+  data: 'watched',
+  change: function (prop) {
+    this.data = prop;
+  },
+};
 
 let USER_ID = null;
 
@@ -11,7 +22,7 @@ onAuthStateChanged(auth, user => {
     watched.classList.add('library-active-btn');
     watched.removeAttribute('disabled');
     queue.removeAttribute('disabled');
-    markupLibraryRender(USER_ID);
+    markupLibraryRender(USER_ID, false);
   } else {
     let markup;
 
@@ -20,14 +31,12 @@ onAuthStateChanged(auth, user => {
       markup = `<li><strong class="library-warning" id = 'warning'>Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></li>`;
     } else {
       markup = `<li><strong class="library-warning" id = 'warning'>You must be loginned for using this library! Please log in or sign up!</strong></li>`;
-
     }
 
     listFilms.innerHTML = '';
     listFilms.insertAdjacentHTML('afterbegin', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
-
   }
 });
 
@@ -41,24 +50,33 @@ queue.addEventListener('click', onClickFilterChange);
 
 function onClickFilterChange(e) {
   if (e.target.hasAttribute('data-watched-btn')) {
-    FILTER = 'watched';
+    currentFilter.change('watched');
     watched.classList.add('library-active-btn');
     queue.classList.remove('library-active-btn');
-    markupLibraryRender(USER_ID);
+    markupLibraryRender(USER_ID, false);
+    currentPageLibrary.change(1);
+    createMarkupPaginationLibraryBtn('overlay-list-library');
     return;
   }
-  FILTER = 'queue';
+  currentFilter.change('queue');
   watched.classList.remove('library-active-btn');
   queue.classList.add('library-active-btn');
-  markupLibraryRender(USER_ID);
+  markupLibraryRender(USER_ID, false);
+  currentPageLibrary.change(1);
+  createMarkupPaginationLibraryBtn('overlay-list-library');
 }
 
-function markupLibraryRender(uid) {
+export function markupLibraryRender(uid, arrayFromPagination) {
   const savedMovies = localStorage.getItem(uid);
   const parsedMovies = JSON.parse(savedMovies);
 
-  const array = parsedMovies[FILTER];
-
+  let array = parsedMovies[currentFilter.data];
+  if (array.length > 9) {
+    array = array.slice(0, 9);
+  }
+  if (arrayFromPagination) {
+    array = arrayFromPagination;
+  }
   const markup = array
     .map(item => {
       return `<li class="link list-films_card" data-id='${item.id}'>
@@ -92,6 +110,7 @@ function markupLibraryRender(uid) {
         </li>`;
     })
     .join('');
+  createMarkupPaginationLibraryBtn('overlay-list-library');
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }
