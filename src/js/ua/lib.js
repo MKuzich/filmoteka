@@ -46,15 +46,15 @@ if(langValue === 'uk') {
 selectedLang.addEventListener('input',onChange);
 
 function onChange (evt)  {
-  console.log(selectedLang.checked);
+  // console.log(selectedLang.checked);
 
     evt.preventDefault();
       if(!selectedLang.checked) {
           enVersion();
-          console.log(selectedLang.checked);
+          // console.log(selectedLang.checked);
       } else {
           uaVersion();
-          console.log(selectedLang.checked);
+          // console.log(selectedLang.checked);
 
       };
 }

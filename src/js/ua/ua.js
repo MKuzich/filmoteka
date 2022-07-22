@@ -10,6 +10,7 @@ const btnLogIn = document.querySelector('[data-login-modal-open]');
 const btnSignUp = document.querySelector('[data-signup-modal-open]');
 const btnLogOut = document.querySelector('[data-logout]');
 
+const popularBy = document.querySelector('.trending-selector-text');
 const btnDay = document.querySelector('#btnDay');
 const btnWeek = document.querySelector('#btnWeek');
 
@@ -68,6 +69,8 @@ function enVersion() {
   btnLogIn.textContent = 'Log in';
   btnSignUp.textContent = 'Sign up';
   btnLogOut.textContent = 'Log out';
+
+  popularBy.textContent = 'Popular by';
   btnDay.textContent = 'Day';
   btnWeek.textContent = 'Week';
 
@@ -104,6 +107,8 @@ function uaVersion() {
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
   btnLogOut.textContent = 'Вихід';
+
+  popularBy.textContent = 'Популярні за';
   btnDay.textContent = 'День';
   btnWeek.textContent = 'Тиждень';
 
