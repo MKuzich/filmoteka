@@ -4,7 +4,6 @@ import { onAuthStateChanged, getAuth } from 'firebase/auth';
 //Firebase
 let USER_ID = null;
 const auth = getAuth();
-
 onAuthStateChanged(auth, user => {
   if (user) {
     USER_ID = user.uid;
@@ -41,12 +40,14 @@ function openModal(e) {
   // id фильма с карточки
   const filmId = Number(e.target.closest('li').dataset.id);
   //массив популярных фильмов с локального хранилища
-  const localDataFilms = JSON.parse(localStorage.getItem('downloadedMovies'));
+  let localDataFilms = JSON.parse(localStorage.getItem('downloadedMovies'));
   //Поиск данных про текущий фильм в карточке из массива в локальном хранилище
   //Возвращает обьект фильма
+  inLibrary();
   const currentFilmData = localDataFilms.find(film => {
     return film.id === filmId;
   });
+
   //Рендер разметки в модальном окне
   renderModalMarkup(currentFilmData);
   //Ссылка на родителя кнопок в модалке(после рендера разметки)
@@ -158,9 +159,16 @@ function openModal(e) {
     const updatedArray = data[key].filter(value => value.id !== id);
     return updatedArray;
   }
-  //Превращает HTMLCollect в Array
-  function parseToArray(ref) {
-    return Array.from(ref.children);
+  // Функция проверяет выбор библеотеки и подставляет данные для модалки
+  function inLibrary() {
+    if (document.querySelector('.btn-container')) {
+      let tempArray = JSON.parse(localStorage.getItem(`${USER_ID}`));
+      if (document.querySelector('.library-active-btn[data-watched-btn]')) {
+        localDataFilms = tempArray.watched;
+      } else {
+        localDataFilms = tempArray.queue;
+      }
+    }
   }
 }
 //Функия рендера разметки, принимает массив с данными о фильме
@@ -192,4 +200,8 @@ function closeLoginModalOnAreaClick(e) {
   if (e.target.classList.contains('backdrop')) {
     closeModal();
   }
+}
+//Функция превращает коллекцию в массив
+function parseToArray(ref) {
+  return Array.from(ref.children);
 }
