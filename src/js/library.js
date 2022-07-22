@@ -1,6 +1,7 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { moviesGenresConvertation } from './movies-genres-convertation';
 import { titleSrinking, genresSrinking } from './card-shrinking';
+import { dateConvertation } from './date-convertation';
 
 let USER_ID = null;
 
@@ -79,10 +80,7 @@ function markupLibraryRender(uid) {
                 moviesGenresConvertation(item.genre_ids)
               )}</p>
               <p class="list-films_card-info-footer-production-year">
-                  ${item.release_date.slice(
-                    0,
-                    4
-                  )} <span class="info-block__values--orange">${item.vote_average.toFixed(
+              ${dateConvertation(item.release_date)} <span class="info-block__values--orange">${item.vote_average.toFixed(
         1
       )}</span>
               </p>

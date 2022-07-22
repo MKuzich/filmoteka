@@ -4,6 +4,7 @@ import { moviesGenresConvertation } from './movies-genres-convertation';
 import { currentPage } from './pagination';
 import { createMarkupPaginationBtn } from './pagination-markup';
 import { titleSrinking, genresSrinking } from './card-shrinking';
+import { dateConvertation } from './date-convertation';
 
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
@@ -64,7 +65,7 @@ export function trendingMarkup(time, page) {
                     moviesGenresConvertation(el.genre_ids)
                   )}</p>
                   <p class="list-films_card-info-footer-production-year">
-                  ${el.release_date.slice(0, 4)}
+                  ${dateConvertation(el.release_date)}
                   </p>
                   </div>
                 </div>
