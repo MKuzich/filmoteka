@@ -44,7 +44,8 @@ export async function movieSearcher(searchText, pageNumber) {
     filmGallaryMarkup(result);
     createMarkupPaginationBtn(data.total_pages, 'overlay-list-search');
   } catch (error) {
-    console.error('Smth went wrong!');
+    // console.error('Smth went wrong!');
+    console.log(error);
   }
 }
 
