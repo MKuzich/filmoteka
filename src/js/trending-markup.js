@@ -30,14 +30,14 @@ function timeChangeDay() {
   activeBtnDay();
   TIME_WINDOW = 'day';
   currentPage.change(1);
-  trendingMarkup(TIME_WINDOW, 1);
+  trendingMarkup(TIME_WINDOW, langValue, 1);
 }
 function timeChangeWeek() {
   listFilms.innerHTML = '';
   activeBtnWeek();
   TIME_WINDOW = 'week';
   currentPage.change(1);
-  trendingMarkup(TIME_WINDOW, 1);
+  trendingMarkup(TIME_WINDOW, langValue, 1);
 }
 
 export function trendingMarkup(time, lang, page) {
