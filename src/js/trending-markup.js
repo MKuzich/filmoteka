@@ -10,12 +10,16 @@ const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
 const weekBtn = document.querySelector('.week');
+const langCheckBox = document.querySelector('#checkbox');
 
 export let TIME_WINDOW = 'day';
+let langValue = localStorage.getItem('localLang');
 dayBtn.disabled = true;
 
 fetchMovieGenres();
-trendingMarkup(TIME_WINDOW, currentPage.data);
+trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+
+langCheckBox.addEventListener('input', onLangChange);
 
 dayBtn.addEventListener('click', timeChangeDay);
 
@@ -36,9 +40,9 @@ function timeChangeWeek() {
   trendingMarkup(TIME_WINDOW, 1);
 }
 
-export function trendingMarkup(time, page) {
+export function trendingMarkup(time, lang, page) {
   trendingSelector.classList.remove('visually-hidden');
-  fetchTrendingMovies(time, page)
+  fetchTrendingMovies(time, lang, page)
     .then(({ data }) => {
       localStorage.setItem('downloadedMovies', JSON.stringify(''));
       localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
@@ -93,4 +97,16 @@ function activeBtnWeek() {
   weekBtn.disabled = true;
   dayBtn.classList.remove('act');
   dayBtn.disabled = false;
+}
+
+function onLangChange() {
+  if (langCheckBox.checked) {
+    langValue = 'uk'
+    trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+    console.log("language changed to Ukr");
+  } else {
+    langValue = 'en'
+    trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+    console.log("language changed to en");
+  }
 }
