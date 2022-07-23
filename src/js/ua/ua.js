@@ -1,4 +1,4 @@
-
+// import { logInEn,logInUk } from "./logIn";
 const selectedLang = document.querySelector('#checkbox');
 // headerHome
 const languege = document.querySelector('html');
@@ -12,11 +12,11 @@ const popularBy = document.querySelector('.trending-selector-text');
 const btnDay = document.querySelector('#btnDay');
 const btnWeek = document.querySelector('#btnWeek');
 
-//login
-const modalLogInTitle = document.querySelector('#logInTitle');
-const modalLogInEmail = document.querySelector('#logInEmail');
-const modalLogInPassword = document.querySelector('#logInPassword');
-const modalbtnLogIn = document.querySelector('#logInBtn');
+// login
+// const modalLogInTitle = document.querySelector('#logInTitle');
+// const modalLogInEmail = document.querySelector('#logInEmail');
+// const modalLogInPassword = document.querySelector('#logInPassword');
+// const modalbtnLogIn = document.querySelector('#logInBtn');
 
 //signUp
 const modalSignUpTitle = document.querySelector('#signUpTitle');
@@ -70,12 +70,13 @@ function enVersion() {
   btnDay.textContent = 'Day';
   btnWeek.textContent = 'Week';
 
-  //logIn
-  modalLogInTitle.textContent = 'Enter your email and password for log in';
-  modalLogInEmail.textContent = 'Email';
-  modalLogInPassword.textContent = 'Password';
-  modalbtnLogIn.innerHTML =
-    '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Log in';
+  logInEn();
+  //logInEn();
+  // modalLogInTitle.textContent = 'Enter your email and password for log in';
+  // modalLogInEmail.textContent = 'Email';
+  // modalLogInPassword.textContent = 'Password';
+  // modalbtnLogIn.innerHTML =
+  //   '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Log in';
 
   //signUp
   modalSignUpTitle.textContent = 'Enter your email and password for sign up';
@@ -97,10 +98,9 @@ function uaVersion() {
 
   //header
   menuHome.textContent = 'Домашня';
-  // '<a href="index.html" class="menu__link current">Домашня</a>';
+
   menuLibrary.textContent = 'Моя бібліотека';
   searchInput.setAttribute('placeholder', 'Пошук фільмів');
-  // warningMessage.textContent = 'Невдалий результат пошуку. Будь ласка, введіть правильну назву фільму!';
 
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
@@ -109,14 +109,15 @@ function uaVersion() {
   popularBy.textContent = 'Популярні за';
   btnDay.textContent = 'День';
   btnWeek.textContent = 'Тиждень';
-
-  //logIn
-  modalLogInTitle.textContent =
-    'Введіть електронну скриньку та пароль для входу';
-  modalLogInEmail.textContent = 'Електронна скринька';
-  modalLogInPassword.textContent = 'Пароль';
-  modalbtnLogIn.innerHTML =
-    '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Вхід';
+  
+  logInUk();
+  // logInUa();
+  // modalLogInTitle.textContent =
+  //   'Введіть електронну скриньку та пароль для входу';
+  // modalLogInEmail.textContent = 'Електронна скринька';
+  // modalLogInPassword.textContent = 'Пароль';
+  // modalbtnLogIn.innerHTML =
+  //   '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Вхід';
 
   //signUp
   modalSignUpTitle.textContent =
