@@ -1,479 +1,487 @@
 .footer__backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    opacity: 1;
-    transition: opacity $chang-time $chang-func;
-    background-color: map-get($colors, 'header-gr');
-    overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-        &::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-        }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity $chang-time $chang-func;
+  background-color: map-get($colors, 'header-gr');
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 
 .footer__backdrop.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-        &.footer-modal {
-            transform: translate(-50%, -50%) scale(0.1);
-        }
+  opacity: 0;
+  pointer-events: none;
+  &.footer-modal {
+    transform: translate(-50%, -50%) scale(0.1);
+  }
 }
 
 .modal-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .footer-modal {
+  position: relative;
+  width: 632px;
+  margin: 30px auto;
+  @media (max-width: 655px) {
+    max-width: 422px;
+  }
+  @media (max-width: 440px) {
+    max-width: 212px;
+  }
+
+  &__content {
     position: relative;
-    width: 632px;
-    margin: 30px auto;
-        @media (max-width: 655px) { max-width: 422px; }           
-        @media (max-width: 440px) { max-width: 212px; }
-
-    &__content { 
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        background-color: map-get($colors, 'light');
-        background-clip: padding-box;
-        border-radius: .3rem;
-        outline: 0;
-            @media (min-width: 900px) {
-                box-shadow: 0 5px 15px rgba(0, 0, 0, .5);                   
-            }
-        }
-
-    &__header { 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
-        border-bottom: 1px solid map-get($colors, 'footer-bg');
-        background-color: map-get($colors, 'main');
+    display: flex;
+    flex-direction: column;
+    background-color: map-get($colors, 'light');
+    background-clip: padding-box;
+    border-radius: 0.3rem;
+    outline: 0;
+    @media (min-width: 900px) {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
+  }
 
-    &__title {
-        line-height: 1.5;
-        font-size: 1.25rem;
-        font-weight: 500;
-        color: map-get($colors, 'light');
-    }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid map-get($colors, 'footer-bg');
+    background-color: map-get($colors, 'main');
+  }
 
-    &__logo {
-        display: flex;
-        align-items: center;
-    }
+  &__title {
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: map-get($colors, 'light');
+  }
 
-    &__body { 
-        position: relative;
-        flex: 1 1 auto;
-    }
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
 
-    &__img {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        vertical-align: top;
-        text-decoration: none;
-        border-radius: 4px;
-        box-shadow: inset 0 2px 20px #e6ebed;
-        cursor: pointer;
-    }
+  &__body {
+    position: relative;
+    flex: 1 1 auto;
+  }
 
-    &__item {
-        // width: calc((100% - 5px * 6) / 3);
-        perspective: 400px;
-        float: left;
-        width: 200px;
-        height: 200px;
-        margin: 5px;
-    }
+  &__img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: inset 0 2px 20px #e6ebed;
+    cursor: pointer;
+  }
 
-    &__list:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+  &__item {
+    // width: calc((100% - 5px * 6) / 3);
+    perspective: 400px;
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+  }
+
+  &__list:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 /* свойства карточки, которая будет видна, когда на екране по 2 картки */
 li[hidden] {
-    display: none;
-    @media (min-width: 440px) and (max-width: 655px) {
-        display: block;
-    }
+  display: none;
+  @media (min-width: 440px) and (max-width: 655px) {
+    display: block;
+  }
 }
 
 .last__block {
-    height: 200px;
-    width: 200px;
-    background-color: map-get($colors, 'accent');
-    border-radius: 4px;
+  height: 200px;
+  width: 200px;
+  background-color: map-get($colors, 'accent');
+  border-radius: 4px;
 }
 
 .blockquote {
-    position: relative;
-    padding: 30px 24px;
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
+  position: relative;
+  padding: 30px 24px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: map-get($colors, 'light');
+  border-bottom: 2px solid map-get($colors, 'light');
+
+  &::after {
+    content: '”';
+    position: absolute;
+    bottom: -15px;
+    right: 5px;
+    font-family: Times, sans-serif;
+    font-weight: bold;
+    font-size: 65px;
+    line-height: 0;
     color: map-get($colors, 'light');
-    border-bottom: 2px solid map-get($colors, 'light');
+    text-shadow: 2px 0 0 map-get($colors, 'main'),
+      -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'),
+      0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'),
+      -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'),
+      -1px 1px 0 map-get($colors, 'main');
+  }
 
-    &::after {
-        content: "”";
-        position: absolute;
-        bottom: -15px;
-        right: 5px;
-        font-family: Times, sans-serif;
-        font-weight: bold;
-        font-size: 65px;
-        line-height: 0;
-        color: map-get($colors, 'light');
-        text-shadow: 2px 0 0 map-get($colors, 'main'), -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'), 0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'), -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'), -1px 1px 0 map-get($colors, 'main');
-        }
-
-    &__cite {
-        display: block;
-        padding-top: 10px;
-        color: map-get($colors, 'main');
-    }
+  &__cite {
+    display: block;
+    padding-top: 10px;
+    color: map-get($colors, 'main');
+  }
 }
 
 .close {
-    font-size: 24px;
-    font-weight: 700;
-    color: map-get($colors, 'light');
-        &:focus,
-        &:hover {
-            color: map-get($colors, 'accent');
-            opacity: .75;
-            cursor: pointer;
-        }
+  font-size: 24px;
+  font-weight: 700;
+  color: map-get($colors, 'light');
+  &:focus,
+  &:hover {
+    color: map-get($colors, 'accent');
+    opacity: 0.75;
+    cursor: pointer;
+  }
 }
 
 /* свойства для анимации логотипа */
-.cub_wrapper { 
-    perspective: 500px;
-    margin-right: 10px;
+.cub_wrapper {
+  perspective: 500px;
+  margin-right: 10px;
 
-    .header__icon {
-        stroke: map-get($colors, 'accent');
-        }
+  .header__icon {
+    stroke: map-get($colors, 'accent');
+  }
 }
 
 .cube {
-    position: relative;
-    width: 26px;
-    height: 26px;
-    transform-style: preserve-3d;
-    transition: all .4s cubic-bezier(.4, 0, .2, 1);
-    animation: spin 5s infinite linear;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: spin 5s infinite linear;
 }
 
 .side {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 1px;
-    border: 1px solid map-get($colors, 'accent');
-    backface-visibility: hidden;
-    transition: all .4s cubic-bezier(.4, 0, .2, 1);
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  border: 1px solid map-get($colors, 'accent');
+  backface-visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .front {
-    transform: translateZ(12px);
+  transform: translateZ(12px);
 }
 
 .back {
-    transform: rotateY(180deg) translateZ(12px);
+  transform: rotateY(180deg) translateZ(12px);
 }
 
 .left {
-    transform: rotateY(-90deg) translateZ(12px);
+  transform: rotateY(-90deg) translateZ(12px);
 }
 
 .right {
-    transform: rotateY(90deg) translateZ(12px);
+  transform: rotateY(90deg) translateZ(12px);
 }
 
 .top {
-    transform: rotateX(90deg) translateZ(12px);
+  transform: rotateX(90deg) translateZ(12px);
 }
 
 .bottom {
-    transform: rotateX(-90deg) translateZ(12px);
+  transform: rotateX(-90deg) translateZ(12px);
 }
 
 @keyframes spin {
-    0% {
-        transform: rotateY(0deg);
-    }
+  0% {
+    transform: rotateY(0deg);
+  }
 
-    100% {
-        transform: rotateY(360deg);
-    }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
 
-.info { 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    background-color: map-get($colors, 'accent');
-    transform: rotate3d(1, 0, 0, 90deg);
-    pointer-events: none;
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: map-get($colors, 'accent');
+  transform: rotate3d(1, 0, 0, 90deg);
+  pointer-events: none;
 
-    &__name {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20;
-        margin-bottom: 10; 
-    }
+  &__name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20;
+    margin-bottom: 10;
+  }
 
-    &__text {
-        margin-left: 10px;
-        margin-right: 10px;
-        text-align: center;
-        font-size: 13px;
-        line-height: 1.5;
-    }
+  &__text {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+  }
 
-    &__role {
-        display: flex;
-        justify-content: center;
-        text-transform: uppercase;
-        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
-            0px -5px 35px rgba(255, 255, 255, 0.3);
-    }
+  &__role {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+      0px -5px 35px rgba(255, 255, 255, 0.3);
+  }
 
-    & h3 {
-        padding-right: 5px;
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.9);
-        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
-            0px -5px 35px rgba(255, 255, 255, 0.3);
-    }
+  & h3 {
+    padding-right: 5px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+      0px -5px 35px rgba(255, 255, 255, 0.3);
+  }
 }
 
 .in-top .info {
-    transform-origin: 50% 0%;
-    -webkit-animation: in-top 300ms ease 0ms 1 forwards;
-    animation: in-top 300ms ease 0ms 1 forwards;
+  transform-origin: 50% 0%;
+  -webkit-animation: in-top 300ms ease 0ms 1 forwards;
+  animation: in-top 300ms ease 0ms 1 forwards;
 }
 
 .in-right .info {
-    transform-origin: 100% 0%;
-    -webkit-animation: in-right 300ms ease 0ms 1 forwards;
-    animation: in-right 300ms ease 0ms 1 forwards;
+  transform-origin: 100% 0%;
+  -webkit-animation: in-right 300ms ease 0ms 1 forwards;
+  animation: in-right 300ms ease 0ms 1 forwards;
 }
 
 .in-bottom .info {
-    transform-origin: 50% 100%;
-    -webkit-animation: in-bottom 300ms ease 0ms 1 forwards;
-    animation: in-bottom 300ms ease 0ms 1 forwards;
+  transform-origin: 50% 100%;
+  -webkit-animation: in-bottom 300ms ease 0ms 1 forwards;
+  animation: in-bottom 300ms ease 0ms 1 forwards;
 }
 
 .in-left .info {
-    transform-origin: 0% 0%;
-    -webkit-animation: in-left 300ms ease 0ms 1 forwards;
-    animation: in-left 300ms ease 0ms 1 forwards;
+  transform-origin: 0% 0%;
+  -webkit-animation: in-left 300ms ease 0ms 1 forwards;
+  animation: in-left 300ms ease 0ms 1 forwards;
 }
 
 .out-top .info {
-    transform-origin: 50% 0%;
-    -webkit-animation: out-top 300ms ease 0ms 1 forwards;
-    animation: out-top 300ms ease 0ms 1 forwards;
+  transform-origin: 50% 0%;
+  -webkit-animation: out-top 300ms ease 0ms 1 forwards;
+  animation: out-top 300ms ease 0ms 1 forwards;
 }
 
 .out-right .info {
-    transform-origin: 100% 50%;
-    -webkit-animation: out-right 300ms ease 0ms 1 forwards;
-    animation: out-right 300ms ease 0ms 1 forwards;
+  transform-origin: 100% 50%;
+  -webkit-animation: out-right 300ms ease 0ms 1 forwards;
+  animation: out-right 300ms ease 0ms 1 forwards;
 }
 
 .out-bottom .info {
-    transform-origin: 50% 100%;
-    -webkit-animation: out-bottom 300ms ease 0ms 1 forwards;
-    animation: out-bottom 300ms ease 0ms 1 forwards;
+  transform-origin: 50% 100%;
+  -webkit-animation: out-bottom 300ms ease 0ms 1 forwards;
+  animation: out-bottom 300ms ease 0ms 1 forwards;
 }
 
 .out-left .info {
-    transform-origin: 0% 0%;
-    -webkit-animation: out-left 300ms ease 0ms 1 forwards;
-    animation: out-left 300ms ease 0ms 1 forwards;
+  transform-origin: 0% 0%;
+  -webkit-animation: out-left 300ms ease 0ms 1 forwards;
+  animation: out-left 300ms ease 0ms 1 forwards;
 }
 
 @-webkit-keyframes in-top {
-    from {
-        transform: rotate3d(-1, 0, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(-1, 0, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @keyframes in-top {
-    from {
-        transform: rotate3d(-1, 0, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(-1, 0, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @-webkit-keyframes in-right {
-    from {
-        transform: rotate3d(0, -1, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(0, -1, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @keyframes in-right {
-    from {
-        transform: rotate3d(0, -1, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(0, -1, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @-webkit-keyframes in-bottom {
-    from {
-        transform: rotate3d(1, 0, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(1, 0, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @keyframes in-bottom {
-    from {
-        transform: rotate3d(1, 0, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(1, 0, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @-webkit-keyframes in-left {
-    from {
-        transform: rotate3d(0, 1, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @keyframes in-left {
-    from {
-        transform: rotate3d(0, 1, 0, 90deg);
-    }
+  from {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
 
-    to {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  to {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 }
 
 @-webkit-keyframes out-top {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(-1, 0, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(-1, 0, 0, 104deg);
+  }
 }
 
 @keyframes out-top {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(-1, 0, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(-1, 0, 0, 104deg);
+  }
 }
 
 @-webkit-keyframes out-right {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(0, -1, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(0, -1, 0, 104deg);
+  }
 }
 
 @keyframes out-right {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(0, -1, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(0, -1, 0, 104deg);
+  }
 }
 
 @-webkit-keyframes out-bottom {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(1, 0, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(1, 0, 0, 104deg);
+  }
 }
 
 @keyframes out-bottom {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(1, 0, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(1, 0, 0, 104deg);
+  }
 }
 
 @-webkit-keyframes out-left {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(0, 1, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(0, 1, 0, 104deg);
+  }
 }
 
 @keyframes out-left {
-    from {
-        transform: rotate3d(0, 0, 0, 0deg);
-    }
+  from {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
 
-    to {
-        transform: rotate3d(0, 1, 0, 104deg);
-    }
+  to {
+    transform: rotate3d(0, 1, 0, 104deg);
+  }
 }
