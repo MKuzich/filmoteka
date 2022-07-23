@@ -1,4 +1,3 @@
-import { enableUserInterface } from '../user-options';
 
 const selectedLang = document.querySelector('#checkbox');
 // headerHome
@@ -30,6 +29,7 @@ const footerRights = document.querySelector('#footerRight');
 const developText = document.querySelector('#developText');
 const footerText = document.querySelector('#footerText');
 const footerStudent = document.querySelector('#footerStudent');
+
 
 const langValue = localStorage.getItem('localLang');
 

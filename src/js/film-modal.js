@@ -22,6 +22,7 @@ listFilmsRef.addEventListener('click', openModal);
 function openModal(e) {
   //Добавляем класс для запрета прокрутки заднего фона
   document.body.classList.add('modal-open');
+
   //Проверка на клик по карточке
   if (!e.target.closest('li')) {
     return;
