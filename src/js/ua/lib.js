@@ -1,8 +1,8 @@
-const selectedLang = document.querySelector("#checkbox");
+const selectedLang = document.querySelector('#checkbox');
 
 const languege = document.querySelector('html');
 const menuHome = document.querySelector('#homeL');
-const menuLibrary = document.querySelector('#libraryL')
+const menuLibrary = document.querySelector('#libraryL');
 
 const btnWatched = document.querySelector('[data-watched-btn]');
 const btnQueue = document.querySelector('[data-queue-btn]');
@@ -15,7 +15,7 @@ const btnLogOut = document.querySelector('[data-logout]');
 const modalLogInTitle = document.querySelector('#logInTitle');
 const modalLogInEmail = document.querySelector('#logInEmail');
 const modalLogInPassword = document.querySelector('#logInPassword');
-const modalbtnLogIn = document.querySelector('#logInBtn')
+const modalbtnLogIn = document.querySelector('#logInBtn');
 
 //signUp
 const modalSignUpTitle = document.querySelector('#signUpTitle');
@@ -33,105 +33,102 @@ const langValue = localStorage.getItem('localLang');
 // console.log(footerCont);
 
 // islanguegeSelect(langValue);
-if(langValue === 'uk') {
+if (langValue === 'uk') {
   selectedLang.checked = true;
   uaVersion();
-
 } else {
   selectedLang.checked = false;
   languege.setAttribute('html', 'en');
   enVersion();
 }
 
-selectedLang.addEventListener('input',onChange);
+selectedLang.addEventListener('input', onChange);
 
-function onChange (evt)  {
+function onChange(evt) {
   // console.log(selectedLang.checked);
 
-    evt.preventDefault();
-      if(!selectedLang.checked) {
-          enVersion();
-          // console.log(selectedLang.checked);
-      } else {
-          uaVersion();
-          // console.log(selectedLang.checked);
-
-      };
+  evt.preventDefault();
+  if (!selectedLang.checked) {
+    enVersion();
+    // console.log(selectedLang.checked);
+  } else {
+    uaVersion();
+    // console.log(selectedLang.checked);
+  }
 }
 
 function enVersion() {
+  btnWatched.textContent = 'Watched';
+  btnQueue.textContent = 'Queue';
 
-    btnWatched.textContent = 'Watched';
-    btnQueue.textContent ='Queue';
+  menuHome.textContent = 'Home';
+  menuLibrary.textContent = 'My library';
 
-    menuHome.textContent = 'Home';
-    menuLibrary.textContent = 'My library';
+  btnLogIn.textContent = 'Log in';
+  btnSignUp.textContent = 'Sign up';
+  btnLogOut.textContent = 'Log out';
 
-    btnLogIn.textContent = 'Log in';
-    btnSignUp.textContent = 'Sign up';
-    btnLogOut.textContent = 'Log out';
-  
-    //logIn
-    modalLogInTitle.textContent = 'Enter your email and password for log in';
-    modalLogInEmail.textContent =  'Email';
-    modalLogInPassword.textContent = 'Password';
-    modalbtnLogIn.textContent = 'Log in';
-  
-    //signUp
-    modalSignUpTitle.textContent = 'Enter your email and password for sign up';
-    modalSignUpEmail.textContent = 'Email';
-    modalLogInPassword.textContent = 'Password';
-    modalBtnSignUp.textContent = 'Sign up';
-  
-    
-  
-    // footer
-    footerRights.textContent = '© 2022 | All Rights Reserved |';
-    developText.textContent = 'Developed with';
-    footerText.textContent = 'by';
-    footerStudent.textContent = 'GoIT Students';
+  //logIn
+  modalLogInTitle.textContent = 'Enter your email and password for log in';
+  modalLogInEmail.textContent = 'Email';
+  modalLogInPassword.textContent = 'Password';
+  modalbtnLogIn.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Log in';
 
-    languege.setAttribute('html', 'en');
+  //signUp
+  modalSignUpTitle.textContent = 'Enter your email and password for sign up';
+  modalSignUpEmail.textContent = 'Email';
+  modalLogInPassword.textContent = 'Password';
+  modalBtnSignUp.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnersignup"></span>Sign up';
+
+  // footer
+  footerRights.textContent = '© 2022 | All Rights Reserved |';
+  developText.textContent = 'Developed with';
+  footerText.textContent = 'by';
+  footerStudent.textContent = 'GoIT Students';
+
+  languege.setAttribute('html', 'en');
   localLang();
-
-    
 }
 
 function uaVersion() {
-    btnLogIn.textContent = 'Вхід';
-    btnSignUp.textContent = 'Реєстрація';
-    btnLogOut.textContent = 'Вихід';
+  btnLogIn.textContent = 'Вхід';
+  btnSignUp.textContent = 'Реєстрація';
+  btnLogOut.textContent = 'Вихід';
 
-    menuHome.textContent = 'Домашня';
-    menuLibrary.textContent = 'Моя бібліотека';
+  menuHome.textContent = 'Домашня';
+  menuLibrary.textContent = 'Моя бібліотека';
 
-    btnWatched.textContent = 'Переглянуті';
-    btnQueue.textContent ='В черзі';
+  btnWatched.textContent = 'Переглянуті';
+  btnQueue.textContent = 'В черзі';
 
-     //logIn
-  modalLogInTitle.textContent = 'Введіть електронну скриньку та пароль для входу';
+  //logIn
+  modalLogInTitle.textContent =
+    'Введіть електронну скриньку та пароль для входу';
   modalLogInEmail.textContent = 'Електронна скринька';
   modalLogInPassword.textContent = 'Пароль';
-  modalbtnLogIn.textContent = 'Вхід';
+  modalbtnLogIn.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnerlogin"></span>Вхід';
 
   //signUp
-  modalSignUpTitle.textContent = 'Введіть електрону скриньку та пароль для реєстрації';
+  modalSignUpTitle.textContent =
+    'Введіть електрону скриньку та пароль для реєстрації';
   modalSignUpEmail.textContent = 'Електронна скринька';
   modalLogInPassword.textContent = 'Пароль';
-  modalBtnSignUp.textContent = 'Зареєструватися';
-  
+  modalBtnSignUp.innerHTML =
+    '<span class="submit-spinner submit-spinner_hide" id="spinnersignup"></span>Зареєструватися';
+
   // footer
   footerRights.textContent = '© 2022 | Всі права захищено |';
   developText.textContent = 'Розроблено зі';
   footerText.textContent = '';
   footerStudent.textContent = 'Cтудентами GoIt';
-  
+
   languege.setAttribute('html', 'uk');
   localLang();
-
 }
 
-
 function localLang() {
-  localStorage.setItem('localLang',languege.getAttribute('html'));
+  localStorage.setItem('localLang', languege.getAttribute('html'));
 }
