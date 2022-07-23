@@ -1,5 +1,6 @@
 import { createMarkupModal } from './film-modal-render';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { markupLibraryRender } from './library';
 
 //Firebase
 let USER_ID = null;
@@ -69,6 +70,7 @@ function openModal(e) {
       if (user) {
         updateToLocal(currentFilmData, key);
         refreshModalButtons(filmId);
+        markupLibraryRender(USER_ID, false);
       } else return isLogin(USER_ID);
     });
   }
