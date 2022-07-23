@@ -20,6 +20,7 @@ a {
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: 0px 0px 23px 10px rgba(0, 0, 0, 0.97);
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
@@ -268,7 +269,7 @@ a {
 .warning-notification {
   position: absolute;
   left: 20px;
-  
+
   width: 280px;
   margin: 10px auto 10px;
   font-size: 12px;
@@ -301,7 +302,7 @@ a {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
-  padding-right: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -327,14 +328,14 @@ a {
 }
 
 .trending-selector-text {
-font-size: 12px;
-@include respond-to('tablet') {
-  font-size: 14px;
-}
+  font-size: 12px;
+  @include respond-to('tablet') {
+    font-size: 14px;
+  }
 
-@include respond-to('tablet') {
-  font-size: 14px;
-}
+  @include respond-to('tablet') {
+    font-size: 14px;
+  }
 }
 
 .login__btn.btn {
@@ -352,9 +353,8 @@ font-size: 12px;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
-  padding-right: 10px;
+    padding-right: 10px;
   }
-
 }
 
 .login__btn:first-child {
@@ -375,7 +375,7 @@ font-size: 12px;
   right: 20px;
 
   @include respond-to('mobile') {
-   margin-top: 6px;
+    margin-top: 6px;
   }
   @include respond-to('tablet') {
     right: 32px;
@@ -398,7 +398,6 @@ font-size: 12px;
   @include respond-to('tablet') {
     margin-top: 12px;
   }
-  
 }
 
 .logout-wrapper__text {

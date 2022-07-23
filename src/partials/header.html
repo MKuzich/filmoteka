@@ -9,11 +9,15 @@
       </a>
       <nav class="navigation">
         <ul class="menu">
-          <li class="menu__item" >
-            <a href="/src/index.html" class="menu__link current" id = 'home'>Home</a>
+          <li class="menu__item">
+            <a href="/src/index.html" class="menu__link current" id="home"
+              >Home</a
+            >
           </li>
-          <li class="menu__item" >
-            <a href="/src/library.html" class="menu__link" id = 'library'>My library</a>
+          <li class="menu__item">
+            <a href="/src/library.html" class="menu__link" id="library"
+              >My library</a
+            >
           </li>
         </ul>
       </nav>
@@ -27,18 +31,24 @@
         name="searchQuery"
       />
       <button class="search__button" type="submit">
-        <span class="submit-spinner submit-spinner_hide header-spinner" id="spinnersearch"></span>
+        <span
+          class="submit-spinner submit-spinner_hide header-spinner"
+          id="spinnersearch"
+        ></span>
         <svg class="search__button-icon">
           <use href="./images/icons/header-sprite.svg#search"></use>
         </svg>
       </button>
     </form>
     <p class="warning-notification"></p>
+    <div class="theme-switcher">
+      <button class="theme-toggler"></button>
+    </div>
     <div class="select-lang">
       <span class="span-lang">EN</span>
 
-      <div class="checkbox-group"> 
-        <input type="checkbox" class="checkbox" id="checkbox">
+      <div class="checkbox-group">
+        <input type="checkbox" class="checkbox" id="checkbox" />
         <label for="checkbox" class="checkbox-label"></label>
       </div>
 
@@ -49,12 +59,9 @@
       <p class="trending-selector-text">Popular by</p>
 
       <button type="button" class="selector day btn act" id="btnDay">
-
         Day
       </button>
-      <button type="button" class="selector week btn" id = 'btnWeek'>
-        Week
-      </button>  
+      <button type="button" class="selector week btn" id="btnWeek">Week</button>
     </div>
     <div class="login-wrapper">
       <button type="button" class="login__btn btn" data-login-modal-open>
@@ -66,7 +73,9 @@
     </div>
     <div class="logout-wrapper">
       <p class="logout-wrapper__text"></p>
-      <button class="login__btn logout btn" type="button" data-logout>Log Out</button>
+      <button class="login__btn logout btn" type="button" data-logout>
+        Log Out
+      </button>
     </div>
   </div>
 </header>
