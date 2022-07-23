@@ -1,39 +1,51 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { moviesGenresConvertation } from './movies-genres-convertation';
 import { titleSrinking, genresSrinking } from './card-shrinking';
+import {
+  createMarkupPaginationLibraryBtn,
+  currentPageLibrary,
+} from './pagination-library';
+
+export let currentFilter = {
+  data: 'watched',
+  change: function (prop) {
+    this.data = prop;
+  },
+};
 import { dateConvertation } from './date-convertation';
 
 let USER_ID = null;
 
 const auth = getAuth();
+
 onAuthStateChanged(auth, user => {
   if (user) {
     USER_ID = user.uid;
     watched.classList.add('library-active-btn');
     watched.removeAttribute('disabled');
     queue.removeAttribute('disabled');
-    markupLibraryRender(USER_ID);
+    libraryWarningContainer.innerHTML = '';
+    markupLibraryRender(USER_ID, false);
   } else {
     let markup;
 
     if (localStorage.getItem('localLang') === 'uk') {
-      console.log('ukra');
-      markup = `<li><strong class="library-warning" id = 'warning'>Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></li>`;
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>На разі тут немає фільмів. Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></div>`;
     } else {
-      markup = `<li><strong class="library-warning" id = 'warning'>You must be loginned for using this library! Please log in or sign up!</strong></li>`;
-
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>Now there are no movies. You must be loginned for using this library! Please log in or sign up!</strong></div>`;
     }
-
-    listFilms.innerHTML = '';
-    listFilms.insertAdjacentHTML('afterbegin', markup);
+    libraryWarningContainer.innerHTML = '';
+    libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
-
   }
 });
 
 let FILTER = 'watched';
 
+const libraryWarningContainer = document.querySelector(
+  '.library__warning-container'
+);
 const listFilms = document.querySelector('.list-films');
 const watched = document.querySelector('[data-watched-btn]');
 const queue = document.querySelector('[data-queue-btn]');
@@ -42,24 +54,33 @@ queue.addEventListener('click', onClickFilterChange);
 
 function onClickFilterChange(e) {
   if (e.target.hasAttribute('data-watched-btn')) {
-    FILTER = 'watched';
+    currentFilter.change('watched');
     watched.classList.add('library-active-btn');
     queue.classList.remove('library-active-btn');
-    markupLibraryRender(USER_ID);
+    markupLibraryRender(USER_ID, false);
+    currentPageLibrary.change(1);
+    createMarkupPaginationLibraryBtn('overlay-list-library');
     return;
   }
-  FILTER = 'queue';
+  currentFilter.change('queue');
   watched.classList.remove('library-active-btn');
   queue.classList.add('library-active-btn');
-  markupLibraryRender(USER_ID);
+  markupLibraryRender(USER_ID, false);
+  currentPageLibrary.change(1);
+  createMarkupPaginationLibraryBtn('overlay-list-library');
 }
 
-function markupLibraryRender(uid) {
+export function markupLibraryRender(uid, arrayFromPagination) {
   const savedMovies = localStorage.getItem(uid);
   const parsedMovies = JSON.parse(savedMovies);
 
-  const array = parsedMovies[FILTER];
-
+  let array = parsedMovies[currentFilter.data];
+  if (array.length > 9) {
+    array = array.slice(0, 9);
+  }
+  if (arrayFromPagination) {
+    array = arrayFromPagination;
+  }
   const markup = array
     .map(item => {
       return `<li class="link list-films_card" data-id='${item.id}'>
@@ -80,7 +101,9 @@ function markupLibraryRender(uid) {
                 moviesGenresConvertation(item.genre_ids)
               )}</p>
               <p class="list-films_card-info-footer-production-year">
-              ${dateConvertation(item.release_date)} <span class="info-block__values--orange">${item.vote_average.toFixed(
+              ${dateConvertation(
+                item.release_date
+              )} <span class="info-block__values--orange">${item.vote_average.toFixed(
         1
       )}</span>
               </p>
@@ -90,6 +113,56 @@ function markupLibraryRender(uid) {
         </li>`;
     })
     .join('');
+  createMarkupPaginationLibraryBtn('overlay-list-library');
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
+}
+
+let modalButton = null;
+const modalCloseBtnRef = document.querySelector('.modal-close');
+const modalBackdropRef = document.querySelector('[data-film-modal]');
+
+function enableRerender(btn) {
+  modalButton = document.querySelector(`[data-action="${btn}"]`);
+  modalButton.addEventListener('click', onModalButtonsClickHandler);
+}
+
+function disableRender() {
+  modalButton.removeEventListener('click', onModalButtonsClickHandler);
+  modalCloseBtnRef.removeEventListener('click', disableRender);
+  document.removeEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.removeEventListener('click', onClickBack);
+}
+
+function onCloseModalBack(e) {
+  e.key === 'Escape' ? disableRender() : null;
+}
+
+function onClickBack(e) {
+  if (e.target.classList.contains('backdrop')) {
+    disableRender();
+  }
+}
+
+function onModalButtonsClickHandler(e) {
+  setTimeout(() => {
+    markupLibraryRender(USER_ID, false);
+    currentPageLibrary.change(1);
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+    return;
+  }, 0);
+}
+
+const listFilmsRef = document.querySelector('.list-films');
+listFilmsRef.addEventListener('click', onClickRerender);
+
+function onClickRerender(e) {
+  if (!e.target.closest('li')) {
+    return;
+  }
+  enableRerender(currentFilter.data);
+
+  modalCloseBtnRef.addEventListener('click', disableRender);
+  document.addEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.addEventListener('click', onClickBack);
 }

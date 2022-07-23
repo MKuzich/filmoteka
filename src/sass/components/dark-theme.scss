@@ -1,0 +1,101 @@
+html.dark {
+  transition: $chang-time $chang-func;
+  & .hero {
+    box-shadow: 0px 0px 23px 10px rgba(84, 84, 84, 0.97);
+  }
+  & body {
+    background-color: map-get($colors, 'bg-dark');
+    color: map-get($colors, 'light');
+  }
+  & .footer {
+    background-color: map-get($colors, 'footer-bg-dark');
+    box-shadow: 0px 0px 23px 10px rgba(9, 9, 9, 0.97);
+  }
+  & .footer-modal__list {
+    background-color: map-get($colors, 'bg-dark');
+  }
+  & .modal-card {
+    color: map-get($colors, 'light');
+    background-color: map-get($colors, 'bg-dark');
+  }
+  & .modal-close {
+    background-color: map-get($colors, 'bg-dark');
+    &__button-icon {
+      stroke: map-get($colors, 'light');
+      &:hover {
+        stroke: map-get($colors, 'accent');
+      }
+    }
+  }
+  & .info-block__values--gray {
+    color: map-get($colors, 'light');
+    background-color: map-get($colors, 'footer-bg-dark');
+  }
+  & .modal-button {
+    color: map-get($colors, 'light');
+    border-color: map-get($colors, 'light');
+  }
+  & .list-films_card-info-footer-name-film {
+    color: map-get($colors, 'light');
+  }
+  & .btn-pagination {
+    background-color: map-get($colors, 'bg-dark');
+    color: map-get($colors, 'light');
+    &:hover {
+      color: map-get($colors, 'light');
+      background-color: map-get($colors, 'accent');
+      stroke: map-get($colors, 'light');
+    }
+  }
+  & .btn-pagination-active {
+    color: map-get($colors, 'light');
+  }
+  & .btn-pagination-arrow {
+    background-color: map-get($colors, 'bg-dark');
+    & .svg-pagination-btn {
+      stroke: map-get($colors, 'light');
+    }
+    &:hover {
+      color: map-get($colors, 'light');
+      background-color: map-get($colors, 'accent');
+      stroke: map-get($colors, 'light');
+    }
+  }
+  & .signup-modal {
+    background-color: map-get($colors, 'bg-dark');
+
+    & .signup-modal__close-btn:hover .signup-modal__close-icon {
+      stroke: map-get($colors, 'accent');
+    }
+
+    & .signup-modal__close-icon {
+      stroke: map-get($colors, 'light');
+    }
+    & .signup-form__input {
+      border-color: map-get($colors, 'light');
+      color: map-get($colors, 'light');
+      background-color: map-get($colors, 'bg-dark');
+      &:focus {
+        border-color: map-get($colors, 'accent');
+
+        & + .signup-form__icon {
+          stroke: map-get($colors, 'accent');
+          fill: map-get($colors, 'accent');
+        }
+      }
+    }
+    & .signup-form__icon {
+      stroke: map-get($colors, 'light');
+      fill: map-get($colors, 'light');
+    }
+    & .signup-form__btn {
+      border-color: map-get($colors, 'light');
+      background-color: map-get($colors, 'bg-dark');
+      color: map-get($colors, 'light');
+      &:hover {
+        border-color: map-get($colors, 'accent');
+        background-color: map-get($colors, 'accent');
+      }
+    }
+  }
+}
