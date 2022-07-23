@@ -1,7 +1,11 @@
+import { modalFooterUa } from "./ua/footer-modal-ua";
+
 const refs = {
   openModal: document.querySelector('.footer__link'),
   closeModal: document.querySelector('[data-footer-modal-close]'),
   modalWindow: document.querySelector('[data-footer-modal]'),
+
+  modalContainer:document.querySelector('.modal__container')
 };
 
 refs.openModal.addEventListener('click', openFooterModal);
@@ -9,9 +13,21 @@ refs.closeModal.addEventListener('click', closeFooterModal);
 
 function openFooterModal() {
   document.body.classList.add('modal-open');
+  // console.log('ukrain');
+  if(localStorage.getItem('localLang') === 'uk') {
+    refs.modalContainer.innerHTML = modalFooterUa;
+    console.log('ukrain');
+  }
+  else {
+    console.log('engl');
+
+  }
+
   refs.modalWindow.classList.remove('is-hidden');
   document.addEventListener('keydown', closeModalOnEsc);
   refs.modalWindow.addEventListener('click', closeFooterModalOnAreaClick);
+  
+
 }
 
 function closeFooterModal() {

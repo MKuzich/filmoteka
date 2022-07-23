@@ -32,14 +32,17 @@ const developText = document.querySelector('#developText');
 const footerText = document.querySelector('#footerText');
 const footerStudent = document.querySelector('#footerStudent');
 
+// const footerModalList = document.querySelector('#footerModalList');
+// console.log(footerModalList);
+
 const langValue = localStorage.getItem('localLang');
 
 if (langValue === 'uk') {
   selectedLang.checked = true;
   uaVersion();
-  console.log(langValue, selectedLang.checked);
+  // console.log(langValue, selectedLang.checked);
 } else {
-  console.log(langValue);
+  // console.log(langValue);
 
   selectedLang.checked = false;
   languege.setAttribute('html', 'en');
