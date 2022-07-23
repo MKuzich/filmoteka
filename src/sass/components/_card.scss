@@ -6,15 +6,14 @@
   margin-bottom: 0;
   cursor: pointer;
   width: 280px;
-  transition: transform .2s;
-    &:hover,
-    &:focus {
-      transform: scale(1.03);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, .3),
-        -23px 0 20px -23px rgba(0, 0, 0, .6),
-        23px 0 20px -23px rgba(0, 0, 0, .6),
-        inset 0 0 40px rgba(0, 0, 0, .1);
-    }
+  transition: transform 0.2s;
+  &:hover,
+  &:focus {
+    transform: scale(1.03);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+      -23px 0 20px -23px rgba(0, 0, 0, 0.6),
+      23px 0 20px -23px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(0, 0, 0, 0.1);
+  }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     margin-top: 32px;
@@ -98,7 +97,6 @@
 }
 
 .card-info-footer_characteristics {
-  display: flex;
   margin: 0;
 }
 
@@ -124,6 +122,7 @@
 }
 
 .list-films_card-info-footer-genre-film {
+  display: inline;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
@@ -141,6 +140,7 @@
 }
 
 .list-films_card-info-footer-production-year {
+  display: inline;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;

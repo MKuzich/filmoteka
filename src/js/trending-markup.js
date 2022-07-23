@@ -101,10 +101,13 @@ function activeBtnWeek() {
 
 function onLangChange() {
   if (langCheckBox.checked) {
-    langValue = 'uk'
-    trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
+    langValue = 'uk';
+    fetchMovieGenres();
+    trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
   } else {
-    langValue = 'en'
-    trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
+    langValue = 'en';
+    fetchMovieGenres();
+    trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+
   }
 }
