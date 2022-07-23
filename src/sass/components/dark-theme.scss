@@ -38,6 +38,17 @@ html.dark {
   & .list-films_card-info-footer-name-film {
     color: map-get($colors, 'light');
   }
+
+  & .list-films_card {
+    &:hover,
+    &:focus {
+      box-shadow: 0 1px 4px rgba(255, 255, 255, .3),
+        -23px 0 20px -23px rgba(255, 255, 255, .6),
+        23px 0 20px -23px rgba(255, 255, 255, .6),
+        inset 0 0 40px rgba(255, 255, 255, .1);
+    }
+  }
+
   & .btn-pagination {
     background-color: map-get($colors, 'bg-dark');
     color: map-get($colors, 'light');
