@@ -1,6 +1,6 @@
 export function titleSrinking(string) {
   if (string.length > 35) {
-    return string.slice(0, 34) + '...';
+    return string.slice(0, 28) + '...';
   }
   return string;
 }

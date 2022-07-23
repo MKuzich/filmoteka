@@ -5,34 +5,35 @@ import { titleSrinking, genresSrinking } from './card-shrinking';
 let USER_ID = null;
 
 const auth = getAuth();
+
 onAuthStateChanged(auth, user => {
   if (user) {
     USER_ID = user.uid;
     watched.classList.add('library-active-btn');
     watched.removeAttribute('disabled');
     queue.removeAttribute('disabled');
+    libraryWarningContainer.innerHTML = '';
     markupLibraryRender(USER_ID);
   } else {
     let markup;
 
     if (localStorage.getItem('localLang') === 'uk') {
-      console.log('ukra');
-      markup = `<li><strong class="library-warning" id = 'warning'>Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></li>`;
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>На разі тут немає фільмів. Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></div>`;
     } else {
-      markup = `<li><strong class="library-warning" id = 'warning'>You must be loginned for using this library! Please log in or sign up!</strong></li>`;
-
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>Now there are no movies. You must be loginned for using this library! Please log in or sign up!</strong></div>`;
     }
-
-    listFilms.innerHTML = '';
-    listFilms.insertAdjacentHTML('afterbegin', markup);
+    libraryWarningContainer.innerHTML = '';
+    libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
-
   }
 });
 
 let FILTER = 'watched';
 
+const libraryWarningContainer = document.querySelector(
+  '.library__warning-container'
+);
 const listFilms = document.querySelector('.list-films');
 const watched = document.querySelector('[data-watched-btn]');
 const queue = document.querySelector('[data-queue-btn]');
