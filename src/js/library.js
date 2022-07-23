@@ -117,3 +117,52 @@ export function markupLibraryRender(uid, arrayFromPagination) {
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }
+
+let modalButton = null;
+const modalCloseBtnRef = document.querySelector('.modal-close');
+const modalBackdropRef = document.querySelector('[data-film-modal]');
+
+function enableRerender(btn) {
+  modalButton = document.querySelector(`[data-action="${btn}"]`);
+  modalButton.addEventListener('click', onModalButtonsClickHandler);
+}
+
+function disableRender() {
+  modalButton.removeEventListener('click', onModalButtonsClickHandler);
+  modalCloseBtnRef.removeEventListener('click', disableRender);
+  document.removeEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.removeEventListener('click', onClickBack);
+}
+
+function onCloseModalBack(e) {
+  e.key === 'Escape' ? disableRender() : null;
+}
+
+function onClickBack(e) {
+  if (e.target.classList.contains('backdrop')) {
+    disableRender();
+  }
+}
+
+function onModalButtonsClickHandler(e) {
+  setTimeout(() => {
+    markupLibraryRender(USER_ID, false);
+    currentPageLibrary.change(1);
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+    return;
+  }, 0);
+}
+
+const listFilmsRef = document.querySelector('.list-films');
+listFilmsRef.addEventListener('click', onClickRerender);
+
+function onClickRerender(e) {
+  if (!e.target.closest('li')) {
+    return;
+  }
+  enableRerender(currentFilter.data);
+
+  modalCloseBtnRef.addEventListener('click', disableRender);
+  document.addEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.addEventListener('click', onClickBack);
+}
