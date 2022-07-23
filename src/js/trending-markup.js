@@ -17,36 +17,36 @@ let langValue = localStorage.getItem('localLang');
 dayBtn.disabled = true;
 
 fetchMovieGenres();
-trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
 
+// listeners
 langCheckBox.addEventListener('input', onLangChange);
-
 dayBtn.addEventListener('click', timeChangeDay);
-
 weekBtn.addEventListener('click', timeChangeWeek);
+//
 
+// functions
 function timeChangeDay() {
   listFilms.innerHTML = '';
   activeBtnDay();
   TIME_WINDOW = 'day';
   currentPage.change(1);
-  trendingMarkup(TIME_WINDOW, 1);
+  trendingMarkup(TIME_WINDOW, 1, langValue);
 }
 function timeChangeWeek() {
   listFilms.innerHTML = '';
   activeBtnWeek();
   TIME_WINDOW = 'week';
   currentPage.change(1);
-  trendingMarkup(TIME_WINDOW, 1);
+  trendingMarkup(TIME_WINDOW, 1, langValue);
 }
 
-export function trendingMarkup(time, lang, page) {
+export function trendingMarkup(time, page, lang) {
   trendingSelector.classList.remove('visually-hidden');
-  fetchTrendingMovies(time, lang, page)
+  fetchTrendingMovies(time, page, lang)
     .then(({ data }) => {
       localStorage.setItem('downloadedMovies', JSON.stringify(''));
       localStorage.setItem('downloadedMovies', JSON.stringify(data.results));
-      console.log(data);
       createMarkupPaginationBtn(data.total_pages, 'overlay-list-trends');
       const markup = data.results
         .map(
@@ -108,5 +108,6 @@ function onLangChange() {
     langValue = 'en';
     fetchMovieGenres();
     trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+
   }
 }
