@@ -12,6 +12,7 @@ export let currentFilter = {
     this.data = prop;
   },
 };
+import { dateConvertation } from './date-convertation';
 
 let USER_ID = null;
 
@@ -97,10 +98,7 @@ export function markupLibraryRender(uid, arrayFromPagination) {
                 moviesGenresConvertation(item.genre_ids)
               )}</p>
               <p class="list-films_card-info-footer-production-year">
-                  ${item.release_date.slice(
-                    0,
-                    4
-                  )} <span class="info-block__values--orange">${item.vote_average.toFixed(
+              ${dateConvertation(item.release_date)} <span class="info-block__values--orange">${item.vote_average.toFixed(
         1
       )}</span>
               </p>
