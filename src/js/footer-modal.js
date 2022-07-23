@@ -59,5 +59,5 @@ class Item {
   }}
 
 
-nodes.forEach(node => new Item(node));і
+nodes.forEach(node => new Item(node));
 
