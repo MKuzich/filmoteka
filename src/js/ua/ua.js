@@ -37,10 +37,7 @@ const langValue = localStorage.getItem('localLang');
 if (langValue === 'uk') {
   selectedLang.checked = true;
   uaVersion();
-  // console.log(langValue, selectedLang.checked);
-} else {
-  // console.log(langValue);
-
+ } else {
   selectedLang.checked = false;
   languege.setAttribute('html', 'en');
   enVersion();

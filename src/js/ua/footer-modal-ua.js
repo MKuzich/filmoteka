@@ -1,3 +1,5 @@
+const modalTitle = document.querySelector('.footer-modal__title');
+
 const mKuzich = document.querySelector('#mKuzich');
 const mKuzichInfo = document.querySelector('#mKuzichInfo');
 const mKuzichRole = document.querySelector('#mKuzichRole');
@@ -35,9 +37,11 @@ const yZakrevskayaInfo = document.querySelector('#yZakrevskayaInfo');
 const yZakrevskayaRole = document.querySelector('#yZakrevskayaRole');
 
 export function footerModalUa () {
+    modalTitle.textContent = 'Наша команда'
+
     mKuzich.textContent = 'Михайло Кузіч';
     mKuzichInfo.textContent = 'Реєстрація/автентифікація, моди входу та реєстрації, меню користувача, розділ бібліотеки, вибірка жанрів API';
-    mKuzichRole.textContent = 'Керівник групи';
+    mKuzichRole.textContent = 'Лідер команди';
 
     iZhuk.textContent = 'Ірина Жук';
     iZhukRole.textContent = 'SCRUM  майстер';
@@ -74,40 +78,42 @@ export function footerModalUa () {
 };
 
 export function footerModalEn () {
+    modalTitle.textContent = 'Our Team';
+
     mKuzich.textContent = 'Mykhailo Kuzich';
-    mKuzichInfo.textContent = 'Реєстрація/автентифікація, моди входу та реєстрації, меню користувача, розділ бібліотеки, вибірка жанрів API';
+    mKuzichInfo.textContent = 'Registration/authentication, login and signup modals, user menu, library section, api genres fetching';
     mKuzichRole.textContent = 'Team Lead';
 
     iZhuk.textContent = 'Iryna Zhuk';
     iZhukRole.textContent = 'Scrum - Maste';
-    iZhukInfo.textContent = 'Адаптивна верстка хедера для головної/моя бібліотека сторінок. Запит для пошуку фільмів на головній сторінці';
+    iZhukInfo.textContent = 'Adaptive header layout for main and my library pages. Realized the query for a film search on the home page';
 
     oHlushenkova.textContent = 'Olesia Hlushenkova';
-    oHlushenkovaInfo.textContent = 'Макет шаблону однієї картки з фільмом. Стилі для тексту футера картки (назви фільмів, жанри та рік випуску)';
+    oHlushenkovaInfo.textContent = 'One movie card template layout. Designed styles for the card footer text (movie titles, genres, and year of release)';
     oHlushenkovaRole.textContent = 'Developer';
 
     vDianov.textContent = 'Vitaliy Dianov';
-    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД';
+    vDianovInfo.textContent = ' Modal window for a movie card. DB implementation through local storage. The logic of adding to the DB';
     vDianovRole.textContent = 'Developer';
 
     nKukharenko.textContent = 'Nedzhat Kukharenko';
-    nKukharenkoInfo.textContent = 'Пагінація домашньої сторінки та сторінки бібліотеки. Відмальовка відповідної частини фільмів на кожну сторінку';
+    nKukharenkoInfo.textContent = 'Home page and library page pagination. Drawing the appropriate part of the movies to each page';
     nKukharenkoRole.textContent = 'Developer';
 
     vHorin.textContent = 'Volodymyr Horin';
-    vHorinInfo.textContent = 'Розмітка популярних фільмів із селектором часового вікна та двомовною підтримкою. "Кнопка прокрутити до верху"';
+    vHorinInfo.textContent = 'Trending movies markup, with time window selector and bilingual support. "Scroll to top button"';
     vHorinRole.textContent = 'Developer';
 
     mChecheneva.textContent = 'Maryna Checheneva';
-    mChechenevaInfo.textContent = 'Попередній завантажувач для проекту, завантажувачі для реєстрації та входу в модальні вікна і під час пошуку';
+    mChechenevaInfo.textContent = ' Preloader for the project, loaders for registration and login modal windows, loader while searching movies';
     mChechenevaRole.textContent = 'Developer';
 
     oZnak.textContent = 'Orest Znak';
-    oZnakInfo.textContent = 'Реалізована двомовна версія EN/UK. Переклад повідомлення про помилку під введенням на сторінці. Переклад маркування';
+    oZnakInfo.textContent = 'Switch for languages EN and UK. Translation of the error message under the input on page. Translation of markings';
     oZnakRole.textContent = 'Developer';
 
     yZakrevskaya.textContent = 'Yana Zakrevskaya';
-    yZakrevskayaInfo.textContent = ' Адаптивна верстка футера. Модалка з інформацією про нашу команду. Анімація і деякі ефекти';
+    yZakrevskayaInfo.textContent = 'Adaptive footer layout. Footer modal layout with information about our team. Animation and some effects';
     yZakrevskayaRole.textContent = 'Developer';
 
 };
