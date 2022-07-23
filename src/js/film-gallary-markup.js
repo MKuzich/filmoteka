@@ -13,7 +13,9 @@ export function filmGallaryMarkup(array) {
               <img
                   class="list-films_card-info_card-film"
                   src=https://image.tmdb.org/t/p/original/${item.poster_path}
-                  alt="movie poster"
+                  alt="${titleSrinking(
+                    item.title
+                  )} poster"
               />
             </div>
             <div class="list-films_card-info-footer">
