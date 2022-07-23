@@ -12,10 +12,13 @@
   border: none;
   padding: 0;
   border-radius: 5px;
+  stroke: map-get($colors, 'main');
   cursor: pointer;
+  transition: $chang-time $chang-func;
   &:hover {
     color: map-get($colors, 'light');
     background-color: map-get($colors, 'accent');
+    stroke: map-get($colors, 'light');
   }
   @include respond-to('tablet') {
     width: 40px;
