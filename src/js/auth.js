@@ -91,9 +91,19 @@ function onSubmitLoginHandler(e) {
     });
 }
 
+let userInterface = null;
+
 onAuthStateChanged(auth, user => {
+  userInterface = user;
   if (user) {
     USER_ID = user.uid;
   }
   enableUserInterface(user);
 });
+
+const langCheckBox = document.querySelector('#checkbox');
+langCheckBox.addEventListener('input', onLangChange);
+
+function onLangChange() {
+  enableUserInterface(userInterface);
+}

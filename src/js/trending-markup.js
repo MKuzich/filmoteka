@@ -101,12 +101,12 @@ function activeBtnWeek() {
 
 function onLangChange() {
   if (langCheckBox.checked) {
-    langValue = 'uk'
+    langValue = 'uk';
+    fetchMovieGenres();
     trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
-    console.log("language changed to Ukr");
   } else {
-    langValue = 'en'
+    langValue = 'en';
+    fetchMovieGenres();
     trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
-    console.log("language changed to en");
   }
 }

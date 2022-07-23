@@ -5,6 +5,7 @@ import {
   createMarkupPaginationLibraryBtn,
   currentPageLibrary,
 } from './pagination-library';
+import { fetchMovieGenres } from './api/api-service-genres';
 
 export let currentFilter = {
   data: 'watched',
@@ -28,7 +29,7 @@ onAuthStateChanged(auth, user => {
     markupLibraryRender(USER_ID, false);
   } else {
     let markup;
-
+    listFilms.innerHTML = '';
     if (localStorage.getItem('localLang') === 'uk') {
       markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>На разі тут немає фільмів. Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></div>`;
     } else {
@@ -165,4 +166,31 @@ function onClickRerender(e) {
   modalCloseBtnRef.addEventListener('click', disableRender);
   document.addEventListener('keydown', onCloseModalBack);
   modalBackdropRef.addEventListener('click', onClickBack);
+}
+
+const langCheckBox = document.querySelector('#checkbox');
+langCheckBox.addEventListener('input', onLangChange);
+
+async function onLangChange() {
+  await fetchMovieGenres();
+  markupLibraryRender(USER_ID, false);
+  currentPageLibrary.change(1);
+  createMarkupPaginationLibraryBtn('overlay-list-library');
+  if (!USER_ID) {
+    let lang = '';
+    if (langCheckBox.checked) {
+      lang = 'uk';
+    } else {
+      lang = 'en';
+    }
+    let markup;
+    listFilms.innerHTML = '';
+    if (localStorage.getItem('localLang') === 'uk') {
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>На разі тут немає фільмів. Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></div>`;
+    } else {
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>Now there are no movies. You must be loginned for using this library! Please log in or sign up!</strong></div>`;
+    }
+    libraryWarningContainer.innerHTML = '';
+    libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
+  }
 }
