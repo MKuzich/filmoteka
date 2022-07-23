@@ -9,7 +9,6 @@ const searchInput = document.querySelector('.search-form-input');
 const btnLogIn = document.querySelector('[data-login-modal-open]');
 const btnSignUp = document.querySelector('[data-signup-modal-open]');
 const btnLogOut = document.querySelector('[data-logout]');
-
 const popularBy = document.querySelector('.trending-selector-text');
 const btnDay = document.querySelector('#btnDay');
 const btnWeek = document.querySelector('#btnWeek');
@@ -37,10 +36,7 @@ const langValue = localStorage.getItem('localLang');
 if (langValue === 'uk') {
   selectedLang.checked = true;
   uaVersion();
-  console.log(langValue, selectedLang.checked);
 } else {
-  console.log(langValue);
-
   selectedLang.checked = false;
   languege.setAttribute('html', 'en');
   enVersion();
@@ -63,9 +59,9 @@ function enVersion() {
   localLang();
   //header
   menuHome.textContent = 'Home';
-  // '<a href="index.html" class="menu__link current">Home</a>';
   menuLibrary.textContent = 'My library';
   searchInput.setAttribute('placeholder', 'Movie search');
+
   btnLogIn.textContent = 'Log in';
   btnSignUp.textContent = 'Sign up';
   btnLogOut.textContent = 'Log out';
@@ -104,6 +100,8 @@ function uaVersion() {
   // '<a href="index.html" class="menu__link current">Домашня</a>';
   menuLibrary.textContent = 'Моя бібліотека';
   searchInput.setAttribute('placeholder', 'Пошук фільмів');
+  // warningMessage.textContent = 'Невдалий результат пошуку. Будь ласка, введіть правильну назву фільму!';
+
   btnLogIn.textContent = 'Вхід';
   btnSignUp.textContent = 'Реєстрація';
   btnLogOut.textContent = 'Вихід';
