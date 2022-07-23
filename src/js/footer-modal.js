@@ -8,18 +8,22 @@ const refs = {
   modalContainer:document.querySelector('.modal__container')
 };
 
+
 refs.openModal.addEventListener('click', openFooterModal);
 refs.closeModal.addEventListener('click', closeFooterModal);
 
 function openFooterModal() {
+  console.log(refs.modalContainer);
+
   document.body.classList.add('modal-open');
-  // console.log('ukrain');
+
+
   if(localStorage.getItem('localLang') === 'uk') {
     refs.modalContainer.innerHTML = modalFooterUa;
-    console.log('ukrain');
+    console.log(localStorage.getItem('localLang'));
   }
   else {
-    console.log('engl');
+    console.log(localStorage.getItem('localLang'));
 
   }
 
