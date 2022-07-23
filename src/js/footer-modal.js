@@ -1,4 +1,4 @@
-import { modalFooterUa } from "./ua/footer-modal-ua";
+import { footerModalEn, footerModalUa } from "./ua/footer-modal-ua";
 
 const refs = {
   openModal: document.querySelector('.footer__link'),
@@ -13,20 +13,16 @@ refs.openModal.addEventListener('click', openFooterModal);
 refs.closeModal.addEventListener('click', closeFooterModal);
 
 function openFooterModal() {
-  console.log(refs.modalContainer);
+  
 
   document.body.classList.add('modal-open');
 
 
   if(localStorage.getItem('localLang') === 'uk') {
-    refs.modalContainer.innerHTML = modalFooterUa;
-    console.log(localStorage.getItem('localLang'));
-  }
-  else {
-    console.log(localStorage.getItem('localLang'));
-
-  }
-
+    footerModalUa();  
+  } else {
+    footerModalEn();
+  };
   refs.modalWindow.classList.remove('is-hidden');
   document.addEventListener('keydown', closeModalOnEsc);
   refs.modalWindow.addEventListener('click', closeFooterModalOnAreaClick);

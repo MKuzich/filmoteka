@@ -1,204 +1,115 @@
+const mKuzich = document.querySelector('#mKuzich');
+const mKuzichInfo = document.querySelector('#mKuzichInfo');
+const mKuzichRole = document.querySelector('#mKuzichRole');
 
-export function modalFooterUa() {
-    return `<ul class="footer-modal__list">
-    <li class="footer-modal__item">
-    <p class='footer-modal__img'>  
-        <a href="https://www.linkedin.com/in/mykhailo-kuzich/" target="_blank">
-            <img srcset="/src/images/footer-photo/MykhailoKuzich-200.jpg 1x, /src/images/footer-photo/MykhailoKuzich-400.jpg 2x" 
-            src="/src/images/footer-photo/MykhailoKuzich-200.jpg" 
-            alt="Mykhailo Kuzich" />
-        </a>
-    </p>                         
-    <div class='info'> 
-        <div class="info__name">
-            <h3>Mykhailo Kuzich</h3>                                   
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>                                                                             
-        </div>
-        <p class="info__text">Registration/authentication Registration/authentication Registration/authentication Registration/authentication Registration/authentication </p>  
-        <div class="info__role">
-            <h4>Team Lead</h4>
-        </div>                               
-    </div>                            
-</li>
+const iZhuk = document.querySelector('#iZhuk');
+const iZhukInfo = document.querySelector('#iZhukInfo');
+const iZhukRole = document.querySelector('#iZhukRole');
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/iryna-zhuk-846930230/" target="_blank">
-            <img srcset="/src/images/footer-photo/IrynaZhuk-200.jpg 1x, /src/images/footer-photo/IrynaZhuk-400.jpg 2x"
-            src="/src/images/footer-photo/IrynaZhuk-200.jpg" alt="Iryna Zhuk" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Iryna Zhuk</h3>                                  
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Header home page with input form (just markup) + header library page with buttons (just markup). Home page query request</p>
-        <div class="info__role">
-            <h4>Scrum - Master</h4>
-        </div>
-        
-    </div>
-</li>
+const oHlushenkova = document.querySelector('#oHlushenkova');
+const oHlushenkovaInfo = document.querySelector('#oHlushenkovaInfo');
+const oHlushenkovaRole = document.querySelector('#oHlushenkovaRole');
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/olesia-hlushenkova-72577323b" target="_blank">
-            <img srcset="/src/images/footer-photo/OlesiaHlushenkova-200.jpg 1x, /src/images/footer-photo/OlesiaHlushenkova-400.jpg 2x"
-            src="/src/images/footer-photo/OlesiaHlushenkova-200.jpg" alt="Olesia Hlushenkova" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Olesia Hlushenkova</h3>                                  
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Card for home and library pages with styles. Library page with requests to Local Storage. Library page with requests to Local Storage.</p>
-        <h4 class="info__role">Developer</h4>
-    </div>
-</li>
+const  vDianov = document.querySelector('#vDianov');
+const  vDianovInfo = document.querySelector('#vDianovInfo');
+const vDianovRole = document.querySelector('#vDianovRole');
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/vitaliy-dianov/" target="_blank">
-            <img srcset="/src/images/footer-photo/VitaliyDianov-200.jpg 1x, /src/images/footer-photo/VitaliyDianov-400.jpg 2x"
-            src="/src/images/footer-photo/VitaliyDianov-200.jpg" alt="Vitaliy Dianov" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Vitaliy Dianov</h3>                                 
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal Film Modal</p>
-        <div class="info__role">
-            <h4>Developer</h4>
-        </div>
-    </div>
-</li>
+const nKukharenko = document.querySelector('#nKukharenko')
+const nKukharenkoInfo = document.querySelector('#nKukharenkoInfo')
+const nKukharenkoRole = document.querySelector('#nKukharenkoRole')
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/nedzhat-kukharenko-26b7841a1/" target="_blank">
-            <img srcset="/src/images/footer-photo/NedzhatKukharenko-200.jpg 1x, /src/images/footer-photo/NedzhatKukharenko-400.jpg 2x"
-            src="/src/images/footer-photo/NedzhatKukharenko-200.jpg" alt="Nedzhat Kukharenko" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Nedzhat Kukharenko</h3>                                  
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Home page and library page pagination with markup. Home page and library page pagination with markup. Home page and library page pagination </p>
-        <div class="info__role">
-            <h4>Developer</h4>
-        </div>
-    </div>
-</li>
+const vHorin = document.querySelector('#vHorin');
+const vHorinInfo = document.querySelector('#vHorinInfo');
+const vHorinRole = document.querySelector('#vHorinRole');
 
-<li class="footer-modal__item">                         
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/volodymyr-horin-895ba223b/" target="_blank">
-            <img srcset="/src/images/footer-photo/HorinVolodymyr-200.jpg 1x, /src/images/footer-photo/HorinVolodymyr-400.jpg 2x"
-            src="/src/images/footer-photo/HorinVolodymyr-200.jpg" alt="Horin Volodymyr" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Volodymyr Horin</h3>                                
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Home page + popular films request. Home page + popular films request. Home page + popular films request. Home page + popular films request</p>
-        <div class="info__role">
-            <h4>Developer</h4>
-        </div>
-    </div>
-</li>
+const mChecheneva = document.querySelector('#mChecheneva');
+const mChechenevaInfo = document.querySelector('#mChechenevaInfo');
+const mChechenevaRole = document.querySelector('#mChechenevaRole');
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/shalfey-meow-799a2a240/" target="_blank">
-            <img srcset="/src/images/footer-photo/MarinaChecheneva-200.jpg 1x, /src/images/footer-photo/MarinaChecheneva-400.jpg 2x"
-            src="/src/images/footer-photo/MarinaChecheneva-200.jpg" alt="Marina Checheneva" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Marina Checheneva</h3>                                 
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Loader, Preloader to pages. Loader, Preloader to pages. Loader, Preloader to pages. Loader, Preloader to pages. Loader, Preloader to pages.</p>
-        <div class="info__role">
-            <h4>Developer</h4>
-        </div>
-    </div>
-</li>
+const oZnak = document.querySelector('#oZnak');
+const oZnakInfo = document.querySelector('#oZnakInfo');
+const oZnakRole = document.querySelector('#oZnakRole');
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/orest-znak-26b346ba/" target="_blank">
-            <img srcset="/src/images/footer-photo/OrestZnak-200.jpg 1x, /src/images/footer-photo/OrestZnak-400.jpg 2x"
-            src="/src/images/footer-photo/OrestZnak-200.jpg" alt="Orest Znak" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Орест Знак</h3>                                  
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Multi-lenguage version. Multi-lenguage version. Multi-lenguage version. Multi-lenguage version. Multi-lenguage version. Multi-lenguage version.</p>
-        <div class="info__role">
-            <h4>Розробник</h4>
-        </div>
-    </div>
-</li>
+const yZakrevskaya = document.querySelector('#yZakrevskaya');
+const yZakrevskayaInfo = document.querySelector('#yZakrevskayaInfo');
+const yZakrevskayaRole = document.querySelector('#yZakrevskayaRole');
 
-<li class="footer-modal__item">
-    <p class='footer-modal__img'>
-        <a href="https://www.linkedin.com/in/yana-zakrevskaya-833907120/" target="_blank">
-            <img srcset="/src/images/footer-photo/YanaZakrevskaya-200.jpg 1x, /src/images/footer-photo/YanaZakrevskaya-400.jpg 2x"
-            src="/src/images/footer-photo/YanaZakrevskaya-200.jpg" alt="Yana Zakrevskaya" />
-        </a>
-    </p>
-    <div class='info'>
-        <div class="info__name">
-            <h3>Yana Zakrevskaya</h3>                             
-            <svg class="info__icon" width="24" height="24">
-                <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-            </svg>
-        </div>
-        <p class="info__text">Footer + modal about team. Footer + modal about team. Footer + modal about team. Footer + modal about team. Footer + modal about team.</p>
-        <div class="info__role">
-            <h4>Developer</h4>
-        </div>
-    </div>
-</li> 
+export function footerModalUa () {
+    mKuzich.textContent = 'Михайло Кузіч';
+    mKuzichInfo.textContent = 'Реєстрація/автентифікація, моди входу та реєстрації, меню користувача, розділ бібліотеки, вибірка жанрів API';
+    mKuzichRole.textContent = 'Керівник групи';
 
-<!-- the card that will be shown when there are 2 on the screen -->
-<li hidden class="footer-modal__item">                       
-    <div class="last__block">
-        <blockquote class="blockquote">
-            <p>Talent wins games, but teamwork and intelligence win championships.</p>
-            <cite class="blockquote__cite">Michael Jordan</cite>
-        </blockquote>
-    </div>                        
-</li>
+    iZhuk.textContent = 'Ірина Жук';
+    iZhukRole.textContent = 'SCRUM  майстер';
+    iZhukInfo.textContent = 'Адаптивна верстка хедера для головної/моя бібліотека сторінок. Запит для пошуку фільмів на головній сторінці';
 
-</ul>`
+    oHlushenkova.textContent = 'Олеся Глушенкова';
+    oHlushenkovaInfo.textContent = 'Макет шаблону однієї картки з фільмом. Стилі для тексту футера картки (назви фільмів, жанри та рік випуску)';
+    oHlushenkovaRole.textContent = 'Розробник';
+
+    vDianov.textContent = 'Віталій Діанов';
+    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД';
+    vDianovRole.textContent = 'Розробник';
+
+    nKukharenko.textContent = 'Неджат Кухаренко';
+    nKukharenkoInfo.textContent = 'Пагінація домашньої сторінки та сторінки бібліотеки. Відмальовка відповідної частини фільмів на кожну сторінку';
+    nKukharenkoRole.textContent = 'Розробник';
+
+    vHorin.textContent = 'Володимир Горін';
+    vHorinInfo.textContent = 'Розмітка популярних фільмів із селектором часового вікна та двомовною підтримкою. "Кнопка прокрутити до верху"';
+    vHorinRole.textContent = 'Розробник';
+
+    mChecheneva.textContent = 'Марина Чеченєва';
+    mChechenevaInfo.textContent = 'Попередній завантажувач для проекту, завантажувачі для реєстрації та входу в модальні вікна і під час пошуку';
+    mChechenevaRole.textContent = 'Розробник';
+
+    oZnak.textContent = 'Орест Знак';
+    oZnakInfo.textContent = 'Реалізована двомовна версія EN/UK. Переклад повідомлення про помилку під введенням на сторінці. Переклад маркування';
+    oZnakRole.textContent = 'Розробник';
+
+    yZakrevskaya.textContent = 'Іванна Гуменюк';
+    yZakrevskayaInfo.textContent = ' Адаптивна верстка футера. Модалка з інформацією про нашу команду. Анімація і деякі ефекти';
+    yZakrevskayaRole.textContent = 'Розробник';
+
 };
+
+export function footerModalEn () {
+    mKuzich.textContent = 'Mykhailo Kuzich';
+    mKuzichInfo.textContent = 'Реєстрація/автентифікація, моди входу та реєстрації, меню користувача, розділ бібліотеки, вибірка жанрів API';
+    mKuzichRole.textContent = 'Team Lead';
+
+    iZhuk.textContent = 'Iryna Zhuk';
+    iZhukRole.textContent = 'Scrum - Maste';
+    iZhukInfo.textContent = 'Адаптивна верстка хедера для головної/моя бібліотека сторінок. Запит для пошуку фільмів на головній сторінці';
+
+    oHlushenkova.textContent = 'Olesia Hlushenkova';
+    oHlushenkovaInfo.textContent = 'Макет шаблону однієї картки з фільмом. Стилі для тексту футера картки (назви фільмів, жанри та рік випуску)';
+    oHlushenkovaRole.textContent = 'Developer';
+
+    vDianov.textContent = 'Vitaliy Dianov';
+    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД';
+    vDianovRole.textContent = 'Developer';
+
+    nKukharenko.textContent = 'Nedzhat Kukharenko';
+    nKukharenkoInfo.textContent = 'Пагінація домашньої сторінки та сторінки бібліотеки. Відмальовка відповідної частини фільмів на кожну сторінку';
+    nKukharenkoRole.textContent = 'Developer';
+
+    vHorin.textContent = 'Volodymyr Horin';
+    vHorinInfo.textContent = 'Розмітка популярних фільмів із селектором часового вікна та двомовною підтримкою. "Кнопка прокрутити до верху"';
+    vHorinRole.textContent = 'Developer';
+
+    mChecheneva.textContent = 'Maryna Checheneva';
+    mChechenevaInfo.textContent = 'Попередній завантажувач для проекту, завантажувачі для реєстрації та входу в модальні вікна і під час пошуку';
+    mChechenevaRole.textContent = 'Developer';
+
+    oZnak.textContent = 'Orest Znak';
+    oZnakInfo.textContent = 'Реалізована двомовна версія EN/UK. Переклад повідомлення про помилку під введенням на сторінці. Переклад маркування';
+    oZnakRole.textContent = 'Developer';
+
+    yZakrevskaya.textContent = 'Yana Zakrevskaya';
+    yZakrevskayaInfo.textContent = ' Адаптивна верстка футера. Модалка з інформацією про нашу команду. Анімація і деякі ефекти';
+    yZakrevskayaRole.textContent = 'Developer';
+
+};
+
+// export {footerModalEn, footerModalEn};
