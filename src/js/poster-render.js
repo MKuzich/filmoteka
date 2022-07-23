@@ -1,7 +1,6 @@
-export function posterRender (posterUrl) {
-    if (!posterUrl) {
-      return  './images/no-image-poster.jpg'
- 
-    }
-    return posterUrl;
-    }
+export function posterRender(posterUrl) {
+  if (posterUrl === null) {
+    return 'сюди посилання на фото з інтренету';
+  }
+  return 'https://image.tmdb.org/t/p/original/' + posterUrl;
+}
