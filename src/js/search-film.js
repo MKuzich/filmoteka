@@ -33,8 +33,15 @@ export async function movieSearcher(searchText, pageNumber) {
     const data = await fetchMovieSearcher(searchText, pageNumber);
     const result = data.results;
     if (result.length === 0) {
-      return (headerWarning.textContent =
-        'Search result is not successful. Enter the correct movie name, please!');
+      if(localStorage.getItem('localLang') === 'en') {
+        return (headerWarning.textContent =
+          'Search result is not successful. Enter the correct movie name, please!');
+      } else {
+        return (headerWarning.textContent =
+          'Результат пошуку невдалий. Будь ласка, введіть правильну назву фільму!');
+
+      }
+      
     }
 
     localStorage.setItem('downloadedMovies', JSON.stringify(''));
