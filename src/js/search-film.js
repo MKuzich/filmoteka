@@ -1,6 +1,5 @@
 import { fetchMovieSearcher } from './api/api-service';
 import { filmGallaryMarkup } from './film-gallary-markup';
-import { listFilms } from './film-gallary-markup';
 import { createMarkupPaginationBtn } from './pagination-markup';
 import { currentPage } from './pagination';
 import { TIME_WINDOW } from './trending-markup';
@@ -33,7 +32,6 @@ export async function movieSearcher(searchText, pageNumber) {
   try {
     const data = await fetchMovieSearcher(searchText, pageNumber);
     const result = data.results;
-    console.log(data);
     if (result.length === 0) {
       return (headerWarning.textContent =
         'Search result is not successful. Enter the correct movie name, please!');
