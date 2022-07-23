@@ -101,7 +101,9 @@ export function markupLibraryRender(uid, arrayFromPagination) {
                 moviesGenresConvertation(item.genre_ids)
               )}</p>
               <p class="list-films_card-info-footer-production-year">
-              ${dateConvertation(item.release_date)} <span class="info-block__values--orange">${item.vote_average.toFixed(
+              ${dateConvertation(
+                item.release_date
+              )} <span class="info-block__values--orange">${item.vote_average.toFixed(
         1
       )}</span>
               </p>
