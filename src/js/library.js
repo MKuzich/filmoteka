@@ -117,3 +117,15 @@ export function markupLibraryRender(uid, arrayFromPagination) {
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }
+
+let modalButtons = document.querySelector('.modal-buttons');
+modalButtons.addEventListener('click', onModalButtonsClickHandler);
+
+function onModalButtonsClickHandler(e) {
+  if (e.target.nodeName !== 'BUTTON') {
+    return;
+  }
+  markupLibraryRender(USER_ID, false);
+  currentPageLibrary.change(1);
+  createMarkupPaginationLibraryBtn('overlay-list-library');
+}

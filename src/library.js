@@ -7,4 +7,4 @@ import './js/user-options';
 import './js/library';
 import './js/footer-modal';
 import './js/film-modal';
-// import './js/pagination-library';
+import './js/pagination-library';
