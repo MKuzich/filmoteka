@@ -1,6 +1,7 @@
 import { moviesGenresConvertation } from './movies-genres-convertation';
 import { titleSrinking, genresSrinking } from './card-shrinking';
 import { dateConvertation } from './date-convertation';
+import { posterRender } from './poster-render'
 
 export const listFilms = document.querySelector('.list-films');
 
@@ -12,7 +13,7 @@ export function filmGallaryMarkup(array) {
             <div class="card-image__wrapper">
               <img
                   class="list-films_card-info_card-film"
-                  src=https://image.tmdb.org/t/p/original/${item.poster_path}
+                  src=https://image.tmdb.org/t/p/original/${posterRender(item.poster_path)}
                   alt="${titleSrinking(
                     item.title
                   )} poster"

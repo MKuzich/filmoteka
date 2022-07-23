@@ -142,23 +142,28 @@ a {
   &:hover,
   &:focus {
     color: map-get($colors, 'active');
-
-    
   }
-}
 
-.menu__link.current::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -7%;
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+  }
 
-  // width: 34px; 
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-
-  background-color: map-get($colors, 'alarm');
+  &.current::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7%;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: map-get($colors, 'alarm');
+  }
 }
 
 .search-form {
@@ -228,11 +233,6 @@ a {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.search__button-icon {
-  width: 12px;
-  height: 12px;
-}
-
 .search__button {
   position: absolute;
   right: 0;
@@ -250,6 +250,8 @@ a {
   right: 0;
   bottom: 2px;
   stroke: map-get($colors, 'light');
+  width: 12px;
+  height: 12px;
 
   &:hover,
   &:focus,
@@ -278,13 +280,9 @@ a {
     left: 245px;
     font-size: 14px;
     margin: 16px auto 16px;
-
   }
   @include respond-to('desktop') {
     left: 500px;
-    font-size: 14px;
-    margin: 16px auto 16px;
-    
   }
 }
 
@@ -338,20 +336,6 @@ font-size: 12px;
   font-size: 14px;
 }
 }
-
-// .logout-wrapper {
-//   position: absolute;
-//   right: 20px;
-
-//   @include respond-to('tablet') {
-//     right: 32px;
-//   }
-
-//   .login__btn {
-//     position: absolute;
-//     right: 0;
-//   }
-// }
 
 .login__btn.btn {
   min-width: 60px;
