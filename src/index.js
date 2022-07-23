@@ -11,3 +11,4 @@ import './js/pagination';
 import './js/pagination-search';
 import './js/scroll-up-btn';
 import './js/loaders';
+import './js/pagination-library';

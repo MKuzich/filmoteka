@@ -1,14 +1,14 @@
-import { trendingMarkup, TIME_WINDOW, totalPages } from './trending-markup';
+import { trendingMarkup, TIME_WINDOW } from './trending-markup';
 
 export let currentPage = {
   data: 1,
   change: function (prop) {
     this.data = prop;
   },
-  plusOne: function (prop) {
+  plusOne: function () {
     this.data++;
   },
-  minusOne: function (prop) {
+  minusOne: function () {
     this.data--;
   },
 };

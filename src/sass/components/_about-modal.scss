@@ -10,9 +10,8 @@
     transition: opacity $chang-time $chang-func;
     background-color: map-get($colors, 'header-gr');
     overflow-y: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
         &::-webkit-scrollbar {
             width: 0;
             height: 0;
@@ -31,134 +30,92 @@
     overflow: hidden;
 }
 
-    .footer-modal { /* ширина модального окна и его отступы от экрана */
+.footer-modal {
+    position: relative;
+    width: 632px;
+    margin: 30px auto;
+        @media (max-width: 655px) { max-width: 422px; }           
+        @media (max-width: 440px) { max-width: 212px; }
+
+    &__content { 
         position: relative;
-        width: 632px;
-        margin: 30px auto;
-            @media (max-width: 655px) { max-width: 422px; }           
-            @media (max-width: 440px) { max-width: 212px; }
-
-        &__content { /* свойства для блока, содержащего контент модального окна */
-            position: relative;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            background-color: map-get($colors, 'light');
-            -webkit-background-clip: padding-box;
-            background-clip: padding-box;
-            border: 1px solid rgba(0, 0, 0, .2);
-            border-radius: .3rem;
-            outline: 0;
-
+        display: flex;
+        flex-direction: column;
+        background-color: map-get($colors, 'light');
+        background-clip: padding-box;
+        border-radius: .3rem;
+        outline: 0;
             @media (min-width: 900px) {
-                -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
                 box-shadow: 0 5px 15px rgba(0, 0, 0, .5);                   
             }
         }
 
-        &__header { /* свойства для хедера и заголовка модального окна */
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: justify;
-            -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            background-color: map-get($colors, 'main');
-            padding: 10px;
-            border-bottom: 1px solid map-get($colors, 'footer-bg');
-        }
+    &__header { 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid map-get($colors, 'footer-bg');
+        background-color: map-get($colors, 'main');
+    }
 
-        &__title {
-            margin-top: 0;
-            margin-bottom: 0;
-            line-height: 1.5;
-            font-size: 1.25rem;
-            font-weight: 500;
-            justify-content: center;
-            color: map-get($colors, 'light');
-        }
+    &__title {
+        line-height: 1.5;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: map-get($colors, 'light');
+    }
 
-        &__logo {
-            display: flex;
-            align-items: center;
-        }
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
 
-        &__body { /* свойства для блока, содержащего основное содержимое окна */
-            position: relative;
-            -webkit-box-flex: 1;
-            -webkit-flex: 1 1 auto;
-            -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-        }
+    &__body { 
+        position: relative;
+        flex: 1 1 auto;
+    }
 
-        &__img {
-            width: 100%;
-            height: 100%;
-            box-shadow: inset 0 2px 20px #e6ebed;
-            display: inline-block;
-            vertical-align: top;
-            text-decoration: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    &__img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        vertical-align: top;
+        text-decoration: none;
+        border-radius: 4px;
+        box-shadow: inset 0 2px 20px #e6ebed;
+        cursor: pointer;
+    }
 
-        &__item { /* свойства разметки карточек */
-            // width: calc((100% - 5px * 6) / 3);
-            perspective: 400px;
-            float: left;
-            width: 200px;
-            height: 200px;
-            margin: 5px;
-            padding: 0;
-            list-style: none;
-        }
-        
-        &__list {
-            padding: 0;
-            margin: 0 auto;
-        }
+    &__item {
+        // width: calc((100% - 5px * 6) / 3);
+        perspective: 400px;
+        float: left;
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+    }
 
-        &__list:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+    &__list:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
-.footer-modal__item h3 {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-    // text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
-    //     0px -5px 35px rgba(255, 255, 255, 0.3);
-    padding-right: 5px;
-}
-
-/* свойства карточки, которая будет видна, когла на екране по 2 картки */
+/* свойства карточки, которая будет видна, когда на екране по 2 картки */
 li[hidden] {
     display: none;
-
     @media (min-width: 440px) and (max-width: 655px) {
         display: block;
     }
 }
 
 .last__block {
-    background-color: map-get($colors, 'accent');
-    border-radius: 4px;
     height: 200px;
     width: 200px;
+    background-color: map-get($colors, 'accent');
+    border-radius: 4px;
 }
 
 .blockquote {
@@ -166,66 +123,45 @@ li[hidden] {
     padding: 30px 24px;
     margin: 0;
     font-size: 16px;
+    line-height: 1.5;
     text-align: center;
     color: map-get($colors, 'light');
-    // border-top: 2px solid #337AB7;
     border-bottom: 2px solid map-get($colors, 'light');
 
     &::after {
-            font-family: Times, sans-serif;
-            font-weight: bold;
-            position: absolute;
-            content: "”";
-            color: map-get($colors, 'light');
-            font-size: 65px;
-            line-height: 0;
-            bottom: -40px;
-            right: 5px;
-            text-shadow: 2px 0 0 map-get($colors, 'main'), -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'), 0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'), -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'), -1px 1px 0 map-get($colors, 'main');
+        content: "”";
+        position: absolute;
+        bottom: -15px;
+        right: 5px;
+        font-family: Times, sans-serif;
+        font-weight: bold;
+        font-size: 65px;
+        line-height: 0;
+        color: map-get($colors, 'light');
+        text-shadow: 2px 0 0 map-get($colors, 'main'), -2px 0 0 map-get($colors, 'main'), 0 2px 0 map-get($colors, 'main'), 0 -2px 0 map-get($colors, 'main'), 1px 1px map-get($colors, 'main'), -1px -1px 0 map-get($colors, 'main'), 1px -1px 0 map-get($colors, 'main'), -1px 1px 0 map-get($colors, 'main');
         }
 
     &__cite {
-        color: map-get($colors, 'main');
-        font-size: 15px;
-        padding-top: 10px;
         display: block;
+        padding-top: 10px;
+        color: map-get($colors, 'main');
     }
 }
 
-/* при отображении модального окно */
-// .modal:target {
-    // opacity: 1;
-    /* делаем окно видимым */
-    // pointer-events: auto;
-    // /* элемент видим для событий мыши */
-    // overflow-y: auto;
-    /* добавляем прокрутку по y, когда элемент не помещается на страницу */
-// }
-
-/* свойства для кнопки "Закрыть" */
 .close {
-    float: right;
-    font-family: sans-serif;
     font-size: 24px;
     font-weight: 700;
-    line-height: 1;
     color: map-get($colors, 'light');
-    opacity: .5;
-    text-decoration: none;
-
-/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
-    &:focus,
-    &:hover {
-        color: map-get($colors, 'accent');
-        text-shadow: none;
-        text-decoration: none;
-        cursor: pointer;
-        opacity: .75;
-    }
+        &:focus,
+        &:hover {
+            color: map-get($colors, 'accent');
+            opacity: .75;
+            cursor: pointer;
+        }
 }
 
 /* свойства для анимации логотипа */
-.cub_wrapper {
+.cub_wrapper { 
     perspective: 500px;
     margin-right: 10px;
 
@@ -244,15 +180,14 @@ li[hidden] {
 }
 
 .side {
-    border: 1px solid map-get($colors, 'accent');
-    padding: 1px;
-    width: 100%;
-    height: 100%;
-    // @include displayFlex();
-    justify-content: center;
-    align-items: center;
     display: flex;
     position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    border: 1px solid map-get($colors, 'accent');
     backface-visibility: hidden;
     transition: all .4s cubic-bezier(.4, 0, .2, 1);
 }
@@ -291,75 +226,49 @@ li[hidden] {
     }
 }
 
-/* свойства инфо карт + эффектов */
-.info {
-    transform: rotate3d(1, 0, 0, 90deg);
-    width: 100%;
-    height: 100%;
-    // padding: 20px;
+.info { 
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 4px;
-    pointer-events: none;
-    // @media (min-width: 440px) and (max-width: 655px) {
-    //     pointer-events: all;
-    // }
     background-color: map-get($colors, 'accent');
+    transform: rotate3d(1, 0, 0, 90deg);
+    pointer-events: none;
 
     &__name {
         display: flex;
-        justify-content: space-between;
-        // justify-content: center;
+        justify-content: center;
         align-items: center;
-        align-items: painted;
-        // background:rgba(255, 255, 255, 0.3);
-        // background: rgba(0, 0, 0, 0.6);
-        // background: gray;
-        margin-top: 10;
-        margin-bottom: 10;
-        border: 3px solid gray;
-        padding-left: 5px;
-        // padding-right: 5px;
-            border-style: outset;
-            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
-            // border-style: inset;
-            
-}
+        margin-top: 20;
+        margin-bottom: 10; 
+    }
+
     &__text {
-        font-size: 12px;
-        line-height: 1.5;
-        color: rgba(255, 255, 255, 0.8);
         margin-left: 10px;
         margin-right: 10px;
         text-align: center;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
-    // &__role {
-    //     text-transform: uppercase;
-    //     position: absolute;
-    //     bottom: 0;
-        // left: 50%;
-        // transform: translate(-50%);
-    // }
+    &__role {
+        display: flex;
+        justify-content: center;
+        text-transform: uppercase;
+        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+            0px -5px 35px rgba(255, 255, 255, 0.3);
+    }
+
+    & h3 {
+        padding-right: 5px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
+            0px -5px 35px rgba(255, 255, 255, 0.3);
+    }
 }
-
-.info__role {
-    text-transform: uppercase;
-    text-align: center;
-    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.6),
-        0px -5px 35px rgba(255, 255, 255, 0.3);
-    // position: absolute;
-    // bottom: 0;
-    display: flex;
-    justify-content: center;               
-}
-
-
-// .info__icon{
-    // pointer-events: painted;
-    // height: 100%;
-// }
 
 .in-top .info {
     transform-origin: 50% 0%;
@@ -568,4 +477,3 @@ li[hidden] {
         transform: rotate3d(0, 1, 0, 104deg);
     }
 }
-
