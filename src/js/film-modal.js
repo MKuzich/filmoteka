@@ -2,6 +2,7 @@ import { createMarkupModal } from './film-modal-render';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { notificationLaunch } from './notification-modal';
 
+
 //Firebase
 let USER_ID = null;
 const auth = getAuth();
@@ -77,10 +78,10 @@ function openModal(e) {
   //Проверка на логин
   function isLogin(userId) {
     if (!userId) {
-      notificationLaunch(
-        'Please, log in or sign up for using library service.'
-      );
-      return;
+      if (selectedLang.checked) {
+        return notificationLaunch('Будь ласка, зареєструйтеся або увійдіть для користування бібліотекою');
+      }
+      return notificationLaunch('Please register or login to use the library');
     }
   }
   //Функция записи обновленных данных в localStorage
