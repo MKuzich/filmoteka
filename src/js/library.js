@@ -14,6 +14,7 @@ export let currentFilter = {
   },
 };
 import { dateConvertation } from './date-convertation';
+import { posterRender } from './poster-render';
 
 let USER_ID = null;
 
@@ -39,6 +40,8 @@ onAuthStateChanged(auth, user => {
     libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
+    watched.classList.remove('library-active-btn');
+    queue.classList.remove('library-active-btn');
   }
 });
 
@@ -89,7 +92,8 @@ export function markupLibraryRender(uid, arrayFromPagination) {
                 <div class="card-image__wrapper">
                     <img
                     class="list-films_card-info_card-film"
-                    src=https://image.tmdb.org/t/p/original/${item.poster_path}
+                    src=${posterRender(item.poster_path)}
+                    loading="lazy"
                     alt="${item.original_title}"
                 />
                 </div>

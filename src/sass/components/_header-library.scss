@@ -78,7 +78,7 @@
   left: 0;
   bottom: -7%;
 
-  width: 100%;//69px
+  width: 100%; //69px
   height: 3px;
   border-radius: 2px;
 
@@ -148,5 +148,12 @@
 }
 
 .login__btn.login-library {
-margin-top: 10px;
+  margin-top: 10px;
+}
+
+.btn[disabled='disabled'] {
+  background-color: map-get($colors, 'additional');
+  box-shadow: none;
+  border-color: map-get($colors, 'light');
+  cursor: not-allowed;
 }
