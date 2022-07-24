@@ -230,6 +230,7 @@ async function onLangChange() {
 
 function emptyUsersLibraryMessage() {
   const langCheckBox = document.querySelector('#checkbox');
+  let lang = '';
   if (langCheckBox.checked) {
     lang = 'uk';
   } else {
