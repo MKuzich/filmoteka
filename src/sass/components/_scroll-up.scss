@@ -1,31 +1,32 @@
-.scroll-up{
-    position: fixed;
-    display: inline-block;
-    right: 10px;
-    bottom: 10px;
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    color: map-get($colors, 'additional');
+.scroll-up {
+  position: fixed;
+  display: inline-block;
+  right: 10px;
+  bottom: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: map-get($colors, 'accent');
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: map-get($colors, 'light');
+  transition: $chang-time $chang-func;
 
-    @include respond-to('tablet') {
-            width: 40px;
-            height: 40px;
-        }
+  @include respond-to('tablet') {
+    width: 50px;
+    height: 50px;
+  }
 
-    &:hover {
-        background-color: map-get($colors, 'active');
-        color: map-get($colors, 'light');
-        cursor: pointer;
-    }
-
+  &:hover {
+    background-color: map-get($colors, 'light');
+    color: map-get($colors, 'accent');
+    border-color: map-get($colors, 'accent');
+    box-shadow: 0px 0px 15px 5px rgba(255, 107, 1, 0.6);
+    cursor: pointer;
+  }
 }
 
-
 .scroll-pic {
-    height: 100%;
-    width: 100%;
-    fill: currentColor;
+  height: 100%;
+  width: 100%;
+  fill: currentColor;
 }
