@@ -7,7 +7,7 @@ import { titleSrinking, genresSrinking } from './card-shrinking';
 import { dateConvertation } from './date-convertation';
 import { notificationLaunch } from './notification-modal';
 import { posterRender } from './poster-render';
- 
+
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
 const dayBtn = document.querySelector('.day');
@@ -59,7 +59,8 @@ export function trendingMarkup(time, page, lang) {
                     <img
                     class="list-films_card-info_card-film"
                     src=${posterRender(el.poster_path)}
-                    alt="${titleSrinking(el.title)} poster"
+                    loading="lazy"
+                    alt="${titleSrinking(el.title)}"
                 />
                 </div>
                 <div class="list-films_card-info-footer">

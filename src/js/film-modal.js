@@ -1,6 +1,7 @@
 import { createMarkupModal } from './film-modal-render';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
-import {notificationLaunch} from './notification-modal'
+import { notificationLaunch } from './notification-modal';
+
 
 //Firebase
 let USER_ID = null;
