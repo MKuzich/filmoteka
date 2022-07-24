@@ -1,6 +1,7 @@
 .footer {
   box-shadow: 0px 0px 23px 10px rgba(247, 247, 247, 0.97);
   height: 77px;
+  transition: $chang-time $chang-func;
   @media screen and (max-width: 767px) {
     height: 100px;
   }

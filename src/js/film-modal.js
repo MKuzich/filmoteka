@@ -1,5 +1,6 @@
 import { createMarkupModal } from './film-modal-render';
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
+import { notificationLaunch } from './notification-modal';
 
 //Firebase
 let USER_ID = null;
@@ -22,6 +23,7 @@ listFilmsRef.addEventListener('click', openModal);
 function openModal(e) {
   //Добавляем класс для запрета прокрутки заднего фона
   document.body.classList.add('modal-open');
+
   //Проверка на клик по карточке
   if (!e.target.closest('li')) {
     return;
@@ -75,7 +77,10 @@ function openModal(e) {
   //Проверка на логин
   function isLogin(userId) {
     if (!userId) {
-      return alert('please log in or sign up');
+      notificationLaunch(
+        'Please, log in or sign up for using library service.'
+      );
+      return;
     }
   }
   //Функция записи обновленных данных в localStorage

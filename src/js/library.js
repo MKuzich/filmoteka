@@ -5,6 +5,7 @@ import {
   createMarkupPaginationLibraryBtn,
   currentPageLibrary,
 } from './pagination-library';
+import { fetchMovieGenres } from './api/api-service-genres';
 
 export let currentFilter = {
   data: 'watched',
@@ -13,6 +14,7 @@ export let currentFilter = {
   },
 };
 import { dateConvertation } from './date-convertation';
+import { posterRender } from './poster-render';
 
 let USER_ID = null;
 
@@ -29,7 +31,7 @@ onAuthStateChanged(auth, user => {
     markupLibraryRender(USER_ID, false);
   } else {
     let markup;
-
+    listFilms.innerHTML = '';
     if (localStorage.getItem('localLang') === 'uk') {
       markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>На разі тут немає фільмів. Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></div>`;
     } else {
@@ -39,6 +41,8 @@ onAuthStateChanged(auth, user => {
     libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
+    watched.classList.remove('library-active-btn');
+    queue.classList.remove('library-active-btn');
   }
 });
 
@@ -103,7 +107,8 @@ export function markupLibraryRender(uid, arrayFromPagination) {
                 <div class="card-image__wrapper">
                     <img
                     class="list-films_card-info_card-film"
-                    src=https://image.tmdb.org/t/p/original/${item.poster_path}
+                    src=${posterRender(item.poster_path)}
+                    loading="lazy"
                     alt="${item.original_title}"
                 />
                 </div>
@@ -133,4 +138,75 @@ export function markupLibraryRender(uid, arrayFromPagination) {
   }
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
+}
+
+let modalButton = null;
+const modalCloseBtnRef = document.querySelector('.modal-close');
+const modalBackdropRef = document.querySelector('[data-film-modal]');
+
+function enableRerender(btn) {
+  modalButton = document.querySelector(`[data-action="${btn}"]`);
+  modalButton.addEventListener('click', onModalButtonsClickHandler);
+}
+
+function disableRender() {
+  modalButton.removeEventListener('click', onModalButtonsClickHandler);
+  modalCloseBtnRef.removeEventListener('click', disableRender);
+  document.removeEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.removeEventListener('click', onClickBack);
+}
+
+function onCloseModalBack(e) {
+  e.key === 'Escape' ? disableRender() : null;
+}
+
+function onClickBack(e) {
+  if (e.target.classList.contains('backdrop')) {
+    disableRender();
+  }
+}
+
+function onModalButtonsClickHandler(e) {
+  setTimeout(() => {
+    markupLibraryRender(USER_ID, false);
+    currentPageLibrary.change(1);
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+    return;
+  }, 0);
+}
+
+const listFilmsRef = document.querySelector('.list-films');
+listFilmsRef.addEventListener('click', onClickRerender);
+
+function onClickRerender(e) {
+  if (!e.target.closest('li')) {
+    return;
+  }
+  enableRerender(currentFilter.data);
+
+  modalCloseBtnRef.addEventListener('click', disableRender);
+  document.addEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.addEventListener('click', onClickBack);
+}
+
+const langCheckBox = document.querySelector('#checkbox');
+langCheckBox.addEventListener('input', onLangChange);
+
+async function onLangChange() {
+  await fetchMovieGenres();
+  if (!USER_ID) {
+    let markup;
+    listFilms.innerHTML = '';
+    if (localStorage.getItem('localLang') === 'uk') {
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>На разі тут немає фільмів. Щоб користуватися цією бібліотекою, ви повинні ввійти в систему! Будь ласка, увійдіть або зареєструйтеся!</strong></div>`;
+    } else {
+      markup = `<div class="library__warning-wrapper"><strong class="library__warning" id = 'warning'>Now there are no movies. You must be loginned for using this library! Please log in or sign up!</strong></div>`;
+    }
+    libraryWarningContainer.innerHTML = '';
+    libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
+    return;
+  }
+  markupLibraryRender(USER_ID, false);
+  currentPageLibrary.change(1);
+  createMarkupPaginationLibraryBtn('overlay-list-library');
 }

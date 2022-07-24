@@ -3,6 +3,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: map-get($colors, 'main');
+  transition: $chang-time $chang-func;
 }
 
 h1,
@@ -64,4 +65,13 @@ ul {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

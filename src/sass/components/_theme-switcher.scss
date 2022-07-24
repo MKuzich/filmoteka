@@ -27,12 +27,15 @@
   background: no-repeat center/100% url(/src/images/icons/moon.png);
 
   &:hover {
-    background: no-repeat center/100% url(/src/images/icons/moon-active.png);
+    animation: rotate-center 1.5s ease-in-out 0.2s reverse both;
+    background: no-repeat center/100% url(/src/images/icons/sun-moon-change.png);
   }
   &.dark {
     background: no-repeat center/100% url(/src/images/icons/sun.png);
     &:hover {
-      background: no-repeat center/100% url(/src/images/icons/sun-active.png);
+      animation: rotate-center 1.5s ease-in-out 0.2s reverse both;
+      background: no-repeat center/100%
+        url(/src/images/icons/sun-moon-change.png);
     }
   }
 }
