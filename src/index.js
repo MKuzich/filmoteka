@@ -12,3 +12,4 @@ import './js/pagination-search';
 import './js/scroll-up-btn';
 import './js/loaders';
 import './js/theme-switcher';
+import './js/notification-modal';

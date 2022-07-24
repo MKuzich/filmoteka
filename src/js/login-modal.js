@@ -1,15 +1,9 @@
-
-
 const refs = {
   openModalBtn: document.querySelector('[data-login-modal-open]'),
   closeModalBtn: document.querySelector('[data-login-modal-close]'),
   modal: document.querySelector('[data-login-modal]'),
   title: document.querySelector('.signup-modal'),
 };
-
-
-const selectedLang = document.querySelector("#checkbox");
-
 
 refs.openModalBtn.addEventListener('click', openModal);
 refs.closeModalBtn.addEventListener('click', closeLoginModal);
@@ -32,11 +26,8 @@ export function closeLoginModal() {
 }
 
 function openModal() {
-  
   document.body.classList.add('modal-open');
   refs.modal.classList.remove('is-hidden');
   document.addEventListener('keydown', closeModalOnEsc);
   refs.modal.addEventListener('click', closeLoginModalOnAreaClick);
-  
-
 }
