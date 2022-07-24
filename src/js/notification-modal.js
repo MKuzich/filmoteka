@@ -20,7 +20,8 @@ function notificationRender(message) {
 export function notificationLaunch(message) {
   openNotificationModal();
   notificationRender(message);
+  const timing = 40 * message.length;
   setTimeout(() => {
     closeNotificationModal();
-  }, 2000);
+  }, timing);
 }

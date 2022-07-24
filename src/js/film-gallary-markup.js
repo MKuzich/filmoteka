@@ -14,7 +14,8 @@ export function filmGallaryMarkup(array) {
               <img
                   class="list-films_card-info_card-film"
                   src=${posterRender(item.poster_path)}
-                  alt="${titleSrinking(item.title)} poster"
+                  loading="lazy"
+                  alt="${titleSrinking(item.title)}"
               />
             </div>
             <div class="list-films_card-info-footer">
@@ -34,6 +35,6 @@ export function filmGallaryMarkup(array) {
         </li>`;
     })
     .join('');
-
+  listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }

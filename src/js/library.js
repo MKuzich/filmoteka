@@ -14,6 +14,7 @@ export let currentFilter = {
   },
 };
 import { dateConvertation } from './date-convertation';
+import { posterRender } from './poster-render';
 
 let USER_ID = null;
 
@@ -26,6 +27,7 @@ onAuthStateChanged(auth, user => {
     watched.removeAttribute('disabled');
     queue.removeAttribute('disabled');
     libraryWarningContainer.innerHTML = '';
+    currentPageLibrary.setTotalData(currentFilter.data);
     markupLibraryRender(USER_ID, false);
   } else {
     let markup;
@@ -39,10 +41,10 @@ onAuthStateChanged(auth, user => {
     libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
     watched.setAttribute('disabled', 'disabled');
     queue.setAttribute('disabled', 'disabled');
+    watched.classList.remove('library-active-btn');
+    queue.classList.remove('library-active-btn');
   }
 });
-
-let FILTER = 'watched';
 
 const libraryWarningContainer = document.querySelector(
   '.library__warning-container'
@@ -58,17 +60,33 @@ function onClickFilterChange(e) {
     currentFilter.change('watched');
     watched.classList.add('library-active-btn');
     queue.classList.remove('library-active-btn');
+    currentPageLibrary.setTotalData(currentFilter.data);
     markupLibraryRender(USER_ID, false);
     currentPageLibrary.change(1);
-    createMarkupPaginationLibraryBtn('overlay-list-library');
+    const overlayListLibraryRef = document.querySelector(
+      '#overlay-list-library'
+    );
+    if (overlayListLibraryRef) {
+      overlayListLibraryRef.remove();
+    }
+    if (currentPageLibrary.totalData > 1) {
+      createMarkupPaginationLibraryBtn('overlay-list-library');
+    }
     return;
   }
   currentFilter.change('queue');
   watched.classList.remove('library-active-btn');
   queue.classList.add('library-active-btn');
+  currentPageLibrary.setTotalData(currentFilter.data);
   markupLibraryRender(USER_ID, false);
   currentPageLibrary.change(1);
-  createMarkupPaginationLibraryBtn('overlay-list-library');
+  const overlayListLibraryRef = document.querySelector('#overlay-list-library');
+  if (overlayListLibraryRef) {
+    overlayListLibraryRef.remove();
+  }
+  if (currentPageLibrary.totalData > 1) {
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+  }
 }
 
 export function markupLibraryRender(uid, arrayFromPagination) {
@@ -89,7 +107,8 @@ export function markupLibraryRender(uid, arrayFromPagination) {
                 <div class="card-image__wrapper">
                     <img
                     class="list-films_card-info_card-film"
-                    src=https://image.tmdb.org/t/p/original/${item.poster_path}
+                    src=${posterRender(item.poster_path)}
+                    loading="lazy"
                     alt="${item.original_title}"
                 />
                 </div>
@@ -114,7 +133,9 @@ export function markupLibraryRender(uid, arrayFromPagination) {
         </li>`;
     })
     .join('');
-  createMarkupPaginationLibraryBtn('overlay-list-library');
+  if (currentPageLibrary.totalData > 1) {
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+  }
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }

@@ -48,7 +48,7 @@ export function footerModalUa () {
     iZhukInfo.textContent = 'Адаптивна верстка хедера для головної/моя бібліотека сторінок. Запит для пошуку фільмів на головній сторінці. Створення заглушки';
 
     oHlushenkova.textContent = 'Олеся Глушенкова';
-    oHlushenkovaInfo.textContent = 'Макет шаблону однієї картки з фільмом. Стилі для тексту футера картки (назви фільмів, жанри та рік випуску)';
+    oHlushenkovaInfo.textContent = 'Макет шаблону картки з фільмом. Стилі для тексту футера картки (назва, жанри та рік випуску)';
     oHlushenkovaRole.textContent = 'Розробник';
 
     vDianov.textContent = 'Віталій Діанов';
@@ -56,19 +56,20 @@ export function footerModalUa () {
     vDianovRole.textContent = 'Розробник';
 
     nKukharenko.textContent = 'Неджат Кухаренко';
-    nKukharenkoInfo.textContent = 'Пагінація домашньої сторінки та сторінки бібліотеки. Відмальовка відповідної частини фільмів на кожну сторінку';
+    nKukharenkoInfo.textContent = 'Пагінація сторінок "ДОМАШНЯ" та "МОЯ БІБЛІОТЕКА". Рендер частини фільмів на сторінках';
     nKukharenkoRole.textContent = 'Розробник';
 
     vHorin.textContent = 'Володимир Горін';
     vHorinInfo.textContent = 'Розмітка популярних фільмів із селектором часового вікна та двомовною підтримкою. Кнопка \u2191 ';
+
     vHorinRole.textContent = 'Розробник';
 
     mChecheneva.textContent = 'Марина Чеченєва';
-    mChechenevaInfo.textContent = 'Попередній завантажувач для проекту, завантажувачі для реєстрації та входу в модальні вікна і під час пошуку';
+    mChechenevaInfo.textContent = 'Прелоадер проекту, лоадери: реєстрації та входу в модальні вікна, під час пошуку';
     mChechenevaRole.textContent = 'Розробник';
 
     oZnak.textContent = 'Орест Знак';
-    oZnakInfo.textContent = 'Реалізована двомовна версія EN/UK. Переклад повідомлення про помилку під введенням на сторінці. Переклад маркування';
+    oZnakInfo.textContent = 'Реалізована двомовна версія EN/UK. Переклад маркування та повідомлення про помилку';
     oZnakRole.textContent = 'Розробник';
 
     yZakrevskaya.textContent = 'Іванна Гуменюк';

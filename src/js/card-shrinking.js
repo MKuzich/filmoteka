@@ -7,8 +7,10 @@ export function titleSrinking(string) {
 
 export function genresSrinking(array) {
   let lang = localStorage.getItem('localLang');
-  if (array.length > 3) {
-    return `${array[0]}, ${array[1]}, ${lang === 'en' ? 'other' : 'інші'}`;
+  if (array.length === 0) {
+    return `${lang === 'en' ? 'Unknown genres' : 'Невідомі жанри'}`;
+  } else if (array.length > 3) {
+    return `${array[0]}, ${array[1]}, ${lang === 'en' ? 'Other' : 'Інші'}`;
   }
   return array.join(', ');
 }

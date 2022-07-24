@@ -6,6 +6,7 @@ import { createMarkupPaginationBtn } from './pagination-markup';
 import { titleSrinking, genresSrinking } from './card-shrinking';
 import { dateConvertation } from './date-convertation';
 import { notificationLaunch } from './notification-modal';
+import { posterRender } from './poster-render';
 
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
@@ -57,8 +58,9 @@ export function trendingMarkup(time, page, lang) {
                 <div class="card-image__wrapper">
                     <img
                     class="list-films_card-info_card-film"
-                    src=https://image.tmdb.org/t/p/original/${el.poster_path}
-                    alt="movie poster"
+                    src=${posterRender(el.poster_path)}
+                    loading="lazy"
+                    alt="${titleSrinking(el.title)}"
                 />
                 </div>
                 <div class="list-films_card-info-footer">
