@@ -34,6 +34,6 @@ export function filmGallaryMarkup(array) {
         </li>`;
     })
     .join('');
-
+    listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }
