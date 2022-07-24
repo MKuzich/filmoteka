@@ -27,6 +27,7 @@ onAuthStateChanged(auth, user => {
     watched.removeAttribute('disabled');
     queue.removeAttribute('disabled');
     libraryWarningContainer.innerHTML = '';
+    currentPageLibrary.setTotalData(currentFilter.data);
     markupLibraryRender(USER_ID, false);
   } else {
     let markup;
@@ -45,8 +46,6 @@ onAuthStateChanged(auth, user => {
   }
 });
 
-let FILTER = 'watched';
-
 const libraryWarningContainer = document.querySelector(
   '.library__warning-container'
 );
@@ -61,17 +60,33 @@ function onClickFilterChange(e) {
     currentFilter.change('watched');
     watched.classList.add('library-active-btn');
     queue.classList.remove('library-active-btn');
+    currentPageLibrary.setTotalData(currentFilter.data);
     markupLibraryRender(USER_ID, false);
     currentPageLibrary.change(1);
-    createMarkupPaginationLibraryBtn('overlay-list-library');
+    const overlayListLibraryRef = document.querySelector(
+      '#overlay-list-library'
+    );
+    if (overlayListLibraryRef) {
+      overlayListLibraryRef.remove();
+    }
+    if (currentPageLibrary.totalData > 1) {
+      createMarkupPaginationLibraryBtn('overlay-list-library');
+    }
     return;
   }
   currentFilter.change('queue');
   watched.classList.remove('library-active-btn');
   queue.classList.add('library-active-btn');
+  currentPageLibrary.setTotalData(currentFilter.data);
   markupLibraryRender(USER_ID, false);
   currentPageLibrary.change(1);
-  createMarkupPaginationLibraryBtn('overlay-list-library');
+  const overlayListLibraryRef = document.querySelector('#overlay-list-library');
+  if (overlayListLibraryRef) {
+    overlayListLibraryRef.remove();
+  }
+  if (currentPageLibrary.totalData > 1) {
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+  }
 }
 
 export function markupLibraryRender(uid, arrayFromPagination) {
@@ -118,7 +133,9 @@ export function markupLibraryRender(uid, arrayFromPagination) {
         </li>`;
     })
     .join('');
-  createMarkupPaginationLibraryBtn('overlay-list-library');
+  if (currentPageLibrary.totalData > 1) {
+    createMarkupPaginationLibraryBtn('overlay-list-library');
+  }
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }

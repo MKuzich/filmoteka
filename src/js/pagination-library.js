@@ -13,9 +13,9 @@ onAuthStateChanged(auth, user => {
 export let currentPageLibrary = {
   data: 1,
   totalData: null,
-  setTotalData: function () {
+  setTotalData: function (prop) {
     const ArrFilms = JSON.parse(localStorage.getItem(USER_ID));
-    this.totalData = Math.ceil(ArrFilms.watched.length / 9);
+    this.totalData = Math.ceil(ArrFilms[prop].length / 9);
   },
   change: function (prop) {
     this.data = prop;
@@ -43,7 +43,7 @@ function handlePage(e) {
 function takeInfoFromLocal(filter) {
   const arrayFilmsFromLS = JSON.parse(localStorage.getItem(USER_ID));
   let arrayFilms = arrayFilmsFromLS[filter];
-  currentPageLibrary.setTotalData();
+  currentPageLibrary.setTotalData(currentFilter.data);
   if (arrayFilms.length > 9) {
     let start = (currentPageLibrary.data - 1) * 9;
     let end = start + 9;
@@ -59,7 +59,7 @@ export function createMarkupPaginationLibraryBtn(idForPagination) {
   if (overlayListLibraryRef) {
     overlayListLibraryRef.remove();
   }
-  currentPageLibrary.setTotalData();
+  currentPageLibrary.setTotalData(currentFilter.data);
   let data = '';
   for (let i = 1; i <= currentPageLibrary.totalData; i++) {
     data += createPaginationOneBtn(i);

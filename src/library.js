@@ -9,4 +9,5 @@ import './js/library';
 import './js/footer-modal';
 import './js/pagination-library';
 import './js/theme-switcher';
+import './js/pagination-library';
 import './js/notification-modal';
