@@ -45,14 +45,14 @@ export function footerModalUa () {
 
     iZhuk.textContent = 'Ірина Жук';
     iZhukRole.textContent = 'SCRUM  майстер';
-    iZhukInfo.textContent = 'Адаптивна верстка хедера для головної/моя бібліотека сторінок. Запит для пошуку фільмів на головній сторінці';
+    iZhukInfo.textContent = 'Адаптивна верстка хедера для головної/моя бібліотека сторінок. Запит для пошуку фільмів на головній сторінці. Створення заглушки';
 
     oHlushenkova.textContent = 'Олеся Глушенкова';
     oHlushenkovaInfo.textContent = 'Макет шаблону однієї картки з фільмом. Стилі для тексту футера картки (назви фільмів, жанри та рік випуску)';
     oHlushenkovaRole.textContent = 'Розробник';
 
     vDianov.textContent = 'Віталій Діанов';
-    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД. Темна тема';
+    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД. Темна тема сайту';
     vDianovRole.textContent = 'Розробник';
 
     nKukharenko.textContent = 'Неджат Кухаренко';
@@ -60,7 +60,7 @@ export function footerModalUa () {
     nKukharenkoRole.textContent = 'Розробник';
 
     vHorin.textContent = 'Володимир Горін';
-    vHorinInfo.textContent = 'Розмітка популярних фільмів із селектором часового вікна та двомовною підтримкою. "Кнопка прокрутити до верху"';
+    vHorinInfo.textContent = 'Розмітка популярних фільмів із селектором часового вікна та двомовною підтримкою. Кнопка \u2191 ';
     vHorinRole.textContent = 'Розробник';
 
     mChecheneva.textContent = 'Марина Чеченєва';
@@ -72,7 +72,7 @@ export function footerModalUa () {
     oZnakRole.textContent = 'Розробник';
 
     yZakrevskaya.textContent = 'Іванна Гуменюк';
-    yZakrevskayaInfo.textContent = ' Адаптивна верстка футера. Модалка з інформацією про нашу команду. Анімація і деякі ефекти';
+    yZakrevskayaInfo.textContent = ' Адаптивна верстка футера. Модалка з інформацією про нашу команду. Анімація, оформлюючі ефекти модалок. Основи СЕО';
     yZakrevskayaRole.textContent = 'Розробник';
 
 };
@@ -93,7 +93,7 @@ export function footerModalEn () {
     oHlushenkovaRole.textContent = 'Developer';
 
     vDianov.textContent = 'Vitaliy Dianov';
-    vDianovInfo.textContent = 'Modal window for a movie card.DB implementation through localStorage.The logic of adding to the DB.Dark theme';
+    vDianovInfo.textContent = 'Modal window for a movie card.DB implementation through localStor.The logic of adding to the DB.Dark theme';
     vDianovRole.textContent = 'Developer';
 
     nKukharenko.textContent = 'Nedzhat Kukharenko';
