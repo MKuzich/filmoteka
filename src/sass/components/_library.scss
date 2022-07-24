@@ -43,11 +43,13 @@
 }
 
 .library {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
-    margin-top: 60px;
-    margin-bottom: 60px;
+  &-cards-film {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
   }
 
   &__main-link {
