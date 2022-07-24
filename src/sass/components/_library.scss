@@ -50,6 +50,15 @@
     margin-bottom: 60px;
   }
 
+  &__main-link {
+    color: map-get($colors, 'accent');
+    transition: color $chang-time $chang-func;
+    &:hover,
+    &:focus {
+      color: map-get($colors, 'alarm');
+    }
+  }
+
   &__warning {
     line-height: 2;
     font-size: 14px;

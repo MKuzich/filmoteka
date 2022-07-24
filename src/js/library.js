@@ -92,8 +92,12 @@ function onClickFilterChange(e) {
 export function markupLibraryRender(uid, arrayFromPagination) {
   const savedMovies = localStorage.getItem(uid);
   const parsedMovies = JSON.parse(savedMovies);
-
   let array = parsedMovies[currentFilter.data];
+  if (array.length === 0) {
+    listFilms.innerHTML = '';
+    emptyUsersLibraryMessage();
+    return;
+  }
   if (array.length > 9) {
     array = array.slice(0, 9);
   }
@@ -106,8 +110,9 @@ export function markupLibraryRender(uid, arrayFromPagination) {
         <a href="##" class="link list-films_card-info">
                 <div class="card-image__wrapper">
                     <img
-                    class="list-films_card-info_card-film"
-                    src=${posterRender(item.poster_path)}
+                    class="list-films_card-info_card-film lazyload"
+                    src="https://subscribenow.com.au/time/asia/Solo/Content/Images/noCover.gif"
+                    data-src=${posterRender(item.poster_path)}
                     loading="lazy"
                     alt="${item.original_title}"
                 />
@@ -136,6 +141,7 @@ export function markupLibraryRender(uid, arrayFromPagination) {
   if (currentPageLibrary.totalData > 1) {
     createMarkupPaginationLibraryBtn('overlay-list-library');
   }
+  libraryWarningContainer.innerHTML = '';
   listFilms.innerHTML = '';
   listFilms.insertAdjacentHTML('afterbegin', markup);
 }
@@ -209,4 +215,22 @@ async function onLangChange() {
   markupLibraryRender(USER_ID, false);
   currentPageLibrary.change(1);
   createMarkupPaginationLibraryBtn('overlay-list-library');
+}
+
+function emptyUsersLibraryMessage() {
+  const langCheckBox = document.querySelector('#checkbox');
+  if (langCheckBox.checked) {
+    lang = 'uk';
+  } else {
+    lang = 'en';
+  }
+
+  let markupEmpty;
+  if (lang === 'uk') {
+    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">На разі тут немає фільмів. Ви можете додати фільми відкривши детальний опис на <a href="/src/index.html" class="library__main-link">головній сторінці</a>!</strong></div>`;
+  } else {
+    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">Now there are no movies. You can add movies by opening the detailed description on the <a href="/src/index.html" class="library__main-link">main page</a>!</strong></div>`;
+  }
+  libraryWarningContainer.innerHTML = '';
+  libraryWarningContainer.insertAdjacentHTML('beforeend', markupEmpty);
 }
