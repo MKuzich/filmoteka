@@ -52,7 +52,7 @@ export function footerModalUa () {
     oHlushenkovaRole.textContent = 'Розробник';
 
     vDianov.textContent = 'Віталій Діанов';
-    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД';
+    vDianovInfo.textContent = 'Модальне вікно для картки фільму. Реалізація БД через локальне сховище. Логіка додавання в БД. Темна тема';
     vDianovRole.textContent = 'Розробник';
 
     nKukharenko.textContent = 'Неджат Кухаренко';
@@ -93,7 +93,7 @@ export function footerModalEn () {
     oHlushenkovaRole.textContent = 'Developer';
 
     vDianov.textContent = 'Vitaliy Dianov';
-    vDianovInfo.textContent = ' Modal window for a movie card. DB implementation through local storage. The logic of adding to the DB';
+    vDianovInfo.textContent = 'Modal window for a movie card.DB implementation through localStorage.The logic of adding to the DB.Dark theme';
     vDianovRole.textContent = 'Developer';
 
     nKukharenko.textContent = 'Nedzhat Kukharenko';
@@ -117,5 +117,3 @@ export function footerModalEn () {
     yZakrevskayaRole.textContent = 'Developer';
 
 };
-
-// export {footerModalEn, footerModalEn};

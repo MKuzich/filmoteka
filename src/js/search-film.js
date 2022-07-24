@@ -19,7 +19,11 @@ function onFormSubmit(evt) {
   inputValue = evt.target.elements.searchQuery.value.trim();
 
   if (!inputValue) {
-    return (headerWarning.textContent = 'Enter a film title, please!');
+    if(localStorage.getItem('localLang') === 'en') {
+      return (headerWarning.textContent = 'Enter a film title, please!');
+    } else {
+      return (headerWarning.textContent = 'Будь ласка, введіть назву фільма!');
+    }
   }
 
   headerWarning.textContent = '';
