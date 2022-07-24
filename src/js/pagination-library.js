@@ -17,8 +17,15 @@ export let currentPageLibrary = {
     const ArrFilms = JSON.parse(localStorage.getItem(USER_ID));
     this.totalData = Math.ceil(ArrFilms[prop].length / 9);
   },
+  dataUpdate: function () {
+    if (localStorage.getItem('current-page')) {
+      this.data = Number(localStorage.getItem('current-page'));
+      return this.data;
+    } else return;
+  },
   change: function (prop) {
     this.data = prop;
+    localStorage.setItem('current-page', prop);
   },
 };
 

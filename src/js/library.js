@@ -62,7 +62,9 @@ function onClickFilterChange(e) {
     queue.classList.remove('library-active-btn');
     currentPageLibrary.setTotalData(currentFilter.data);
     markupLibraryRender(USER_ID, false);
-    currentPageLibrary.change(1);
+    if (currentPageLibrary.dataUpdate()) {
+      currentPageLibrary.dataUpdate();
+    } else currentPageLibrary.change(1);
     const overlayListLibraryRef = document.querySelector(
       '#overlay-list-library'
     );
@@ -79,7 +81,9 @@ function onClickFilterChange(e) {
   queue.classList.add('library-active-btn');
   currentPageLibrary.setTotalData(currentFilter.data);
   markupLibraryRender(USER_ID, false);
-  currentPageLibrary.change(1);
+  if (currentPageLibrary.dataUpdate()) {
+    currentPageLibrary.dataUpdate();
+  } else currentPageLibrary.change(1);
   const overlayListLibraryRef = document.querySelector('#overlay-list-library');
   if (overlayListLibraryRef) {
     overlayListLibraryRef.remove();
@@ -92,10 +96,12 @@ function onClickFilterChange(e) {
 export function markupLibraryRender(uid, arrayFromPagination) {
   const savedMovies = localStorage.getItem(uid);
   const parsedMovies = JSON.parse(savedMovies);
-
+  currentPageLibrary.dataUpdate();
   let array = parsedMovies[currentFilter.data];
   if (array.length > 9) {
-    array = array.slice(0, 9);
+    let start = (currentPageLibrary.data - 1) * 9;
+    let end = start + 9;
+    array = array.slice(start, end);
   }
   if (arrayFromPagination) {
     array = arrayFromPagination;
@@ -169,7 +175,9 @@ function onClickBack(e) {
 function onModalButtonsClickHandler(e) {
   setTimeout(() => {
     markupLibraryRender(USER_ID, false);
-    currentPageLibrary.change(1);
+    if (currentPageLibrary.dataUpdate()) {
+      currentPageLibrary.dataUpdate();
+    } else currentPageLibrary.change(1);
     createMarkupPaginationLibraryBtn('overlay-list-library');
     return;
   }, 0);
@@ -207,6 +215,8 @@ async function onLangChange() {
     return;
   }
   markupLibraryRender(USER_ID, false);
-  currentPageLibrary.change(1);
+  if (currentPageLibrary.dataUpdate()) {
+    currentPageLibrary.dataUpdate();
+  } else currentPageLibrary.change(1);
   createMarkupPaginationLibraryBtn('overlay-list-library');
 }
