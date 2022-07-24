@@ -9,11 +9,12 @@ export function filmGallaryMarkup(array) {
   const markup = array
     .map(item => {
       return `<li class="link list-films_card" data-id='${item.id}'>
-        <a class="link list-films_card-info">
+        <a href="##" class="link list-films_card-info">
             <div class="card-image__wrapper">
               <img
-                  class="list-films_card-info_card-film"
-                  src=${posterRender(item.poster_path)}
+                  class="list-films_card-info_card-film lazyload"
+                  src="https://subscribenow.com.au/time/asia/Solo/Content/Images/noCover.gif"
+                  data-src=${posterRender(item.poster_path)}
                   loading="lazy"
                   alt="${titleSrinking(item.title)}"
               />

@@ -55,11 +55,12 @@ export function trendingMarkup(time, page, lang) {
         .map(
           el =>
             `<li class="link list-films_card" data-id="${el.id}">
-            <a class="link list-films_card-info">
+            <a href="##" class="link list-films_card-info">
                 <div class="card-image__wrapper">
                     <img
-                    class="list-films_card-info_card-film"
-                    src=${posterRender(el.poster_path)}
+                    class="list-films_card-info_card-film lazyload"
+                    src="https://subscribenow.com.au/time/asia/Solo/Content/Images/noCover.gif"
+                    data-src=${posterRender(el.poster_path)}
                     loading="lazy"
                     alt="${titleSrinking(el.title)}"
                 />
