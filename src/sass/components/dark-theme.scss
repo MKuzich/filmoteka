@@ -121,20 +121,19 @@ html.dark {
   box-sizing: border-box;
 }
 
-
 .dark .signup-modal:before {
   bottom: 0;
   left: 0;
-  border-left: 1px solid white;
-  border-top: 1px solid white;
+  border-left: 1px solid map-get($colors, 'light');
+  border-top: 1px solid map-get($colors, 'light');
   transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
 }
 
 .dark .signup-modal:after {
   top: 0;
   right: 0;
-  border-right: 1px solid white;
-  border-bottom: 1px solid white;
+  border-right: 1px solid map-get($colors, 'light');
+  border-bottom: 1px solid map-get($colors, 'light');
   transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
 }
 

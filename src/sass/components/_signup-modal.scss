@@ -59,12 +59,48 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: transform $chang-time $chang-func;
-  // 
-// border: 1px solid rgba(255, 255, 255, .4);
 
-// border: 1px solid rgba(0, 0, 0, .4);
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    box-sizing: border-box;
+  }
 
-   
+  &:before {
+    bottom: 0;
+    left: 0;
+    border-left: 5px solid map-get($colors, 'main');
+    border-top: 5px solid map-get($colors, 'accent');
+    transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
+  }
+
+  &:after {
+    top: 0;
+    right: 0;
+    border-right: 5px solid map-get($colors, 'main');
+    border-bottom: 5px solid map-get($colors, 'accent');
+    transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+
+  &:hover:before {
+    transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
+  }
+
+  &:hover:after {
+    transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
+  }
+
   @include respond-to('tablet') {
     width: 400px;
     padding: 40px 32px;
@@ -177,48 +213,3 @@
 .notification-modal {
   text-align: center;
 }
-
-
-.signup-modal:before,
-.signup-modal:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  box-sizing: border-box;
-  
-}
-
-.signup-modal:before {
-  bottom: 0;
-  left: 0;
-  border-left: 5px solid map-get($colors, 'main');
-  border-top: 5px solid map-get($colors, 'accent');
-  transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
-}
-
-.signup-modal:after {
-  top: 0;
-  right: 0;
-  border-right: 5px solid map-get($colors, 'main');
-  border-bottom: 5px solid map-get($colors, 'accent');
-  // box-shadow: 0px 0px 23px 10px rgba(84, 84, 84, 0.97);
-  transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
-}
-
-.signup-modal:hover:before,
-.signup-modal:hover:after {
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-}
-
-.signup-modal:hover:before {
-  transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
-}
-
-.signup-modal:hover:after {
-  transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
-}
-
