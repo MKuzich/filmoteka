@@ -173,9 +173,6 @@ langCheckBox.addEventListener('input', onLangChange);
 
 async function onLangChange() {
   await fetchMovieGenres();
-  markupLibraryRender(USER_ID, false);
-  currentPageLibrary.change(1);
-  createMarkupPaginationLibraryBtn('overlay-list-library');
   if (!USER_ID) {
     let markup;
     listFilms.innerHTML = '';
@@ -186,5 +183,9 @@ async function onLangChange() {
     }
     libraryWarningContainer.innerHTML = '';
     libraryWarningContainer.insertAdjacentHTML('beforeend', markup);
+    return;
   }
+  markupLibraryRender(USER_ID, false);
+  currentPageLibrary.change(1);
+  createMarkupPaginationLibraryBtn('overlay-list-library');
 }
