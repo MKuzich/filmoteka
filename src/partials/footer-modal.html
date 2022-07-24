@@ -1,258 +1,417 @@
 <div id="openModal" class="footer__backdrop is-hidden" data-footer-modal>
-    <div class="footer-modal footer-modal">
-        <div class="footer-modal__content">
+  <div class="footer-modal footer-modal">
+    <div class="footer-modal__content">
+      <!-- modal header + cube animation-->
+      <div class="footer-modal__header">
+        <a
+          class="footer-modal__logo"
+          id="logo__js"
+          href="https://mkuzich.github.io/filmoteka/index.html"
+        >
+          <div class="cub_wrapper">
+            <div class="cube">
+              <div class="side front">
+                <svg class="header__icon" width="24" height="24">
+                  <use href="./images/icons/header-sprite.svg#film" />
+                </svg>
+              </div>
+              <div class="side back">
+                <svg class="header__icon" width="24" height="24">
+                  <use href="./images/icons/header-sprite.svg#film" />
+                </svg>
+              </div>
+              <div class="side left">
+                <svg class="header__icon" width="24" height="24">
+                  <use href="./images/icons/header-sprite.svg#film" />
+                </svg>
+              </div>
+              <div class="side right">
+                <svg class="header__icon" width="24" height="24">
+                  <use href="./images/icons/header-sprite.svg#film" />
+                </svg>
+              </div>
+              <div class="side top">
+                <svg class="header__icon" width="24" height="24">
+                  <use href="./images/icons/header-sprite.svg#film" />
+                </svg>
+              </div>
+              <div class="side bottom">
+                <svg class="header__icon" width="24" height="24">
+                  <use href="./images/icons/header-sprite.svg#film" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <span class="footer-modal__title">Our Team</span>
+        </a>
+        <a href="#close" title="Close" class="close" data-footer-modal-close
+          >×</a
+        >
+      </div>
 
-<!-- modal header + cube animation-->
-            <div class="footer-modal__header">
-                <a class="footer-modal__logo" id="logo__js" href="https://mkuzich.github.io/filmoteka/index.html">
-                    <div class="cub_wrapper">
-                        <div class="cube">
-                            <div class="side front">
-                                <svg class="header__icon" width="24" height="24">
-                                    <use href="./images/icons/header-sprite.svg#film" />
-                                </svg>
-                            </div>
-                            <div class="side back">
-                                <svg class="header__icon" width="24" height="24">
-                                    <use href="./images/icons/header-sprite.svg#film" />
-                                </svg>
-                            </div>
-                            <div class="side left">
-                                <svg class="header__icon" width="24" height="24">
-                                    <use href="./images/icons/header-sprite.svg#film" />
-                                </svg>
-                            </div>
-                            <div class="side right">
-                                <svg class="header__icon" width="24" height="24">
-                                    <use href="./images/icons/header-sprite.svg#film" />
-                                </svg>
-                            </div>
-                            <div class="side top">
-                                <svg class="header__icon" width="24" height="24">
-                                    <use href="./images/icons/header-sprite.svg#film" />
-                                </svg>
-                            </div>
-                            <div class="side bottom">
-                                <svg class="header__icon" width="24" height="24">
-                                    <use href="./images/icons/header-sprite.svg#film" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>           
-                    <span class="footer-modal__title">Our Team</span>
+      <!-- modal body (cards) -->
+      <div class="footer-modal__body">
+        <div class="modal__container">
+          <ul class="footer-modal__list">
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/mykhailo-kuzich/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/MykhailoKuzich-200.jpg 1x,
+                      /src/images/footer-photo/MykhailoKuzich-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/MykhailoKuzich-200.jpg"
+                    alt="Mykhailo Kuzich"
+                  />
                 </a>
-                <a href="#close" title="Close" class="close" data-footer-modal-close>×</a>
-            </div>
-
-<!-- modal body (cards) -->
-            <div class="footer-modal__body">
-                <div class='modal__container'>
-                    <ul class="footer-modal__list">
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>  
-                                <a href="https://www.linkedin.com/in/mykhailo-kuzich/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/MykhailoKuzich-200.jpg 1x, /src/images/footer-photo/MykhailoKuzich-400.jpg 2x" 
-                                    width="200" height="200" src="/src/images/footer-photo/MykhailoKuzich-200.jpg" alt="Mykhailo Kuzich" />
-                                </a>
-                            </p>                         
-                            <div class='info'> 
-                                <div class="info__name">
-                                    <h3 id= 'mKuzich'>Mykhailo Kuzich</h3>                                   
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>                                                                             
-                                </div>
-                                <p class="info__text" id= 'mKuzichInfo'>Registration/authentication, login and signup modals, user menu, library section, api genres fetching</p>  
-                                <div class="info__role">
-                                    <h4 id= 'mKuzichRole'>Team Lead</h4>
-                                </div>                               
-                            </div>                            
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/iryna-zhuk-846930230/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/IrynaZhuk-200.jpg 1x, /src/images/footer-photo/IrynaZhuk-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/IrynaZhuk-200.jpg" alt="Iryna Zhuk" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = 'iZhuk'>Iryna Zhuk</h3>                                  
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-
-                                <p class="info__text" id ='iZhukInfo'>Adaptive header layout for main and my library pages. Realized the query for a film search on the home page</p>
-                                <div class="info__role">
-                                    <h4 id = 'iZhukRole'>Scrum - Master</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/olesia-hlushenkova-72577323b" target="_blank">
-                                    <img srcset="/src/images/footer-photo/OlesiaHlushenkova-200.jpg 1x, /src/images/footer-photo/OlesiaHlushenkova-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/OlesiaHlushenkova-200.jpg" alt="Olesia Hlushenkova" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id="oHlushenkova">Olesia Hlushenkova</h3>                                  
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-
-                                <p class="info__text" id = 'oHlushenkovaInfo'>One movie card template layout. Designed styles for the card footer text (movie titles, genres, and year of release)</p>
-                                <div class="info__role">
-                                    <h4 class="info__role" id = 'oHlushenkovaRole'>Developer</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/vitaliy-dianov/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/VitaliyDianov-200.jpg 1x, /src/images/footer-photo/VitaliyDianov-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/VitaliyDianov-200.jpg" alt="Vitaliy Dianov" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = 'vDianov'>Vitaliy Dianov</h3>                                 
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-                                <p class="info__text" id= 'vDianovInfo'>Modal window for a movie card. DB implementation through local storage. The logic of adding to the DB</p>
-                                <div class="info__role">
-                                    <h4 id = 'vDianovRole' >Developer</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/nedzhat-kukharenko-26b7841a1/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/NedzhatKukharenko-200.jpg 1x, /src/images/footer-photo/NedzhatKukharenko-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/NedzhatKukharenko-200.jpg" alt="Nedzhat Kukharenko" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = "nKukharenko">Nedzhat Kukharenko</h3>                                  
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-                                <p class="info__text" id = "nKukharenkoInfo">Home page and library page pagination. Drawing the appropriate part of the movies to each page</p>
-                                <div class="info__role">
-                                    <h4 id= "nKukharenkoRole">Developer</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">                         
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/volodymyr-horin-895ba223b/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/HorinVolodymyr-200.jpg 1x, /src/images/footer-photo/HorinVolodymyr-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/HorinVolodymyr-200.jpg" alt="Horin Volodymyr" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = 'vHorin'>Volodymyr Horin</h3>                                
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-                                <p class="info__text" id = "vHorinInfo">Trending movies markup, with time window selector and bilingual support. "Scroll to top button"</p>
-                                <div class="info__role">
-                                    <h4 id = "vHorinRole">Developer</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/shalfey-meow-799a2a240/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/MarinaChecheneva-200.jpg 1x, /src/images/footer-photo/MarinaChecheneva-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/MarinaChecheneva-200.jpg" alt="Marina Checheneva" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = "mChecheneva">Marina Checheneva</h3>                                 
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-                                <p class="info__text" id="mChechenevaInfo">Preloader for the project, loaders for registration and login modal windows, loader while searching movies</p>
-                                <div class="info__role">
-                                    <h4 id = 'mChechenevaRole'>Developer</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/orest-znak-26b346ba/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/OrestZnak-200.jpg 1x, /src/images/footer-photo/OrestZnak-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/OrestZnak-200.jpg" alt="Orest Znak" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = "oZnak">Orest Znak</h3>                                  
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-                                <p class="info__text" id="oZnakInfo">Switch for languages EN and UK. Translation of the error message under the input on page. Translation of markings</p>
-                                <div class="info__role">
-                                    <h4 id = "oZnakRole">Developer</h4>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="footer-modal__item">
-                            <p class='footer-modal__img'>
-                                <a href="https://www.linkedin.com/in/yana-zakrevskaya-833907120/" target="_blank">
-                                    <img srcset="/src/images/footer-photo/YanaZakrevskaya-200.jpg 1x, /src/images/footer-photo/YanaZakrevskaya-400.jpg 2x"
-                                    width="200" height="200" src="/src/images/footer-photo/YanaZakrevskaya-200.jpg" alt="Ivanna Humeniuk" />
-                                </a>
-                            </p>
-                            <div class='info'>
-                                <div class="info__name">
-                                    <h3 id = 'yZakrevskaya'>Ivanna Humeniuk</h3>        
-                                    <svg class="info__icon" width="24" height="24">
-                                        <use href="/src/images/icons/in-symbol-defs.svg#icon-linkedin" />
-                                    </svg>
-                                </div>
-                                <p class="info__text" id= 'yZakrevskayaInfo'>Adaptive footer layout. Footer modal layout with information about our team. Animation and some effects</p>
-                                <div class="info__role">
-                                    <h4 id = 'yZakrevskayaRole'>Developer</h4>
-                                </div>
-                            </div>
-                        </li> 
-
-<!-- the card that will be shown when there are 2 on the screen -->
-                        <li hidden class="footer-modal__item">                       
-                            <div class="last__block">
-                                <blockquote class="blockquote">
-                                    <p>Talent wins games, but teamwork and intelligence win championships.</p>
-                                    <cite class="blockquote__cite">Michael Jordan</cite>
-                                </blockquote>
-                            </div>                        
-                        </li>
-
-                    </ul>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="mKuzich">Mykhailo Kuzich</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
                 </div>
-            </div>
+                <p class="info__text" id="mKuzichInfo">
+                  Registration/authentication, login and signup modals, user
+                  menu, library section, api genres fetching
+                </p>
+                <div class="info__role">
+                  <h4 id="mKuzichRole">Team Lead</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/iryna-zhuk-846930230/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/IrynaZhuk-200.jpg 1x,
+                      /src/images/footer-photo/IrynaZhuk-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/IrynaZhuk-200.jpg"
+                    alt="Iryna Zhuk"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="iZhuk">Iryna Zhuk</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+
+                <p class="info__text" id="iZhukInfo">
+                  Adaptive header layout for main and my library pages. Realized
+                  the query for a film search on the home page
+                </p>
+                <div class="info__role">
+                  <h4 id="iZhukRole">Scrum - Master</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/olesia-hlushenkova-72577323b"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/OlesiaHlushenkova-200.jpg 1x,
+                      /src/images/footer-photo/OlesiaHlushenkova-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/OlesiaHlushenkova-200.jpg"
+                    alt="Olesia Hlushenkova"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="oHlushenkova">Olesia Hlushenkova</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+
+                <p class="info__text" id="oHlushenkovaInfo">
+                  One movie card template layout. Designed styles for the card
+                  footer text (movie titles, genres, and year of release)
+                </p>
+                <div class="info__role">
+                  <h4 class="info__role" id="oHlushenkovaRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/vitaliy-dianov/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/VitaliyDianov-200.jpg 1x,
+                      /src/images/footer-photo/VitaliyDianov-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/VitaliyDianov-200.jpg"
+                    alt="Vitaliy Dianov"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="vDianov">Vitaliy Dianov</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+                <p class="info__text" id="vDianovInfo">
+                  Modal window for a movie card. DB implementation through local
+                  storage. The logic of adding to the DB
+                </p>
+                <div class="info__role">
+                  <h4 id="vDianovRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/nedzhat-kukharenko-26b7841a1/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/NedzhatKukharenko-200.jpg 1x,
+                      /src/images/footer-photo/NedzhatKukharenko-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/NedzhatKukharenko-200.jpg"
+                    alt="Nedzhat Kukharenko"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="nKukharenko">Nedzhat Kukharenko</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+                <p class="info__text" id="nKukharenkoInfo">
+                  Home page and library page pagination. Drawing the appropriate
+                  part of the movies to each page
+                </p>
+                <div class="info__role">
+                  <h4 id="nKukharenkoRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/volodymyr-horin-895ba223b/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/HorinVolodymyr-200.jpg 1x,
+                      /src/images/footer-photo/HorinVolodymyr-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/HorinVolodymyr-200.jpg"
+                    alt="Horin Volodymyr"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="vHorin">Volodymyr Horin</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+                <p class="info__text" id="vHorinInfo">
+                  Trending movies markup, with time window selector and
+                  bilingual support. "Scroll to top button"
+                </p>
+                <div class="info__role">
+                  <h4 id="vHorinRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/shalfey-meow-799a2a240/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/MarinaChecheneva-200.jpg 1x,
+                      /src/images/footer-photo/MarinaChecheneva-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/MarinaChecheneva-200.jpg"
+                    alt="Marina Checheneva"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="mChecheneva">Marina Checheneva</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+                <p class="info__text" id="mChechenevaInfo">
+                  Preloader for the project, loaders for registration and login
+                  modal windows, loader while searching movies
+                </p>
+                <div class="info__role">
+                  <h4 id="mChechenevaRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/orest-znak-26b346ba/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/OrestZnak-200.jpg 1x,
+                      /src/images/footer-photo/OrestZnak-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/OrestZnak-200.jpg"
+                    alt="Orest Znak"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="oZnak">Orest Znak</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+                <p class="info__text" id="oZnakInfo">
+                  Switch for languages EN and UK. Translation of the error
+                  message under the input on page. Translation of markings
+                </p>
+                <div class="info__role">
+                  <h4 id="oZnakRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <li class="footer-modal__item">
+              <p class="footer-modal__img">
+                <a
+                  href="https://www.linkedin.com/in/yana-zakrevskaya-833907120/"
+                  target="_blank"
+                >
+                  <img
+                    srcset="
+                      /src/images/footer-photo/YanaZakrevskaya-200.jpg 1x,
+                      /src/images/footer-photo/YanaZakrevskaya-400.jpg 2x
+                    "
+                    loading="lazy"
+                    width="200"
+                    height="200"
+                    src="/src/images/footer-photo/YanaZakrevskaya-200.jpg"
+                    alt="Ivanna Humeniuk"
+                  />
+                </a>
+              </p>
+              <div class="info">
+                <div class="info__name">
+                  <h3 id="yZakrevskaya">Ivanna Humeniuk</h3>
+                  <svg class="info__icon" width="24" height="24">
+                    <use
+                      href="/src/images/icons/in-symbol-defs.svg#icon-linkedin"
+                    />
+                  </svg>
+                </div>
+                <p class="info__text" id="yZakrevskayaInfo">
+                  Adaptive footer layout. Footer modal layout with information
+                  about our team. Animation and some effects
+                </p>
+                <div class="info__role">
+                  <h4 id="yZakrevskayaRole">Developer</h4>
+                </div>
+              </div>
+            </li>
+
+            <!-- the card that will be shown when there are 2 on the screen -->
+            <li hidden class="footer-modal__item">
+              <div class="last__block">
+                <blockquote class="blockquote">
+                  <p>
+                    Talent wins games, but teamwork and intelligence win
+                    championships.
+                  </p>
+                  <cite class="blockquote__cite">Michael Jordan</cite>
+                </blockquote>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
 </div>
