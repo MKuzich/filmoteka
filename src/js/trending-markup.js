@@ -15,9 +15,10 @@ const weekBtn = document.querySelector('.week');
 const langCheckBox = document.querySelector('#checkbox');
 
 export let TIME_WINDOW = 'day';
+
 let langValue = localStorage.getItem('localLang');
 dayBtn.disabled = true;
-
+currentPage.dataUpdate();
 fetchMovieGenres();
 trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
 
@@ -33,14 +34,14 @@ function timeChangeDay() {
   activeBtnDay();
   TIME_WINDOW = 'day';
   currentPage.change(1);
-  trendingMarkup(TIME_WINDOW, 1, langValue);
+  trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
 }
 function timeChangeWeek() {
   listFilms.innerHTML = '';
   activeBtnWeek();
   TIME_WINDOW = 'week';
   currentPage.change(1);
-  trendingMarkup(TIME_WINDOW, 1, langValue);
+  trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
 }
 
 export function trendingMarkup(time, page, lang) {
