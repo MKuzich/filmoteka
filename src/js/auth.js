@@ -10,6 +10,7 @@ import {
 import { closeSignupModal } from './signup-modal';
 import { closeLoginModal } from './login-modal';
 import { enableUserInterface } from './user-options';
+import { notificationLaunch } from './notification-modal';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyD975WMSA04Q-mjdqQUXdyvcH4cQe4txRg',
@@ -37,17 +38,15 @@ function onSubmitSignupHandler(e) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log(user);
-      console.log(user.uid);
-      console.log(user.email);
       e.target.reset();
       disableSpinnerOn(signupBtn, spinner);
       closeSignupModal();
+      notificationLaunch(selectedLanguageDetection(1));
     })
     .catch(error => {
       disableSpinnerOn(signupBtn, spinner);
       const errorCode = error.code;
-      console.log(errorCode);
+      notificationLaunch(errorCode);
     });
 }
 
@@ -57,11 +56,11 @@ logoutBtn.addEventListener('click', onClickLogoutHandler);
 function onClickLogoutHandler(e) {
   signOut(auth)
     .then(() => {
-      console.log('User logged out');
+      notificationLaunch(selectedLanguageDetection(2));
     })
     .catch(error => {
       const errorCode = error.code;
-      console.log(errorCode);
+      notificationLaunch(errorCode);
     });
 }
 
@@ -79,15 +78,15 @@ function onSubmitLoginHandler(e) {
   signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log('User logged in:', user);
       e.target.reset();
       disableSpinnerOn(loginBtn, spinner);
       closeLoginModal();
+      notificationLaunch(selectedLanguageDetection(3));
     })
     .catch(error => {
       disableSpinnerOn(loginBtn, spinner);
       const errorCode = error.code;
-      console.log(errorCode);
+      notificationLaunch(errorCode);
     });
 }
 
@@ -106,4 +105,24 @@ langCheckBox.addEventListener('input', onLangChange);
 
 function onLangChange() {
   enableUserInterface(userInterface);
+}
+
+function selectedLanguageDetection(code) {
+  if (localStorage.getItem('localLang') === 'en') {
+    if (code === 1) {
+      return 'You have successfully registered and logged into your account! Enjoy watching.';
+    } else if (code === 2) {
+      return 'You are logged out. Now you cannot use the library.';
+    } else if (code === 3) {
+      return 'You are logged in. You can now use the library.';
+    }
+  } else {
+    if (code === 1) {
+      return 'Ви успішно зареєструвалися та увійшли у свій обліковий запис! Приємного перегляду.';
+    } else if (code === 2) {
+      return 'Ви вийшли з системи. Тепер ви не можете користуватися бібліотекою.';
+    } else if (code === 3) {
+      return 'Ви увійшли в систему. Тепер ви можете користуватися бібліотекою.';
+    }
+  }
 }

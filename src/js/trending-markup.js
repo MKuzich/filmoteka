@@ -5,6 +5,7 @@ import { currentPage } from './pagination';
 import { createMarkupPaginationBtn } from './pagination-markup';
 import { titleSrinking, genresSrinking } from './card-shrinking';
 import { dateConvertation } from './date-convertation';
+import { notificationLaunch } from './notification-modal';
 
 const listFilms = document.querySelector('.list-films');
 const trendingSelector = document.querySelector('.trending-selector');
@@ -81,7 +82,7 @@ export function trendingMarkup(time, page, lang) {
       listFilms.insertAdjacentHTML('afterbegin', markup);
     })
     .catch(error => {
-      console.log(error);
+      notificationLaunch(error.message);
     });
 }
 
@@ -103,11 +104,10 @@ function onLangChange() {
   if (langCheckBox.checked) {
     langValue = 'uk';
     fetchMovieGenres();
-    trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
+    trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
   } else {
     langValue = 'en';
     fetchMovieGenres();
-    trendingMarkup(TIME_WINDOW, langValue, currentPage.data);
-
+    trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
   }
 }

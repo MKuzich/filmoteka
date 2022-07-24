@@ -177,12 +177,6 @@ async function onLangChange() {
   currentPageLibrary.change(1);
   createMarkupPaginationLibraryBtn('overlay-list-library');
   if (!USER_ID) {
-    let lang = '';
-    if (langCheckBox.checked) {
-      lang = 'uk';
-    } else {
-      lang = 'en';
-    }
     let markup;
     listFilms.innerHTML = '';
     if (localStorage.getItem('localLang') === 'uk') {

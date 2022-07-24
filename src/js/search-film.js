@@ -4,6 +4,7 @@ import { createMarkupPaginationBtn } from './pagination-markup';
 import { currentPage } from './pagination';
 import { TIME_WINDOW } from './trending-markup';
 import { trendingMarkup } from './trending-markup';
+import { notificationLaunch } from './notification-modal';
 
 const form = document.querySelector('.search-form');
 const headerWarning = document.querySelector('.warning-notification');
@@ -37,15 +38,13 @@ export async function movieSearcher(searchText, pageNumber) {
     const data = await fetchMovieSearcher(searchText, pageNumber);
     const result = data.results;
     if (result.length === 0) {
-      if(localStorage.getItem('localLang') === 'en') {
+      if (localStorage.getItem('localLang') === 'en') {
         return (headerWarning.textContent =
           'Search result is not successful. Enter the correct movie name, please!');
       } else {
         return (headerWarning.textContent =
           'Результат пошуку невдалий. Будь ласка, введіть правильну назву фільму!');
-
       }
-      
     }
 
     localStorage.setItem('downloadedMovies', JSON.stringify(''));
@@ -54,7 +53,7 @@ export async function movieSearcher(searchText, pageNumber) {
     filmGallaryMarkup(result);
     createMarkupPaginationBtn(data.total_pages, 'overlay-list-search');
   } catch (error) {
-    console.log(error.message);
+    notificationLaunch(error.message);
   }
 }
 
