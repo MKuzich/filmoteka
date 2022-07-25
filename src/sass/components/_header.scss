@@ -410,3 +410,46 @@ a {
 .hero > .container {
   position: relative;
 }
+
+.random-finder {
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  @include respond-to('tablet') {
+    top: 64px;
+    left: 32px;
+  }
+
+  &__icon {
+    transition: fill $chang-time $chang-func;
+    fill: map-get($colors, 'bg');
+    &:hover,
+    &:focus {
+      fill: map-get($colors, 'accent');
+    }
+  }
+  &__btn {
+    padding: 0;
+    line-height: 1;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+
+    border: none;
+    width: 25px;
+    height: 25px;
+
+    cursor: pointer;
+  }
+}
+
+.header-library .random-finder {
+  position: absolute;
+  top: 140px;
+  left: 60px;
+  @include respond-to('tablet') {
+    top: 85px;
+    left: 32px;
+  }
+}
