@@ -197,6 +197,30 @@ function onModalButtonsClickHandler(e) {
 const listFilmsRef = document.querySelector('.list-films');
 listFilmsRef.addEventListener('click', onClickRerender);
 
+const btnRandom = document.querySelector('.random-finder__btn');
+btnRandom.addEventListener('click', onRandomClickRerender);
+
+function onRandomClickRerender(e) {
+  let modalButtons = null;
+  modalButtons = document.querySelectorAll(`[data-action]`);
+  modalButtons.forEach(el =>
+    el.addEventListener('click', onModalButtonsClickHandler)
+  );
+
+  modalCloseBtnRef.addEventListener('click', disableRandomRender);
+  document.addEventListener('keydown', onCloseModalBack);
+  modalBackdropRef.addEventListener('click', onClickBack);
+
+  function disableRandomRender() {
+    modalButtons.forEach(el =>
+      el.removeEventListener('click', onModalButtonsClickHandler)
+    );
+    modalCloseBtnRef.removeEventListener('click', disableRandomRender);
+    document.removeEventListener('keydown', onCloseModalBack);
+    modalBackdropRef.removeEventListener('click', onClickBack);
+  }
+}
+
 function onClickRerender(e) {
   if (!e.target.closest('li')) {
     return;
