@@ -74,14 +74,12 @@
     }
     &-wrapper {
       text-align: center;
-      // height: calc(100vh - 100px - 307px - 80px);
-      // width: 90%;
-      // margin-right: auto;
-      // margin-left: auto;
-      // @media screen and (min-width: 768px) {
-      //   width: 50vw;
-      //   height: calc(100vh - 77px - 330px - 180px);
-      // }
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto;
+      @media screen and (min-width: 768px) {
+        width: 50vw;
+      }
     }
   }
 }
