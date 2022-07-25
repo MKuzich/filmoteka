@@ -30,6 +30,7 @@ onAuthStateChanged(auth, user => {
     currentPageLibrary.setTotalData(currentFilter.data);
     markupLibraryRender(USER_ID, false);
   } else {
+    footer.classList.add('footer-to-bottom');
     let markup;
     listFilms.innerHTML = '';
     if (localStorage.getItem('localLang') === 'uk') {
@@ -46,6 +47,7 @@ onAuthStateChanged(auth, user => {
   }
 });
 
+const footer = document.querySelector('.footer');
 const libraryWarningContainer = document.querySelector(
   '.library__warning-container'
 );
@@ -111,6 +113,8 @@ export function markupLibraryRender(uid, arrayFromPagination) {
   if (arrayFromPagination) {
     array = arrayFromPagination;
   }
+
+  footer.classList.remove('footer-to-bottom');
   const markup = array
     .map(item => {
       return `<li class="link list-films_card" data-id='${item.id}'>
@@ -210,6 +214,7 @@ langCheckBox.addEventListener('input', onLangChange);
 async function onLangChange() {
   await fetchMovieGenres();
   if (!USER_ID) {
+    footer.classList.add('footer-to-bottom');
     let markup;
     listFilms.innerHTML = '';
     if (localStorage.getItem('localLang') === 'uk') {
@@ -236,12 +241,12 @@ function emptyUsersLibraryMessage() {
   } else {
     lang = 'en';
   }
-
+  footer.classList.add('footer-to-bottom');
   let markupEmpty;
   if (lang === 'uk') {
-    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">На разі тут немає фільмів. Ви можете додати фільми відкривши детальний опис на <a href="/src/index.html" class="library__main-link">головній сторінці</a>!</strong></div>`;
+    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">На разі тут немає фільмів. Ви можете додати фільми відкривши детальний опис на <a href="/index.html" class="library__main-link">головній сторінці</a>!</strong></div>`;
   } else {
-    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">Now there are no movies. You can add movies by opening the detailed description on the <a href="/src/index.html" class="library__main-link">main page</a>!</strong></div>`;
+    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">Now there are no movies. You can add movies by opening the detailed description on the <a href="/index.html" class="library__main-link">main page</a>!</strong></div>`;
   }
   libraryWarningContainer.innerHTML = '';
   libraryWarningContainer.insertAdjacentHTML('beforeend', markupEmpty);
