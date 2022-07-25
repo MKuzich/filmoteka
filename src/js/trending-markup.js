@@ -16,7 +16,7 @@ const langCheckBox = document.querySelector('#checkbox');
 
 export let TIME_WINDOW = 'day';
 
-let langValue = localStorage.getItem('localLang');
+export let langValue = localStorage.getItem('localLang');
 dayBtn.disabled = true;
 currentPage.dataUpdate();
 fetchMovieGenres();
