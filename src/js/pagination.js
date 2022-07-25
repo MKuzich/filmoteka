@@ -1,4 +1,4 @@
-import { trendingMarkup, TIME_WINDOW } from './trending-markup';
+import { trendingMarkup, TIME_WINDOW, langValue } from './trending-markup';
 
 export let currentPage = {
   data: 1,
@@ -39,19 +39,19 @@ function handlePage(e) {
   if (e.target.dataset.action === 'flip-left') {
     overlayListRef.remove();
     currentPage.minusOne();
-    trendingMarkup(TIME_WINDOW, currentPage.data);
+    trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
     window.scrollTo(0, 0);
     return;
   }
   if (e.target.dataset.action === 'flip-right') {
     overlayListRef.remove();
     currentPage.plusOne();
-    trendingMarkup(TIME_WINDOW, currentPage.data);
+    trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
     window.scrollTo(0, 0);
     return;
   }
   currentPage.change(Number(e.target.textContent));
   overlayListRef.remove();
-  trendingMarkup(TIME_WINDOW, currentPage.data);
+  trendingMarkup(TIME_WINDOW, currentPage.data, langValue);
   window.scrollTo(0, 0);
 }
