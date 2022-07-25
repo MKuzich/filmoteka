@@ -238,6 +238,7 @@ function openRandomModal(filmData) {
   modalBackdropRef.addEventListener('click', closeLoginModalOnAreaClick);
   modalBackdropRef.classList.remove('is-hidden');
   const filmId = Number(filmData.id);
+  let arrayData = {};
   renderModalMarkup(filmData);
   const modalButtonsRef = document.querySelector('.modal-buttons');
   if (USER_ID) {
