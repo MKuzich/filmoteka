@@ -268,9 +268,9 @@ function emptyUsersLibraryMessage() {
   footer.classList.add('footer-to-bottom');
   let markupEmpty;
   if (lang === 'uk') {
-    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">На разі тут немає фільмів. Ви можете додати фільми відкривши детальний опис на <a href="/index.html" class="library__main-link">головній сторінці</a>!</strong></div>`;
+    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">На разі тут немає фільмів. Ви можете додати фільми відкривши детальний опис на <a href="./index.html" class="library__main-link">головній сторінці</a>!</strong></div>`;
   } else {
-    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">Now there are no movies. You can add movies by opening the detailed description on the <a href="/index.html" class="library__main-link">main page</a>!</strong></div>`;
+    markupEmpty = `<div class="library__warning-wrapper"><strong class="library__warning">Now there are no movies. You can add movies by opening the detailed description on the <a href="./index.html" class="library__main-link">main page</a>!</strong></div>`;
   }
   libraryWarningContainer.innerHTML = '';
   libraryWarningContainer.insertAdjacentHTML('beforeend', markupEmpty);
